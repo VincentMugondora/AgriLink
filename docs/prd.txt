@@ -1,0 +1,171 @@
+🌱 AgriLink / MundaLink – Multi-Platform Agriculture Marketplace
+
+Product Requirements Document (PRD)
+
+1. Objective
+
+Build a unified agriculture marketplace that connects farmers and buyers in Zimbabwe (and scalable to Africa), powered by a shared backend, accessible via:
+
+Web App (buyers, admins, NGOs)
+
+Mobile App (farmers, traders)
+
+WhatsApp Platform (low-data users)
+
+Core purpose: provide real-time market prices, enable direct produce trading, and build trust through escrow payments and logistics integration.
+
+2. Target Users
+
+Farmers – list produce, track prices, receive orders.
+
+Buyers – wholesalers, retailers, NGOs, exporters.
+
+Traders – small-scale buyers/sellers.
+
+Admins – manage KYC, disputes, price feeds, payouts.
+
+3. User Needs
+
+Farmers: Simple way to list produce, know fair prices, and sell quickly.
+
+Buyers: Access to reliable suppliers, price transparency, efficient ordering.
+
+Admins: System oversight, fraud prevention, analytics.
+
+4. Platform Features
+🌐 Web App (Buyers + Admins)
+
+Farmer onboarding (KYC verification).
+
+Marketplace (search, filter by crop, grade, location, price).
+
+Live Price Board (ZMX, Mbare, AMA feeds).
+
+RFQs & Orders (instant buy, request quotes).
+
+Escrow payments & order tracking.
+
+Admin panel (approve farmers, disputes, pricing oversight).
+
+Analytics dashboards (volumes, price trends, user activity).
+
+📱 Mobile App (Farmers + Traders)
+
+Farmer registration & profile.
+
+Create/manage listings (photos, grade, qty, price).
+
+Live prices (push alerts when price shifts).
+
+Orders & RFQ notifications (accept/reject).
+
+Wallet & payouts (EcoCash, ZIPIT, Bank).
+
+Offline mode (cache listings & sync later).
+
+Multi-language (English, Shona, Ndebele).
+
+Voice input for low-literacy users.
+
+💬 WhatsApp Platform (Farmers + Buyers)
+
+Check prices: “Prices maize Harare” → bot replies with live data.
+
+List produce: “Sell 200kg tomatoes $0.50/kg Harare” → creates listing.
+
+Receive RFQs: “Buyer requests 100kg onions $0.45/kg. Accept?”
+
+Order updates: “My orders” → bot lists pending/fulfilled.
+
+Withdraw funds: “Withdraw $100 EcoCash.”
+
+Price alerts: Auto-broadcast when major price shifts occur.
+
+5. Backend (Shared for All Platforms)
+
+Core APIs (Node.js/Express)
+
+Auth, users, listings, orders, payments, logistics.
+
+Price Service (FastAPI)
+
+Collectors for ZMX, Mbare, AMA, WFP.
+
+Normalize units/currency, push updates via WebSockets.
+
+Database: PostgreSQL (users, orders) + TimescaleDB (prices).
+
+Notifications: Twilio WhatsApp API, Firebase push, SMS/email fallback.
+
+Payments: Escrow system (EcoCash, OneMoney, ZIPIT, Bank).
+
+6. KPIs / Success Metrics
+
+Number of active farmers onboarded.
+
+Number of buyers placing orders.
+
+Daily active users across all 3 platforms.
+
+Order volume (kg traded, $ value).
+
+Average time to match RFQ with supplier.
+
+Transaction success rate (% orders fulfilled without disputes).
+
+7. Monetization
+
+Transaction fees (1–3%).
+
+Featured listings for farmers.
+
+Data/insight subscriptions for NGOs & wholesalers.
+
+Logistics margin (delivery cost pass-through + markup).
+
+8. Roadmap
+MVP (3–4 months)
+
+Shared backend APIs.
+
+Web app (listings, orders, price board, admin panel).
+
+WhatsApp bot (price check, list produce, accept/reject orders).
+
+Mobile app (basic farmer listing + order alerts).
+
+Escrow payments (manual processing).
+
+Phase 2 (6–8 months)
+
+Push notifications (mobile).
+
+Price alerts (all platforms).
+
+Analytics dashboards (web).
+
+Multi-language & voice input (mobile, WhatsApp).
+
+Automated payouts.
+
+Phase 3 (12 months)
+
+AI price predictions & yield insights.
+
+Logistics marketplace integration.
+
+Regional expansion (beyond Zimbabwe).
+
+Advanced admin reporting.
+
+9. Success Vision
+
+A single AgriLink ecosystem where:
+
+Farmers can sell via WhatsApp in rural areas.
+
+Buyers and NGOs use the Web App for bulk sourcing.
+
+Farmers use the Mobile App for ongoing farm management.
+
+All data flows through one backend, ensuring transparency and efficiency.
