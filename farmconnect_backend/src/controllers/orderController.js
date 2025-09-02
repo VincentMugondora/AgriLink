@@ -177,8 +177,7 @@ class OrderController extends BaseController {
         sellerId: product.sellerId,
         unitPrice: product.pricePerUnit,
         totalPrice,
-        status: 'pending',
-        orderDate: new Date()
+        status: 'pending'
       }, { transaction: t });
 
       // Update product available quantity
@@ -331,7 +330,6 @@ class OrderController extends BaseController {
       // Update order status
       await order.update({
         status,
-        statusUpdatedAt: new Date(),
         ...(status === 'cancelled' && { cancellationReason })
       }, { transaction: t });
 

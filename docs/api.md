@@ -171,6 +171,85 @@ All routes use `protect`.
   - Body: fields to update (no explicit Joi validation in controller)
   - Response: updated order
 
+### Examples
+
+```http
+POST /api/orders HTTP/1.1
+Authorization: Bearer <JWT>
+Content-Type: application/json
+
+{
+  "productId": "1d4a1af2-8f93-4a2b-9a0e-5f8a7c710001",
+  "quantity": 2.5,
+  "deliveryAddress": "123 Mbare Rd, Harare",
+  "deliveryInstructions": "Leave at the gate",
+  "paymentMethod": "ecocash",
+  "buyerId": "b7f8fdb0-9e9d-42d0-8c16-0a3b9e550001"
+}
+```
+
+201 Response (truncated):
+
+```json
+{
+  "id": "c4a1c0f0-1c99-44c8-9d76-a3f9d2f40001",
+  "productId": "1d4a1af2-8f93-4a2b-9a0e-5f8a7c710001",
+  "buyerId": "b7f8fdb0-9e9d-42d0-8c16-0a3b9e550001",
+  "sellerId": "15e9b86b-2b45-4c7a-9d2a-a1f1f0e90001",
+  "unitPrice": 3.5,
+  "quantity": 2.5,
+  "totalPrice": 8.75,
+  "status": "pending",
+  "paymentMethod": "ecocash",
+  "createdAt": "2024-08-27T10:12:00.000Z",
+  "updatedAt": "2024-08-27T10:12:00.000Z",
+  "product": { "id": "...", "seller": { "id": "...", "firstName": "..." } },
+  "buyer": { "id": "...", "firstName": "..." },
+  "transactions": [ { "id": "...", "amount": 8.75, "type": "escrow_hold", "status": "pending" } ]
+}
+```
+
+```http
+GET /api/orders/buyer/b7f8fdb0-9e9d-42d0-8c16-0a3b9e550001?status=paid&page=1&limit=10 HTTP/1.1
+Authorization: Bearer <JWT>
+```
+
+200 Response (paginated):
+
+```json
+{
+  "data": [
+    {
+      "id": "...",
+      "status": "paid",
+      "totalPrice": 20.0,
+      "product": { "id": "...", "seller": { "id": "...", "firstName": "..." } },
+      "transactions": [ { "id": "...", "type": "escrow_hold", "status": "completed" } ]
+    }
+  ],
+  "pagination": { "total": 1, "page": 1, "limit": 10, "totalPages": 1 }
+}
+```
+
+```http
+PUT /api/orders/c4a1c0f0-1c99-44c8-9d76-a3f9d2f40001/status HTTP/1.1
+Authorization: Bearer <JWT>
+Content-Type: application/json
+
+{ "status": "accepted" }
+```
+
+Possible `status` values: `pending|accepted|rejected|payment_pending|paid|shipped|delivered|cancelled|disputed|refunded`.
+
+Invalid transitions return 400: `{ "message": "Cannot change status from <from> to <to>" }`.
+
+```http
+GET /api/orders/seller/15e9b86b-2b45-4c7a-9d2a-a1f1f0e90001?page=1&limit=10 HTTP/1.1
+Authorization: Bearer <JWT>
+```
+
+200 Response (paginated): same shape as buyer list.
+
 ---
 
 ## Transaction Endpoints (`/api/transactions`)
@@ -183,8 +262,8 @@ All routes use `protect`.
   - Body (Joi):
     - `amount` (number >= 0.01, required)
     - `currency` (enum: `USD|ZWL`, default `USD`)
-    - `type` (enum: `deposit|withdrawal|escrow_hold|escrow_release|refund|fee`, required)
-    - `paymentMethod` (enum: `ecocash|on_delivery|bank_transfer|zipit|wallet`, required)
+    - `type` (enum: `deposit|withdrawal|escrow_hold|escrow_release|escrow_refund|purchase|refund|payout|fee|bonus|other`, required)
+    - `paymentMethod` (enum: `ecocash|onemoney|zipit|bank_transfer|wallet|other`, required)
     - `paymentReference` (string, allow empty)
     - `description` (string, allow empty)
     - `userId` (UUID, required)
@@ -231,7 +310,7 @@ All routes use `protect`.
 
 Notes:
 - Notification creation is available internally via controller (used by KYC and Price Alert flows), not currently exposed as a public route.
-- Notification types (Joi enum): `order_placed|order_confirmed|order_shipped|order_delivered|order_cancelled|payment_received|kyc_approved|kyc_rejected|price_alert|system|promotion`
+- Notification types (Joi enum): `order_placed|order_accepted|order_rejected|order_shipped|order_delivered|payment_received|payout_processed|kyc_approved|kyc_rejected|price_alert|system|promotional|other`
 
 ---
 
@@ -317,8 +396,8 @@ All routes use `protect`.
 
 ## Notes & Observations
 
-- List endpoints may either return a raw array or the `{ data, pagination }` wrapper. The wrapper is used by `BaseController.getAll()` and specific pagination-aware methods like `productController.search()`, `notificationController.getByUser()`, `priceAlertController.getByUser()`, `transactionController.getByUser()`, `kycController.getKycDocuments()`.
-- Role checks occur at the router level via `protect` + `authorize(...)`. Per-resource ownership checks are not explicitly enforced in routes/controllers shown.
+- List endpoints may either return a raw array or the `{ data, pagination }` wrapper. The wrapper is used by `BaseController.getAll()` and specific pagination-aware methods like `productController.search()`, `notificationController.getByUser()`, `priceAlertController.getByUser()`, `transactionController.getByUser()`, `kycController.getKycDocuments()`. Order buyer/seller lists return `{ data, pagination }`.
+- Role checks occur at the router level via `protect` + `authorize(...)`. Per-resource ownership checks are enforced in controllers where relevant (e.g., `orderController` buyer/seller scoping, `notificationController` user scoping, `priceAlertController` user scoping).
 - Geo filtering in product search uses PostGIS (`ST_DWithin`, `ST_Distance`) with `location` as `GEOMETRY(Point)`. Provide `location` as `lng,lat` in query and `radius` in km.
 
 ---
