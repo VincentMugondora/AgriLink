@@ -1,6 +1,7 @@
 const BaseController = require('./baseController');
 const { Product, User, Order } = require('../models');
 const Joi = require('joi');
+const { Op, Sequelize } = require('sequelize');
 
 // Validation schema for product creation
 const productSchema = Joi.object({

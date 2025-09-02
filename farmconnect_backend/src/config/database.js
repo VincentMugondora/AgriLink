@@ -1,15 +1,5 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
-
-console.log('Environment Variables:');
-console.log({
-  DB_USER: process.env.DB_USER ? '***' : 'Not set',
-  DB_HOST: process.env.DB_HOST || 'localhost',
-  DB_NAME: process.env.DB_NAME || 'farmconnect_dev',
-  DB_PORT: process.env.DB_PORT || 5432,
-  NODE_ENV: process.env.NODE_ENV || 'development'
-});
-
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
@@ -54,10 +44,6 @@ const config = {
 };
 
 const dbConfig = config[env];
-console.log('Database Configuration:', {
-  ...dbConfig,
-  password: dbConfig.password ? '***' : 'Not set'
-});
 
 const sequelize = new Sequelize(
   dbConfig.database,
@@ -68,28 +54,11 @@ const sequelize = new Sequelize(
     port: dbConfig.port,
     dialect: dbConfig.dialect,
     logging: dbConfig.logging,
-    pool: dbConfig.pool,
-    retry: dbConfig.retry,
+    ...(dbConfig.pool && { pool: dbConfig.pool }),
+    ...(dbConfig.retry && { retry: dbConfig.retry }),
     ...(env === 'production' && dbConfig.dialectOptions && { dialectOptions: dbConfig.dialectOptions })
   }
 );
-
-// Test the connection
-async function testConnection() {
-  try {
-    await sequelize.authenticate();
-    console.log('Database connection has been established successfully.');
-    return true;
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-    return false;
-  }
-}
-
-testConnection().then(success => {
-  if (!success) process.exit(1);
-});
-
 module.exports = {
   sequelize,
   Sequelize,

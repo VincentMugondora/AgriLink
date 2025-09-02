@@ -43,10 +43,8 @@ const Product = sequelize.define('Product', {
     allowNull: false,
   },
   location: {
-    type: DataTypes.JSONB,
+    type: DataTypes.GEOMETRY('POINT'),
     allowNull: false,
-    // Store as { type: 'Point', coordinates: [longitude, latitude] }
-    // We'll handle spatial indexing separately as it requires special handling for JSONB
   },
   harvestDate: {
     type: DataTypes.DATE,
@@ -67,21 +65,12 @@ const Product = sequelize.define('Product', {
 }, {
   timestamps: true,
   indexes: [
-    // Removed GIST index on JSONB field as it requires special handling
     {
-      fields: ['sellerId']
+      fields: ['category'],
     },
     {
-      fields: ['category']
+      fields: ['status'],
     },
-    {
-      fields: ['status']
-    },
-    // Add a regular index on location for faster lookups
-    {
-      name: 'products_location_idx',
-      fields: ['location']
-    }
   ],
 });
 

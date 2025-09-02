@@ -21,12 +21,10 @@ module.exports = {
       'SELECT create_extension_if_not_exists(\'postgis\')'
     );
 
-    // Now create the spatial index with the correct operator class
+    // Create a spatial GIST index directly on the GEOMETRY column
     await queryInterface.sequelize.query(`
       CREATE INDEX IF NOT EXISTS products_location_gist 
-      ON "Products" USING GIST (
-        (location->'coordinates')::geometry(POINT, 4326)
-      );
+      ON "Products" USING GIST ("location" gist_geometry_ops);
     `);
   },
 

@@ -35,7 +35,7 @@ KycDocument.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 KycDocument.belongsTo(User, { 
   foreignKey: 'verifiedBy', 
   as: 'verifiedByAdmin',
-  constraints: false, // Optional: if you don't want to enforce referential integrity
+  constraints: false,
 });
 
 // Transaction relationships

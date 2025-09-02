@@ -75,7 +75,8 @@ const startServer = async () => {
     
     // Sync all models
     if (config.env !== 'production') {
-      await sequelize.sync({ alter: true });
+      // Avoid automatic alter due to incompatible column type casts (e.g., JSON/other to GEOMETRY)
+      await sequelize.sync();
       logger.info('Database synchronized');
     }
 

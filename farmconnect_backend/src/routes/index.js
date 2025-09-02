@@ -24,8 +24,8 @@ router.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date() });
 });
 
-// 404 handler for API routes
-router.use('/api/*', (req, res) => {
+// 404 handler for API routes (within this router scope)
+router.use('*', (req, res) => {
   res.status(404).json({ 
     success: false, 
     message: 'API endpoint not found' 

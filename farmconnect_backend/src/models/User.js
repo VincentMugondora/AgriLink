@@ -47,9 +47,8 @@ const User = sequelize.define('User', {
     defaultValue: 'pending',
   },
   location: {
-    type: DataTypes.JSONB,
+    type: DataTypes.GEOMETRY('POINT'),
     allowNull: true,
-    // Store as { type: 'Point', coordinates: [longitude, latitude] }
   },
   language: {
     type: DataTypes.ENUM('en', 'sn', 'nd'),
