@@ -62,6 +62,11 @@ class ProductController extends BaseController {
         return res.status(400).json({ message: error.details[0].message });
       }
 
+      // Ownership check: only the seller themselves or admin can create a product for a given sellerId
+      if (req.user && req.user.role !== 'admin' && req.user.id !== req.body.sellerId) {
+        return res.status(403).json({ message: 'Forbidden: cannot create products for other users' });
+      }
+
       // Check if seller exists
       const seller = await User.findByPk(req.body.sellerId);
       if (!seller) {
@@ -93,14 +98,19 @@ class ProductController extends BaseController {
   async getBySeller(req, res) {
     try {
       const { sellerId } = req.params;
-      const { status } = req.query;
+      const { status, page = 1, limit = 10 } = req.query;
+      
+      // Ownership check: only the seller themselves or admin can view
+      if (req.user && req.user.role !== 'admin' && req.user.id !== sellerId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access products for other users' });
+      }
       
       const where = { sellerId };
       if (status) {
         where.status = status;
       }
 
-      const products = await Product.findAll({
+      const { count, rows } = await Product.findAndCountAll({
         where,
         include: [
           {
@@ -108,12 +118,65 @@ class ProductController extends BaseController {
             as: 'seller',
             attributes: ['id', 'firstName', 'lastName']
           }
-        ]
+        ],
+        order: [['createdAt', 'DESC']],
+        offset: (page - 1) * limit,
+        limit: parseInt(limit)
       });
 
-      res.json(products);
+      res.json({
+        data: rows,
+        pagination: {
+          total: count,
+          page: parseInt(page),
+          limit: parseInt(limit),
+          totalPages: Math.ceil(count / limit)
+        }
+      });
     } catch (error) {
       console.error('Error fetching products by seller:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  }
+
+  // Override update to enforce ownership
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      const product = await Product.findByPk(id);
+      if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+
+      if (req.user && req.user.role !== 'admin' && req.user.id !== product.sellerId) {
+        return res.status(403).json({ message: 'Forbidden: cannot update this product' });
+      }
+
+      await product.update(req.body);
+      res.json(product);
+    } catch (error) {
+      console.error('Error updating product:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  }
+
+  // Override delete to enforce ownership
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const product = await Product.findByPk(id);
+      if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+
+      if (req.user && req.user.role !== 'admin' && req.user.id !== product.sellerId) {
+        return res.status(403).json({ message: 'Forbidden: cannot delete this product' });
+      }
+
+      await product.destroy();
+      res.json({ message: 'Product deleted successfully' });
+    } catch (error) {
+      console.error('Error deleting product:', error);
       res.status(500).json({ message: 'Server error' });
     }
   }

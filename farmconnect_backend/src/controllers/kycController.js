@@ -53,6 +53,12 @@ class KycController extends BaseController {
 
       const { userId, documentType, documentNumber, documentImages } = req.body;
 
+      // Ownership check: only the user themselves or admin can submit KYC for a given userId
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        await t.rollback();
+        return res.status(403).json({ message: 'Forbidden: cannot submit KYC for other users' });
+      }
+
       // Check if user exists
       const user = await User.findByPk(userId, { transaction: t });
       if (!user) {
@@ -189,11 +195,11 @@ class KycController extends BaseController {
 
       // Send notification to user
       const notificationService = require('./notificationController');
-      await notificationService.create({
-        body: {
+      try {
+        await notificationService.createFromPayload({
           type: 'kyc_' + status,
           title: `KYC ${status === 'verified' ? 'Approved' : 'Rejected'}`,
-          message: status === 'verified' 
+          message: status === 'verified'
             ? 'Your KYC documents have been verified. You can now access all features.'
             : `Your KYC documents were rejected. Reason: ${rejectionReason}`,
           actionUrl: '/profile/verification',
@@ -203,8 +209,11 @@ class KycController extends BaseController {
             status,
             rejectionReason: status === 'rejected' ? rejectionReason : undefined
           }
-        }
-      }, res);
+        });
+      } catch (notifyErr) {
+        // Log and continue; do not fail the request due to notification error
+        console.error('Error creating KYC notification:', notifyErr.message);
+      }
 
       res.json({
         message: `KYC ${status} successfully`,
@@ -275,6 +284,11 @@ class KycController extends BaseController {
   async getKycStatus(req, res) {
     try {
       const { userId } = req.params;
+      
+      // Ownership check: only the user themselves or admin can view their KYC status
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access KYC status for other users' });
+      }
       
       // Check if user exists
       const user = await User.findByPk(userId, {

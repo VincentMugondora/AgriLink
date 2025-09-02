@@ -56,6 +56,60 @@ class OrderController extends BaseController {
     ];
   }
 
+  // Override getById to enforce ownership on buyer/seller routes
+  async getById(req, res) {
+    try {
+      const { id, buyerId, sellerId } = req.params;
+      const order = await Order.findByPk(id, { include: this.getIncludes() });
+
+      if (!order) {
+        return res.status(404).json({ message: 'Order not found' });
+      }
+
+      // Admin can access any order
+      if (req.user && req.user.role === 'admin') {
+        return res.json(order);
+      }
+
+      // If route carries buyerId, enforce buyer ownership and order association
+      if (buyerId) {
+        if (!req.user || req.user.id !== buyerId) {
+          return res.status(403).json({ message: 'Forbidden: cannot access orders for other users' });
+        }
+        if (order.buyerId !== buyerId) {
+          return res.status(404).json({ message: 'Order not found for this buyer' });
+        }
+        return res.json(order);
+      }
+
+      // If route carries sellerId, enforce seller ownership and order association
+      if (sellerId) {
+        if (!req.user || req.user.id !== sellerId) {
+          return res.status(403).json({ message: 'Forbidden: cannot access orders for other users' });
+        }
+        if (order.sellerId !== sellerId) {
+          return res.status(404).json({ message: 'Order not found for this seller' });
+        }
+        return res.json(order);
+      }
+
+      // Fallback: enforce based on user role
+      if (req.user) {
+        if (req.user.role === 'buyer' && order.buyerId === req.user.id) {
+          return res.json(order);
+        }
+        if ((req.user.role === 'farmer' || req.user.role === 'trader') && order.sellerId === req.user.id) {
+          return res.json(order);
+        }
+      }
+
+      return res.status(403).json({ message: 'Forbidden: not authorized to view this order' });
+    } catch (error) {
+      console.error('Error fetching order:', error);
+      return res.status(500).json({ message: 'Server error' });
+    }
+  }
+
   // Override create to handle order placement
   async create(req, res) {
     const t = await Order.sequelize.transaction();
@@ -69,6 +123,12 @@ class OrderController extends BaseController {
       }
 
       const { productId, quantity, buyerId } = req.body;
+
+      // Ownership check: only the buyer themselves or admin can create an order for a given buyerId
+      if (req.user && req.user.role !== 'admin' && req.user.id !== buyerId) {
+        await t.rollback();
+        return res.status(403).json({ message: 'Forbidden: cannot create orders for other users' });
+      }
 
       // Check if product exists and is available
       const product = await Product.findByPk(productId, { transaction: t });
@@ -170,6 +230,12 @@ class OrderController extends BaseController {
       if (!order) {
         await t.rollback();
         return res.status(404).json({ message: 'Order not found' });
+      }
+
+      // Ownership check: only the seller for this order or admin can update status
+      if (req.user && req.user.role !== 'admin' && req.user.id !== order.sellerId) {
+        await t.rollback();
+        return res.status(403).json({ message: 'Forbidden: cannot update status for orders you do not own' });
       }
 
       // Check if status transition is valid
@@ -277,14 +343,19 @@ class OrderController extends BaseController {
   async getByBuyer(req, res) {
     try {
       const { buyerId } = req.params;
-      const { status } = req.query;
+      const { status, page = 1, limit = 10 } = req.query;
+      
+      // Ownership check: only the buyer or admin can view
+      if (req.user && req.user.role !== 'admin' && req.user.id !== buyerId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access orders for other users' });
+      }
       
       const where = { buyerId };
       if (status) {
         where.status = status;
       }
 
-      const orders = await Order.findAll({
+      const { count, rows } = await Order.findAndCountAll({
         where,
         include: [
           {
@@ -304,10 +375,20 @@ class OrderController extends BaseController {
             attributes: ['id', 'amount', 'type', 'status', 'createdAt']
           }
         ],
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        offset: (page - 1) * limit,
+        limit: parseInt(limit)
       });
 
-      res.json(orders);
+      res.json({
+        data: rows,
+        pagination: {
+          total: count,
+          page: parseInt(page),
+          limit: parseInt(limit),
+          totalPages: Math.ceil(count / limit)
+        }
+      });
     } catch (error) {
       console.error('Error fetching orders by buyer:', error);
       res.status(500).json({ message: 'Server error' });
@@ -318,14 +399,19 @@ class OrderController extends BaseController {
   async getBySeller(req, res) {
     try {
       const { sellerId } = req.params;
-      const { status } = req.query;
+      const { status, page = 1, limit = 10 } = req.query;
+      
+      // Ownership check: only the seller or admin can view
+      if (req.user && req.user.role !== 'admin' && req.user.id !== sellerId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access orders for other users' });
+      }
       
       const where = { sellerId };
       if (status) {
         where.status = status;
       }
 
-      const orders = await Order.findAll({
+      const { count, rows } = await Order.findAndCountAll({
         where,
         include: [
           {
@@ -344,10 +430,20 @@ class OrderController extends BaseController {
             attributes: ['id', 'amount', 'type', 'status', 'createdAt']
           }
         ],
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        offset: (page - 1) * limit,
+        limit: parseInt(limit)
       });
 
-      res.json(orders);
+      res.json({
+        data: rows,
+        pagination: {
+          total: count,
+          page: parseInt(page),
+          limit: parseInt(limit),
+          totalPages: Math.ceil(count / limit)
+        }
+      });
     } catch (error) {
       console.error('Error fetching orders by seller:', error);
       res.status(500).json({ message: 'Server error' });
