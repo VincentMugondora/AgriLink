@@ -136,27 +136,27 @@ All routes use `protect`.
     - `quantity` (number >= 0.1, required)
     - `deliveryAddress` (string, required)
     - `deliveryInstructions` (string, allow empty)
-    - `paymentMethod` (enum: `ecocash|on_delivery|bank_transfer`, required)
+    - `paymentMethod` (enum: `ecocash|onemoney|zipit|bank_transfer|cash`, required)
     - `buyerId` (UUID, required)
   - Response: 201 order with includes (`product.seller`, `buyer`, `transactions`)
 
 - GET `/api/orders/buyer/:buyerId` [Roles: `buyer`]
-  - Query: `status` (optional)
-  - Response: array of orders (includes `product.seller`, `transactions`)
+  - Query: `status` (optional), `page`, `limit`
+  - Response: `{ data, pagination }` (includes `product.seller`, `transactions`)
 
 - GET `/api/orders/buyer/:buyerId/:id` [Roles: `buyer`]
   - Response: single order by id
 
 - GET `/api/orders/seller/:sellerId` [Roles: `farmer|trader`]
-  - Query: `status` (optional)
-  - Response: array of orders (includes `product`, `buyer`, `transactions`)
+  - Query: `status` (optional), `page`, `limit`
+  - Response: `{ data, pagination }` (includes `product`, `buyer`, `transactions`)
 
 - GET `/api/orders/seller/:sellerId/:id` [Roles: `farmer|trader`]
   - Response: single order by id
 
 - PUT `/api/orders/:id/status` [Roles: `farmer|trader`]
   - Body (Joi):
-    - `status` (enum: `pending|confirmed|processing|shipped|delivered|cancelled|rejected`, required)
+    - `status` (enum: `pending|accepted|rejected|payment_pending|paid|shipped|delivered|cancelled|disputed|refunded`, required)
     - `cancellationReason` (string; required if `status=cancelled`)
   - Response: updated order with includes
 

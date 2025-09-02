@@ -8,10 +8,10 @@ const transactionSchema = Joi.object({
   amount: Joi.number().min(0.01).required(),
   currency: Joi.string().valid('USD', 'ZWL').default('USD'),
   type: Joi.string().valid(
-    'deposit', 'withdrawal', 'escrow_hold', 'escrow_release', 'refund', 'fee'
+    'deposit', 'withdrawal', 'escrow_hold', 'escrow_release', 'escrow_refund', 'purchase', 'refund', 'payout', 'fee', 'bonus', 'other'
   ).required(),
   paymentMethod: Joi.string().valid(
-    'ecocash', 'on_delivery', 'bank_transfer', 'zipit', 'wallet'
+    'ecocash', 'onemoney', 'zipit', 'bank_transfer', 'wallet', 'other'
   ).required(),
   paymentReference: Joi.string().allow(''),
   description: Joi.string().allow(''),

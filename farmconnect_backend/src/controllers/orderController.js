@@ -9,14 +9,23 @@ const orderSchema = Joi.object({
   quantity: Joi.number().min(0.1).required(),
   deliveryAddress: Joi.string().required(),
   deliveryInstructions: Joi.string().allow(''),
-  paymentMethod: Joi.string().valid('ecocash', 'on_delivery', 'bank_transfer').required(),
+  paymentMethod: Joi.string().valid('ecocash', 'onemoney', 'zipit', 'bank_transfer', 'cash').required(),
   buyerId: Joi.string().uuid().required()
 });
 
 // Validation schema for order status update
 const statusUpdateSchema = Joi.object({
   status: Joi.string().valid(
-    'pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'rejected'
+    'pending',
+    'accepted',
+    'rejected',
+    'payment_pending',
+    'paid',
+    'shipped',
+    'delivered',
+    'cancelled',
+    'disputed',
+    'refunded'
   ).required(),
   cancellationReason: Joi.string().when('status', {
     is: 'cancelled',
@@ -238,15 +247,18 @@ class OrderController extends BaseController {
         return res.status(403).json({ message: 'Forbidden: cannot update status for orders you do not own' });
       }
 
-      // Check if status transition is valid
+      // Check if status transition is valid (aligned with Order model enums)
       const validTransitions = {
-        'pending': ['confirmed', 'cancelled', 'rejected'],
-        'confirmed': ['processing', 'cancelled'],
-        'processing': ['shipped', 'cancelled'],
-        'shipped': ['delivered'],
-        'delivered': [],
-        'cancelled': [],
-        'rejected': []
+        pending: ['accepted', 'rejected', 'cancelled', 'payment_pending'],
+        accepted: ['payment_pending', 'cancelled'],
+        payment_pending: ['paid', 'cancelled'],
+        paid: ['shipped', 'cancelled', 'disputed'],
+        shipped: ['delivered', 'disputed'],
+        delivered: ['disputed'],
+        cancelled: [],
+        rejected: [],
+        disputed: ['refunded'],
+        refunded: []
       };
 
       const allowedStatuses = validTransitions[order.status] || [];

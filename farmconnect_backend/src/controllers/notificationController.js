@@ -6,9 +6,9 @@ const { Op } = require('sequelize');
 // Validation schema for notification creation
 const notificationSchema = Joi.object({
   type: Joi.string().valid(
-    'order_placed', 'order_confirmed', 'order_shipped', 'order_delivered', 
-    'order_cancelled', 'payment_received', 'kyc_approved', 'kyc_rejected',
-    'price_alert', 'system', 'promotion'
+    'order_placed', 'order_accepted', 'order_rejected', 'order_shipped', 'order_delivered',
+    'payment_received', 'payout_processed', 'kyc_approved', 'kyc_rejected',
+    'price_alert', 'system', 'promotional', 'other'
   ).required(),
   title: Joi.string().required(),
   message: Joi.string().required(),
