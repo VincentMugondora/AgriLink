@@ -1,0 +1,794 @@
+2025-08-26 11:02:28 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "382",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\" UUID , \"firstName\" VARCHAR(255) NOT NULL, \"lastName\" VARCHAR(255) NOT NULL, \"email\" VARCHAR(255) NOT NULL UNIQUE, \"phone\" VARCHAR(255) NOT NULL UNIQUE, \"password\" VARCHAR(255) NOT NULL, \"role\" \"public\".\"enum_Users_role\" NOT NULL, \"isVerified\" BOOLEAN DEFAULT false, \"kycStatus\" \"public\".\"enum_Users_kycStatus\" DEFAULT 'pending', \"location\" GEOMETRY(POINT), \"language\" \"public\".\"enum_Users_language\" DEFAULT 'en', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "382",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\" UUID , \"firstName\" VARCHAR(255) NOT NULL, \"lastName\" VARCHAR(255) NOT NULL, \"email\" VARCHAR(255) NOT NULL UNIQUE, \"phone\" VARCHAR(255) NOT NULL UNIQUE, \"password\" VARCHAR(255) NOT NULL, \"role\" \"public\".\"enum_Users_role\" NOT NULL, \"isVerified\" BOOLEAN DEFAULT false, \"kycStatus\" \"public\".\"enum_Users_kycStatus\" DEFAULT 'pending', \"location\" GEOMETRY(POINT), \"language\" \"public\".\"enum_Users_language\" DEFAULT 'en', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\" UUID , \"firstName\" VARCHAR(255) NOT NULL, \"lastName\" VARCHAR(255) NOT NULL, \"email\" VARCHAR(255) NOT NULL UNIQUE, \"phone\" VARCHAR(255) NOT NULL UNIQUE, \"password\" VARCHAR(255) NOT NULL, \"role\" \"public\".\"enum_Users_role\" NOT NULL, \"isVerified\" BOOLEAN DEFAULT false, \"kycStatus\" \"public\".\"enum_Users_kycStatus\" DEFAULT 'pending', \"location\" GEOMETRY(POINT), \"language\" \"public\".\"enum_Users_language\" DEFAULT 'en', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async User.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:03:34 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "382",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\" UUID , \"firstName\" VARCHAR(255) NOT NULL, \"lastName\" VARCHAR(255) NOT NULL, \"email\" VARCHAR(255) NOT NULL UNIQUE, \"phone\" VARCHAR(255) NOT NULL UNIQUE, \"password\" VARCHAR(255) NOT NULL, \"role\" \"public\".\"enum_Users_role\" NOT NULL, \"isVerified\" BOOLEAN DEFAULT false, \"kycStatus\" \"public\".\"enum_Users_kycStatus\" DEFAULT 'pending', \"location\" GEOMETRY(POINT), \"language\" \"public\".\"enum_Users_language\" DEFAULT 'en', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "382",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\" UUID , \"firstName\" VARCHAR(255) NOT NULL, \"lastName\" VARCHAR(255) NOT NULL, \"email\" VARCHAR(255) NOT NULL UNIQUE, \"phone\" VARCHAR(255) NOT NULL UNIQUE, \"password\" VARCHAR(255) NOT NULL, \"role\" \"public\".\"enum_Users_role\" NOT NULL, \"isVerified\" BOOLEAN DEFAULT false, \"kycStatus\" \"public\".\"enum_Users_kycStatus\" DEFAULT 'pending', \"location\" GEOMETRY(POINT), \"language\" \"public\".\"enum_Users_language\" DEFAULT 'en', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\" UUID , \"firstName\" VARCHAR(255) NOT NULL, \"lastName\" VARCHAR(255) NOT NULL, \"email\" VARCHAR(255) NOT NULL UNIQUE, \"phone\" VARCHAR(255) NOT NULL UNIQUE, \"password\" VARCHAR(255) NOT NULL, \"role\" \"public\".\"enum_Users_role\" NOT NULL, \"isVerified\" BOOLEAN DEFAULT false, \"kycStatus\" \"public\".\"enum_Users_kycStatus\" DEFAULT 'pending', \"location\" GEOMETRY(POINT), \"language\" \"public\".\"enum_Users_language\" DEFAULT 'en', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async User.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:03:53 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "382",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Products\" (\"id\" UUID , \"name\" VARCHAR(255) NOT NULL, \"description\" TEXT, \"category\" \"public\".\"enum_Products_category\" NOT NULL, \"grade\" \"public\".\"enum_Products_grade\" NOT NULL, \"pricePerUnit\" DECIMAL(10,2) NOT NULL, \"unit\" \"public\".\"enum_Products_unit\" NOT NULL, \"quantity\" DECIMAL(10,2) NOT NULL, \"availableQuantity\" DECIMAL(10,2) NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"harvestDate\" TIMESTAMP WITH TIME ZONE, \"isOrganic\" BOOLEAN DEFAULT false, \"status\" \"public\".\"enum_Products_status\" DEFAULT 'available', \"images\" VARCHAR(255)[] DEFAULT ARRAY[]::VARCHAR(255)[], \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"sellerId\" UUID REFERENCES \"Users\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "382",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Products\" (\"id\" UUID , \"name\" VARCHAR(255) NOT NULL, \"description\" TEXT, \"category\" \"public\".\"enum_Products_category\" NOT NULL, \"grade\" \"public\".\"enum_Products_grade\" NOT NULL, \"pricePerUnit\" DECIMAL(10,2) NOT NULL, \"unit\" \"public\".\"enum_Products_unit\" NOT NULL, \"quantity\" DECIMAL(10,2) NOT NULL, \"availableQuantity\" DECIMAL(10,2) NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"harvestDate\" TIMESTAMP WITH TIME ZONE, \"isOrganic\" BOOLEAN DEFAULT false, \"status\" \"public\".\"enum_Products_status\" DEFAULT 'available', \"images\" VARCHAR(255)[] DEFAULT ARRAY[]::VARCHAR(255)[], \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"sellerId\" UUID REFERENCES \"Users\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Products\" (\"id\" UUID , \"name\" VARCHAR(255) NOT NULL, \"description\" TEXT, \"category\" \"public\".\"enum_Products_category\" NOT NULL, \"grade\" \"public\".\"enum_Products_grade\" NOT NULL, \"pricePerUnit\" DECIMAL(10,2) NOT NULL, \"unit\" \"public\".\"enum_Products_unit\" NOT NULL, \"quantity\" DECIMAL(10,2) NOT NULL, \"availableQuantity\" DECIMAL(10,2) NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"harvestDate\" TIMESTAMP WITH TIME ZONE, \"isOrganic\" BOOLEAN DEFAULT false, \"status\" \"public\".\"enum_Products_status\" DEFAULT 'available', \"images\" VARCHAR(255)[] DEFAULT ARRAY[]::VARCHAR(255)[], \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"sellerId\" UUID REFERENCES \"Users\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:04:08 [[31MERROR[39M]: Unable to connect to the database: Unknown constraint error
+{
+  "name": "SequelizeUnknownConstraintError",
+  "parent": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "original": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:04:18 [[31MERROR[39M]: Unable to connect to the database: Unknown constraint error
+{
+  "name": "SequelizeUnknownConstraintError",
+  "parent": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "original": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:04:26 [[31MERROR[39M]: Unable to connect to the database: Unknown constraint error
+{
+  "name": "SequelizeUnknownConstraintError",
+  "parent": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "original": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:05:18 [[31MERROR[39M]: Unable to connect to the database: Unknown constraint error
+{
+  "name": "SequelizeUnknownConstraintError",
+  "parent": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "original": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 11:06:34 [[31MERROR[39M]: Unable to connect to the database: Unknown constraint error
+{
+  "name": "SequelizeUnknownConstraintError",
+  "parent": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "original": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 12:28:36 [[31MERROR[39M]: Unable to connect to the database:
+{
+  "name": "SequelizeConnectionRefusedError",
+  "parent": {
+    "code": "ECONNREFUSED"
+  },
+  "original": {
+    "code": "ECONNREFUSED"
+  },
+  "stack": "SequelizeConnectionRefusedError\n    at Client._connectionCallback (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\connection-manager.js:133:24)\n    at Client._handleErrorWhileConnecting (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\client.js:336:19)\n    at Client._handleErrorEvent (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\client.js:346:19)\n    at Connection.emit (node:events:518:28)\n    at Socket.reportStreamError (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\connection.js:57:12)\n    at Socket.emit (node:events:518:28)\n    at emitErrorNT (node:internal/streams/destroy:170:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)"
+}
+2025-08-26 13:08:54 [[31MERROR[39M]: Unable to connect to the database: Unknown constraint error
+{
+  "name": "SequelizeUnknownConstraintError",
+  "parent": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "original": {
+    "length": 237,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "hint": "You must specify an operator class for the index or define a default operator class for the data type.",
+    "file": "indexcmds.c",
+    "line": "2212",
+    "routine": "ResolveOpClass",
+    "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")"
+  },
+  "sql": "CREATE INDEX \"products_location\" ON \"Products\" USING GIST (\"location\")",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.addIndex (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:250:12)\n    at async Product.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:999:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:10:35 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:11:14 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:13:26 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:13:29 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:13:58 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:14:18 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:14:33 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:14:34 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:18:07 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:19:59 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:20:36 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:21:02 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 13:21:17 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 14:59:45 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 15:00:38 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 15:02:10 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 15:13:31 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}
+2025-08-26 15:13:45 [[31MERROR[39M]: Unable to connect to the database: type "geometry" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "original": {
+    "length": 96,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42704",
+    "position": "309",
+    "file": "parse_type.c",
+    "line": "274",
+    "routine": "typenameType",
+    "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+  },
+  "sql": "CREATE TABLE IF NOT EXISTS \"Prices\" (\"id\" UUID , \"productName\" VARCHAR(255) NOT NULL, \"category\" \"public\".\"enum_Prices_category\" NOT NULL, \"grade\" \"public\".\"enum_Prices_grade\" NOT NULL, \"price\" DECIMAL(10,2) NOT NULL, \"unit\" VARCHAR(255) NOT NULL, \"market\" \"public\".\"enum_Prices_market\" NOT NULL, \"location\" GEOMETRY(POINT) NOT NULL, \"source\" VARCHAR(255) NOT NULL, \"timestamp\" TIMESTAMP WITH TIME ZONE NOT NULL, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.createTable (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:98:12)\n    at async Price.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:942:7)\n    at async Sequelize.sync (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:377:9)\n    at async startServer (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\index.js:78:7)"
+}

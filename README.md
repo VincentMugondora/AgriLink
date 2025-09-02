@@ -1,0 +1,104 @@
+# AgriLink - Multi-Platform Agriculture Marketplace
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+A comprehensive agricultural marketplace platform connecting farmers directly with buyers through web, mobile, and WhatsApp interfaces.
+
+## 🌟 Features
+
+- **Multi-Platform Access**
+  - Web App for buyers and administrators
+  - Mobile App for farmers and traders
+  - WhatsApp integration for low-bandwidth users
+
+- **Farmer Tools**
+  - Easy product listing and management
+  - Real-time market price tracking
+  - Secure payment processing
+  - KYC verification
+
+- **Buyer Tools**
+  - Browse and search agricultural products
+  - Price comparison
+  - Secure escrow payments
+  - Order tracking
+
+- **Admin Dashboard**
+  - User management
+  - KYC verification
+  - Analytics and reporting
+  - Dispute resolution
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- Python 3.9+
+- PostgreSQL 14+
+- Docker (optional)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/VincentMugondora/AgriLink.git
+   cd AgriLink
+   ```
+
+2. **Set up the backend**
+   ```bash
+   cd farmconnect_backend
+   cp .env.example .env
+   # Update .env with your configuration
+   npm install
+   npm run dev
+   ```
+
+3. **Start the web app**
+   ```bash
+   cd ../farmconnect_webapp
+   npm install
+   npm run dev
+   ```
+
+4. **Run the mobile app**
+   ```bash
+   cd ../farmconnect_mobileapp
+   npm install
+   npx react-native run-android  # or npx react-native run-ios
+   ```
+
+## 📱 Tech Stack
+
+- **Frontend**
+  - Web: Next.js, React, TailwindCSS
+  - Mobile: React Native
+  - WhatsApp: Twilio API
+
+- **Backend**
+  - API: Node.js, Express
+  - Price Service: FastAPI
+  - Database: PostgreSQL, TimescaleDB
+  - Authentication: JWT
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📞 Contact
+
+Vincent Mugondora - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+
+Project Link: [https://github.com/VincentMugondora/AgriLink](https://github.com/VincentMugondora/AgriLink)
