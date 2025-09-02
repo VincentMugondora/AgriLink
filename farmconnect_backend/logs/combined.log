@@ -1107,3 +1107,4 @@
 2025-09-02 14:07:09 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-02 14:07:09 [[32MINFO[39M]: Database synchronized
 2025-09-02 14:07:09 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-02 14:37:20 [[32MINFO[39M]: [0mGET //api/health [33m404[0m 13.812 ms - 150[0m
