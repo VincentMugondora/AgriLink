@@ -1112,3 +1112,12 @@
 2025-09-02 14:39:15 [[32MINFO[39M]: [0mGET /api/auth/register [33m404[0m 1.949 ms - 52[0m
 2025-09-02 14:39:24 [[32MINFO[39M]: [0mPOST /api/auth/register [32m201[0m 602.754 ms - 571[0m
 2025-09-02 14:40:05 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 258.919 ms - 559[0m
+2025-09-02 14:49:22 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-02 14:49:23 [[32MINFO[39M]: Database synchronized
+2025-09-02 14:49:23 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-02 14:51:38 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-02 14:51:39 [[32MINFO[39M]: Database synchronized
+2025-09-02 14:51:39 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-02 14:53:08 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-02 14:53:08 [[32MINFO[39M]: Database synchronized
+2025-09-02 14:53:08 [[32MINFO[39M]: Server running in development mode on port 5000

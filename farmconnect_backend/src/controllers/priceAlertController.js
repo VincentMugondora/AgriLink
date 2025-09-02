@@ -84,6 +84,10 @@ class PriceAlertController extends BaseController {
   async getActiveAlerts(req, res) {
     try {
       const { userId } = req.params;
+      // Ownership check: only the user or admin can view their active alerts
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access alerts for other users' });
+      }
       
       const alerts = await PriceAlert.findAll({
         where: {
@@ -93,7 +97,7 @@ class PriceAlertController extends BaseController {
         order: [['createdAt', 'DESC']]
       });
 
-      res.json(alerts);
+      res.json({ data: alerts });
     } catch (error) {
       console.error('Error fetching active price alerts:', error);
       res.status(500).json({ message: 'Server error' });
@@ -114,6 +118,11 @@ class PriceAlertController extends BaseController {
       
       if (!alert) {
         return res.status(404).json({ message: 'Price alert not found' });
+      }
+
+      // Ownership check: only alert owner or admin can toggle
+      if (req.user && req.user.role !== 'admin' && req.user.id !== alert.userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot modify alerts for other users' });
       }
 
       await alert.update({ isActive });
@@ -178,9 +187,9 @@ class PriceAlertController extends BaseController {
             triggerCount: (alert.triggerCount || 0) + 1
           });
 
-          // Create notification for user
-          await notificationService.create({
-            body: {
+          // Create notification for user (no Express res to avoid double responses)
+          try {
+            await notificationService.createFromPayload({
               type: 'price_alert',
               title: 'Price Alert Triggered',
               message: `The price of ${alert.productName} is now ${currentPrice} ${alert.currency}/${alert.unit}, which is ${alert.condition} your target of ${alert.targetPrice} ${alert.currency}/${alert.unit}`,
@@ -195,8 +204,10 @@ class PriceAlertController extends BaseController {
                 unit: alert.unit,
                 currency: alert.currency
               }
-            }
-          }, res);
+            });
+          } catch (e) {
+            console.error('Failed to create price alert notification:', e.message);
+          }
 
           triggeredAlerts.push({
             alertId: alert.id,

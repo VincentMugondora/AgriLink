@@ -33,39 +33,49 @@ class NotificationController extends BaseController {
     ];
   }
 
-  // Override create to add validation and set defaults
+  // Internal helper to create notifications without Express res object
+  async createFromPayload(payload) {
+    // Validate payload
+    const { error } = notificationSchema.validate(payload);
+    if (error) {
+      const err = new Error(error.details[0].message);
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const { userId } = payload;
+
+    // Check if user exists
+    const user = await User.findByPk(userId);
+    if (!user) {
+      const err = new Error('User not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    // Create notification
+    const notification = await Notification.create({
+      ...payload,
+      isRead: false,
+      readAt: null,
+      expiresAt: payload.expiresAt || new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days default
+    });
+
+    // Emit real-time notification if needed
+    // emitNotification(userId, notification);
+
+    return notification;
+  }
+
+  // Override create to add validation and set defaults using helper
   async create(req, res) {
     try {
-      // Validate request body
-      const { error } = notificationSchema.validate(req.body);
-      if (error) {
-        return res.status(400).json({ message: error.details[0].message });
-      }
-
-      const { userId } = req.body;
-
-      // Check if user exists
-      const user = await User.findByPk(userId);
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-
-      // Create notification
-      const notification = await Notification.create({
-        ...req.body,
-        isRead: false,
-        readAt: null,
-        expiresAt: req.body.expiresAt || new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days default
-      });
-
-      // Emit real-time notification if needed
-      // This would be connected to your WebSocket or push notification service
-      // emitNotification(userId, notification);
-
+      const notification = await this.createFromPayload(req.body);
       res.status(201).json(notification);
     } catch (error) {
       console.error('Error creating notification:', error);
-      res.status(500).json({ message: 'Error creating notification', error: error.message });
+      const status = error.statusCode || 500;
+      res.status(status).json({ message: status === 500 ? 'Error creating notification' : error.message, error: error.message });
     }
   }
 
@@ -73,6 +83,10 @@ class NotificationController extends BaseController {
   async getUnreadCount(req, res) {
     try {
       const { userId } = req.params;
+      // Ownership check: only the user or admin can access
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access notifications for other users' });
+      }
       
       const count = await Notification.count({
         where: { 
@@ -103,6 +117,11 @@ class NotificationController extends BaseController {
         return res.status(404).json({ message: 'Notification not found' });
       }
 
+      // Ownership check: only owner or admin can mark as read
+      if (req.user && req.user.role !== 'admin' && req.user.id !== notification.userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot modify notifications for other users' });
+      }
+
       if (!notification.isRead) {
         await notification.update({
           isRead: true,
@@ -123,6 +142,11 @@ class NotificationController extends BaseController {
     
     try {
       const { userId } = req.params;
+      // Ownership check
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        await t.rollback();
+        return res.status(403).json({ message: 'Forbidden: cannot modify notifications for other users' });
+      }
       
       // Mark all unread notifications as read
       const [updatedCount] = await Notification.update(
@@ -156,6 +180,10 @@ class NotificationController extends BaseController {
   async getByUser(req, res) {
     try {
       const { userId } = req.params;
+      // Ownership check
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access notifications for other users' });
+      }
       const { 
         isRead, 
         type, 
@@ -209,6 +237,11 @@ class NotificationController extends BaseController {
     
     try {
       const { userId } = req.params;
+      // Ownership check
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        await t.rollback();
+        return res.status(403).json({ message: 'Forbidden: cannot delete notifications for other users' });
+      }
       
       // Delete expired notifications
       const deletedCount = await Notification.destroy({

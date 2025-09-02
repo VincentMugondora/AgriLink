@@ -1,6 +1,7 @@
 const BaseController = require('./baseController');
-const { Transaction, User, Order } = require('../models');
+const { Transaction, User, Order, Product } = require('../models');
 const Joi = require('joi');
+const { Op } = require('sequelize');
 
 // Validation schema for transaction creation
 const transactionSchema = Joi.object({
@@ -62,6 +63,12 @@ class TransactionController extends BaseController {
       }
 
       const { userId, type, amount, orderId } = req.body;
+
+      // Ownership check: only the user themselves or admin can create a transaction for a given user
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        await t.rollback();
+        return res.status(403).json({ message: 'Forbidden: cannot create transactions for other users' });
+      }
 
       // Check if user exists
       const user = await User.findByPk(userId, { transaction: t });
@@ -169,6 +176,11 @@ class TransactionController extends BaseController {
   async getByUser(req, res) {
     try {
       const { userId } = req.params;
+      
+      // Ownership check: user can only access their own transactions unless admin
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access transactions for other users' });
+      }
       const { 
         type, 
         status, 
@@ -231,6 +243,11 @@ class TransactionController extends BaseController {
   async getWalletBalance(req, res) {
     try {
       const { userId } = req.params;
+      
+      // Ownership check: user can only access their own wallet unless admin
+      if (req.user && req.user.role !== 'admin' && req.user.id !== userId) {
+        return res.status(403).json({ message: 'Forbidden: cannot access wallet for other users' });
+      }
       
       const user = await User.findByPk(userId, {
         attributes: ['id', 'walletBalance', 'escrowBalance'],
