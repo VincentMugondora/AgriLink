@@ -42,10 +42,10 @@ const TestimonialCard = ({ t }) => (
   </div>
 )
 
-const Testimonials = () => (
+const Testimonials = ({ title = 'What our users say' }) => (
   <section className="py-16 bg-white">
     <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">What our users say</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">{title}</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((t, idx) => (
           <TestimonialCard key={idx} t={t} />

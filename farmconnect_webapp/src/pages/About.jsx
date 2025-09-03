@@ -148,7 +148,7 @@ const About = () => {
 
       {/* Testimonials */}
       <section id="testimonials" className="scroll-mt-32">
-        <Testimonials />
+        <Testimonials title="What our customers say" />
       </section>
     </div>
   )

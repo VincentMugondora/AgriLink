@@ -1182,3 +1182,8 @@
 2025-09-03 15:34:31 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 1.329 ms - 52[0m
 2025-09-03 15:34:32 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 1.265 ms - 52[0m
 2025-09-03 15:34:48 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
+2025-09-03 15:49:16 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-03 15:49:16 [[32MINFO[39M]: Database synchronized
+2025-09-03 15:49:16 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-03 15:49:39 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'error')
+2025-09-03 17:04:01 [[32MINFO[39M]: Database connection has been established successfully.

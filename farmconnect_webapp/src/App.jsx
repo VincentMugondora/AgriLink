@@ -4,6 +4,7 @@ import { useAuth } from './contexts/AuthContext'
 import HeroNav from './components/home/HeroNav'
 import Footer from './components/Layout/Footer'
 import Home from './pages/Home'
+import About from './pages/About'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -48,6 +49,7 @@ function App() {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
           <Route path="/register" element={!user ? <Register /> : <Navigate to="/dashboard" />} />
           <Route path="/products" element={<Products />} />
