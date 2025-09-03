@@ -2,9 +2,9 @@ import React from 'react'
 import { Users, ShoppingCart, Truck, Star } from 'lucide-react'
 
 const items = [
-  { icon: Users, label: 'Active Users', value: '12k+' },
-  { icon: ShoppingCart, label: 'Orders Processed', value: '45k+' },
-  { icon: Truck, label: 'Deliveries', value: '9k+' },
+  { icon: Users, label: 'Verified Farmers', value: '5k+' },
+  { icon: ShoppingCart, label: 'Orders Completed', value: '45k+' },
+  { icon: Truck, label: 'On-time Deliveries', value: '9k+' },
   { icon: Star, label: 'Avg. Rating', value: '4.8/5' },
 ]
 

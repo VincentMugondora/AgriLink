@@ -47,15 +47,13 @@ const HeroNav = () => {
           <div className="hidden md:flex items-center">
             <Link to="/" className={linkBase}>Home</Link>
             <Dot />
-            <Link to="/products" className={`${linkBase} gap-1`}>
-              Pages <ChevronDown size={14} className="opacity-80" />
-            </Link>
+            <Link to="/products" className={linkBase}>Marketplace</Link>
             <Dot />
             <Link to="/#services" className={linkBase}>Services</Link>
             <Dot />
-            <Link to="/#portfolio" className={linkBase}>Portfolio</Link>
+            <Link to="/#portfolio" className={linkBase}>Featured</Link>
             <Dot />
-            <Link to="/#testimonials" className={linkBase}>Blog</Link>
+            <Link to="/#testimonials" className={linkBase}>Testimonials</Link>
             <Dot />
             <Link to="/#contact" className={linkBase}>Contact Us</Link>
           </div>
@@ -65,7 +63,7 @@ const HeroNav = () => {
             <div className="hidden lg:flex items-center gap-2 text-gray-900/90">
               <Phone size={16} className="text-yellow-300" />
               <div className="leading-tight">
-                <div className="text-[10px] uppercase opacity-80">Call us Now</div>
+                <div className="text-[10px] uppercase opacity-80">Support</div>
                 <div className="text-sm font-semibold tracking-wide">+1 (212) 255-511</div>
               </div>
             </div>

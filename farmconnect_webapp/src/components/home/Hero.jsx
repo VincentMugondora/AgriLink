@@ -21,18 +21,19 @@ const Hero = ({ user }) => {
             <div className="w-full md:w-2/3 lg:w-1/2 px-6 md:px-12">
               <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white uppercase tracking-wider text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                Believe in Quality!
+                Connecting Farmers & Buyers
               </div>
 
-              <h1 className="text-white font-extrabold leading-tight text-4xl md:text-6xl lg:text-7xl drop-shadow-md">
-                Quality Trust:
+              <h1 className="text-white font-extrabold leading-tight text-4xl md:text-6xl lg:text-6xl drop-shadow-md">
+                Farm-to-market, simplified.
                 <br className="hidden sm:block" />
-                <span className="text-white">Direct to the Farm</span>
+                <span className="text-white">Trade directly with verified farmers</span>
               </h1>
 
               <p className="mt-5 text-gray-200/90 text-base md:text-lg max-w-xl">
-                We all need a little space to grow. Give yourself the space you need to
-                find your inner you.
+                Discover, buy, and sell fresh produce at fair prices. Farm Connect links
+                smallholder farmers, traders, and businesses with secure payments and reliable
+                delivery.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
@@ -51,7 +52,7 @@ const Hero = ({ user }) => {
                     to="/products"
                     className="text-white/90 hover:text-white underline-offset-4"
                   >
-                    Browse Products
+                    Browse Marketplace
                   </Link>
                 ) : (
                   <Link
