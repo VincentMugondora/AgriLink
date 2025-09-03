@@ -66,26 +66,26 @@ const About = () => {
 
       {/* Decorative marquee band */}
       <div className="border-t border-gray-200 bg-[#F6F8EE] py-6 overflow-hidden">
-        <div className="marquee signika font-extrabold uppercase tracking-wide text-[40px] md:text-[64px] text-gray-300/80">
-          <span className="mx-6">Agriculture</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Farming</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Organic</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Vegetables</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Grains</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Agriculture</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Farming</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Organic</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Vegetables</span>
-          <span className="mx-6">*</span>
-          <span className="mx-6">Grains</span>
+        <div className="signika font-extrabold uppercase tracking-wide text-[40px] md:text-[64px] text-gray-300/80 whitespace-nowrap flex items-center justify-center gap-8">
+          <span>Agriculture</span>
+          <span>*</span>
+          <span>Farming</span>
+          <span>*</span>
+          <span>Organic</span>
+          <span>*</span>
+          <span>Vegetables</span>
+          <span>*</span>
+          <span>Grains</span>
+          <span>*</span>
+          <span>Agriculture</span>
+          <span>*</span>
+          <span>Farming</span>
+          <span>*</span>
+          <span>Organic</span>
+          <span>*</span>
+          <span>Vegetables</span>
+          <span>*</span>
+          <span>Grains</span>
         </div>
       </div>
     </section>
