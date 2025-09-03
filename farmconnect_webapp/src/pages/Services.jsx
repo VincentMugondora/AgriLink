@@ -1,83 +1,16 @@
 import React, { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ChevronRight, ArrowUpRight, Search } from 'lucide-react'
 
 // Assets
 import heroImg from '../assets/home/about.webp'
-import imgMarket from '../assets/home/market_place.jpg'
-import imgDelivery from '../assets/home/delivery.jpg'
-import imgInputs from '../assets/home/inputs.jpg'
-import imgAdvisory from '../assets/home/advisory.jpg'
-import imgDiagnostics from '../assets/home/diagnostics.jpg'
-import imgHarvest from '../assets/home/harvesting.jpg'
+import SERVICES from '../data/services'
 
-const SERVICES = [
-  {
-    id: 1,
-    tag: 'Fertilizer',
-    title: 'Harvest Concepts',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgHarvest,
-  },
-  {
-    id: 2,
-    tag: 'Fruits',
-    title: 'Farming Products',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgInputs,
-  },
-  {
-    id: 3,
-    tag: 'Fertilizer',
-    title: 'Soil Fertilization',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgDelivery,
-  },
-  {
-    id: 4,
-    tag: 'Fruits',
-    title: 'Fresh Vegetables',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgAdvisory,
-  },
-  {
-    id: 5,
-    tag: 'Farming',
-    title: 'Dairy Production',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgDiagnostics,
-  },
-  {
-    id: 6,
-    tag: 'Vegetables',
-    title: 'Product Supplies',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgMarket,
-  },
-  {
-    id: 7,
-    tag: 'Fruits',
-    title: 'Natural Carrots',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgMarket,
-  },
-  {
-    id: 8,
-    tag: 'Vegetables',
-    title: 'Nutrition Solutions',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgInputs,
-  },
-  {
-    id: 9,
-    tag: 'Fruits, Vegetables',
-    title: 'Organic Vegetables',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
-    image: imgAdvisory,
-  },
-]
+// Data
+// SERVICES imported from '../data/services'
 
 const ServiceCard = ({ s }) => (
-  <div className="relative bg-white rounded-[22px] border border-gray-100 shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+  <Link to={`/services/${s.slug}`} className="group relative block bg-white rounded-[22px] border border-gray-100 shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
     <div className="p-4">
       <div className="relative">
         <img src={s.image} alt={s.title} className="w-full aspect-[4/3] object-cover rounded-[18px]" />
@@ -93,13 +26,13 @@ const ServiceCard = ({ s }) => (
       </div>
     </div>
 
-    <button
-      aria-label="Open"
-      className="absolute -bottom-4 right-6 h-10 w-10 rounded-full bg-[#E8C651] text-gray-900 shadow-md flex items-center justify-center hover:brightness-95"
+    <span
+      aria-hidden
+      className="absolute -bottom-4 right-6 h-10 w-10 rounded-full bg-[#E8C651] text-gray-900 shadow-md flex items-center justify-center group-hover:brightness-95"
     >
       <ArrowUpRight size={18} />
-    </button>
-  </div>
+    </span>
+  </Link>
 )
 
 const ServicesPage = () => {
