@@ -68,3 +68,12 @@ code {
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }
+
+/* Leaf silhouette pattern used at the bottom of Services section */
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.12'%3E%3Cpath d='M42 120c0-33 27-60 60-60s60 27 60 60H42zM222 120c0-33 27-60 60-60s60 27 60 60H222zM402 120c0-33 27-60 60-60s60 27 60 60H402zM582 120c0-33 27-60 60-60s60 27 60 60H582zM762 120c0-33 27-60 60-60s60 27 60 60H762zM942 120c0-33 27-60 60-60s60 27 60 60H942z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  background-size: 480px 100%;
+  opacity: 1;
+}
