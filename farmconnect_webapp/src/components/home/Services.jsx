@@ -1,7 +1,10 @@
 import React, { useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
-import img1 from '../../assets/home/harvesting.jpg'
-import img2 from '../../assets/home/about.webp'
+import img1 from '../../assets/home/market_place.jpg'
+import img2 from '../../assets/home/delivery.jpg'
+import img3 from '../../assets/home/logistics.jpg'
+import img4 from '../../assets/home/advisory.jpg'
+import img5 from '../../assets/home/diagnostics.jpg'
 
 const services = [
   {
@@ -23,21 +26,21 @@ const services = [
     tag: 'Inputs & Advisory',
     title: 'Farm Inputs & Advisory',
     desc: 'Fertilizer, seeds, and equipment—plus agronomy support to improve yield and quality.',
-    image: img1,
+    image: img3,
   },
   {
     id: 4,
     tag: 'Advisory',
     title: 'Location-based Advisory',
     desc: 'Personalized crop plans based on your location, weather, and soil data.',
-    image: img2,
+    image: img4,
   },
   {
     id: 5,
     tag: 'AI Diagnostics',
     title: 'Crop Disease Detection',
     desc: 'Upload leaf photos to detect diseases and get treatment recommendations.',
-    image: img1,
+    image: img5,
   },
 ]
 
