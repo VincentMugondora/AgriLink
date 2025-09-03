@@ -58,11 +58,11 @@ const Services = () => {
           <div className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((s) => (
               <div key={s.id} className="relative bg-white rounded-[24px] shadow-lg hover:shadow-xl transition-shadow p-4 md:p-5">
-                <img src={s.image} alt={s.title} className="w-full aspect-[4/3] object-cover rounded-2xl" />
+                <img src={s.image} alt={s.title} className="w-full aspect-[4/3] object-cover rounded-[22px]" />
 
                 <div className="mt-4">
-                  <div className="text-[10px] md:text-xs uppercase tracking-wide text-gray-500 flex items-center gap-2">
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-400" />
+                  <div className="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 flex items-center gap-2">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#E8C651]" />
                     <span>{s.tag}</span>
                   </div>
                   <h3 className="mt-1 text-lg md:text-xl font-semibold text-gray-900">{s.title}</h3>
