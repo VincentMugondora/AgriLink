@@ -18,16 +18,9 @@ function App() {
   const { user, loading } = useAuth()
   const location = useLocation()
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
-      </div>
-    )
-  }
-
-  // Smoothly handle hash navigation (e.g., /#services)
+  // Smoothly handle hash navigation (e.g., /#services). Guard when loading to keep hooks order stable.
   useEffect(() => {
+    if (loading) return
     if (location.hash) {
       const id = location.hash.slice(1)
       const el = document.getElementById(id)
@@ -38,7 +31,15 @@ function App() {
       // On route change without hash, scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
-  }, [location.pathname, location.hash])
+  }, [location.pathname, location.hash, loading])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
