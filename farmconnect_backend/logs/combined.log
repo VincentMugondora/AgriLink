@@ -1163,3 +1163,22 @@
 2025-09-03 10:12:26 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 332.644 ms - 559[0m
 2025-09-03 10:12:37 [[32MINFO[39M]: [0mPOST /api/transactions [33m401[0m 0.202 ms - 44[0m
 2025-09-03 11:34:06 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
+2025-09-03 15:23:01 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-03 15:23:03 [[32MINFO[39M]: Database synchronized
+2025-09-03 15:23:03 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-03 15:23:38 [[31MERROR[39M]: Auth middleware error: invalid signature
+{
+  "name": "JsonWebTokenError",
+  "stack": "JsonWebTokenError: invalid signature\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n    at getSecret (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n    at module.exports [as verify] (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n    at auth (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\middleware\\auth.js:19:25)\n    at Layer.handle [as handle_request] (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\index.js:346:12)"
+}
+2025-09-03 15:23:38 [[32MINFO[39M]: [0mGET /api/auth/me [33m401[0m 72.091 ms - 27[0m
+2025-09-03 15:23:38 [[31MERROR[39M]: Auth middleware error: invalid signature
+{
+  "name": "JsonWebTokenError",
+  "stack": "JsonWebTokenError: invalid signature\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\jsonwebtoken\\verify.js:171:19\n    at getSecret (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\jsonwebtoken\\verify.js:97:14)\n    at module.exports [as verify] (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\jsonwebtoken\\verify.js:101:10)\n    at auth (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\middleware\\auth.js:19:25)\n    at Layer.handle [as handle_request] (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\express\\lib\\router\\index.js:346:12)"
+}
+2025-09-03 15:23:38 [[32MINFO[39M]: [0mGET /api/auth/me [33m401[0m 56.695 ms - 27[0m
+2025-09-03 15:34:31 [[32MINFO[39M]: [0mPOST /api/auth/register [32m201[0m 607.688 ms - 588[0m
+2025-09-03 15:34:31 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 1.329 ms - 52[0m
+2025-09-03 15:34:32 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 1.265 ms - 52[0m
+2025-09-03 15:34:48 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
