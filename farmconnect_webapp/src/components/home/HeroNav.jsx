@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Phone, Search, ChevronDown, Leaf } from 'lucide-react'
 
 const HeroNav = () => {
   const [scrolled, setScrolled] = useState(false)
 
+  const location = useLocation()
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', onScroll)
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', onScroll)
+      onScroll()
+      return () => window.removeEventListener('scroll', onScroll)
+    } else {
+      setScrolled(true)
+      return () => {}
+    }
+  }, [location.pathname])
 
   const shell = scrolled
     ? 'bg-white/30 backdrop-blur-xl border-white/50 shadow-lg'
