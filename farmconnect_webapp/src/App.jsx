@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from './contexts/AuthContext'
 import HeroNav from './components/home/HeroNav'
 import Footer from './components/Layout/Footer'
@@ -15,6 +15,7 @@ import ProtectedRoute from './components/Auth/ProtectedRoute'
 
 function App() {
   const { user, loading } = useAuth()
+  const location = useLocation()
 
   if (loading) {
     return (
@@ -23,6 +24,20 @@ function App() {
       </div>
     )
   }
+
+  // Smoothly handle hash navigation (e.g., /#services)
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1)
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    } else {
+      // On route change without hash, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [location.pathname, location.hash])
 
   return (
     <div className="min-h-screen bg-gray-50">
