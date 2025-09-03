@@ -40,7 +40,7 @@ const HeroNav = () => {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-400 text-gray-900">
               <Leaf size={18} />
             </span>
-            <span className="text-gray-900 font-bold text-lg md:text-xl">FarmConnect</span>
+            <span className="signika text-gray-900 font-bold text-lg md:text-xl">FarmConnect</span>
           </Link>
 
           {/* Center menu */}
