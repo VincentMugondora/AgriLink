@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Phone, Search, ChevronDown, Leaf } from 'lucide-react'
 
 const HeroNav = () => {
@@ -40,19 +40,19 @@ const HeroNav = () => {
 
           {/* Center menu */}
           <div className="hidden md:flex items-center">
-            <NavLink to="/" className={linkBase}>Home</NavLink>
+            <Link to="/" className={linkBase}>Home</Link>
             <Dot />
-            <NavLink to="#" className={`${linkBase} gap-1`}>
+            <Link to="/products" className={`${linkBase} gap-1`}>
               Pages <ChevronDown size={14} className="opacity-80" />
-            </NavLink>
+            </Link>
             <Dot />
-            <NavLink to="#services" className={linkBase}>Services</NavLink>
+            <Link to="/#services" className={linkBase}>Services</Link>
             <Dot />
-            <NavLink to="#portfolio" className={linkBase}>Portfolio</NavLink>
+            <Link to="/#portfolio" className={linkBase}>Portfolio</Link>
             <Dot />
-            <NavLink to="/blog" className={linkBase}>Blog</NavLink>
+            <Link to="/#testimonials" className={linkBase}>Blog</Link>
             <Dot />
-            <NavLink to="/contact" className={linkBase}>Contact Us</NavLink>
+            <Link to="/#contact" className={linkBase}>Contact Us</Link>
           </div>
 
           {/* Right actions */}

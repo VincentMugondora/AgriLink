@@ -1,7 +1,7 @@
 import React from 'react'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './contexts/AuthContext'
-import Navbar from './components/Layout/Navbar'
+import HeroNav from './components/home/HeroNav'
 import Footer from './components/Layout/Footer'
 import Home from './pages/Home'
 import Login from './pages/Auth/Login'
@@ -15,8 +15,6 @@ import ProtectedRoute from './components/Auth/ProtectedRoute'
 
 function App() {
   const { user, loading } = useAuth()
-  const location = useLocation()
-  const hideGlobalNav = location.pathname === '/'
 
   if (loading) {
     return (
@@ -28,8 +26,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {!hideGlobalNav && <Navbar />}
-      <main className="min-h-[calc(100vh-140px)]">
+      <HeroNav />
+      <main className="min-h-[calc(100vh-140px)] pt-24 md:pt-28">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />

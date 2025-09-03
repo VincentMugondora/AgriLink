@@ -1,6 +1,5 @@
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
-import HeroNav from '../components/home/HeroNav'
 import Hero from '../components/home/Hero'
 import Features from '../components/home/Features'
 import HowItWorks from '../components/home/HowItWorks'
@@ -16,16 +15,25 @@ const Home = () => {
 
   return (
     <div>
-      <HeroNav />
       <Hero user={user} />
       <StatsBar />
       <CategoryChips />
-      <FeaturedProducts />
-      <Features />
-      <HowItWorks />
-      <Testimonials />
+      <section id="portfolio" className="scroll-mt-28 md:scroll-mt-32">
+        <FeaturedProducts />
+      </section>
+      <section id="services" className="scroll-mt-28 md:scroll-mt-32">
+        <Features />
+      </section>
+      <section id="how-it-works" className="scroll-mt-28 md:scroll-mt-32">
+        <HowItWorks />
+      </section>
+      <section id="testimonials" className="scroll-mt-28 md:scroll-mt-32">
+        <Testimonials />
+      </section>
       <Partners />
-      <CTA user={user} />
+      <section id="contact" className="scroll-mt-28 md:scroll-mt-32">
+        <CTA user={user} />
+      </section>
     </div>
   )
 }
