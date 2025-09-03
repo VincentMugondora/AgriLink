@@ -1162,3 +1162,4 @@
 2025-09-03 10:12:06 [[32MINFO[39M]: [0mGET /api/auth/login [33m404[0m 0.324 ms - 52[0m
 2025-09-03 10:12:26 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 332.644 ms - 559[0m
 2025-09-03 10:12:37 [[32MINFO[39M]: [0mPOST /api/transactions [33m401[0m 0.202 ms - 44[0m
+2025-09-03 11:34:06 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
