@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
 import img1 from '../../assets/home/market_place.jpg'
 import img2 from '../../assets/home/delivery.jpg'
-import img3 from '../../assets/home/logistics.jpg'
+import img3 from '../../assets/home/inputs.jpg'
 import img4 from '../../assets/home/advisory.jpg'
 import img5 from '../../assets/home/diagnostics.jpg'
 
