@@ -1,6 +1,6 @@
 import React from 'react'
-import { Sprout, Tractor } from 'lucide-react'
-import aboutImg from '../../assets/home/harvesting.jpg'
+import { Sprout, Wrench } from 'lucide-react'
+import aboutImg from '../../assets/home/about.webp'
 
 const About = () => {
   return (
@@ -51,7 +51,7 @@ const About = () => {
 
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center">
-                <Tractor size={26} />
+                <Wrench size={26} />
               </div>
               <div>
                 <div className="font-semibold text-gray-900">Special Equipment</div>

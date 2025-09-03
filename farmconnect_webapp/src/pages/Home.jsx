@@ -18,6 +18,9 @@ const Home = () => {
     <div>
       <Hero user={user} />
       <StatsBar />
+      <section id="about" className="scroll-mt-28 md:scroll-mt-32">
+        <About />
+      </section>
       <CategoryChips />
       <section id="portfolio" className="scroll-mt-28 md:scroll-mt-32">
         <FeaturedProducts />
@@ -27,9 +30,6 @@ const Home = () => {
       </section>
       <section id="how-it-works" className="scroll-mt-28 md:scroll-mt-32">
         <HowItWorks />
-      </section>
-      <section id="about" className="scroll-mt-28 md:scroll-mt-32">
-        <About />
       </section>
       <section id="testimonials" className="scroll-mt-28 md:scroll-mt-32">
         <Testimonials />
