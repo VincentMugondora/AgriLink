@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Wrench } from 'lucide-react'
+import { Sprout, Tractor } from 'lucide-react'
 import aboutImg from '../../assets/home/harvesting.jpg'
 
 const About = () => {
@@ -11,7 +11,7 @@ const About = () => {
           <img
             src={aboutImg}
             alt="Farm Connect farmers harvesting organic produce"
-            className="w-full h-auto rounded-3xl object-cover aspect-[4/3] shadow-md"
+            className="w-full h-auto rounded-[28px] object-cover aspect-[4/3] shadow-md"
           />
 
           {/* Stat pill */}
@@ -39,7 +39,7 @@ const About = () => {
           <div className="mt-8 grid sm:grid-cols-2 gap-8">
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center">
-                <Leaf size={26} />
+                <Sprout size={26} />
               </div>
               <div>
                 <div className="font-semibold text-gray-900">Eco Farms Worldwide</div>
@@ -51,7 +51,7 @@ const About = () => {
 
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center">
-                <Wrench size={26} />
+                <Tractor size={26} />
               </div>
               <div>
                 <div className="font-semibold text-gray-900">Special Equipment</div>
