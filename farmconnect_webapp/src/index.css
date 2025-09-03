@@ -77,3 +77,12 @@ code {
   background-size: 480px 100%;
   opacity: 1;
 }
+
+/* Hide scrollbars (used for Services carousel track) */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

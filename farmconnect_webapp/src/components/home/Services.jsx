@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
 import img1 from '../../assets/home/harvesting.jpg'
 import img2 from '../../assets/home/about.webp'
@@ -25,9 +25,105 @@ const services = [
     desc: 'Fertilizer, seeds, and equipment—plus agronomy support to improve yield and quality.',
     image: img1,
   },
+  {
+    id: 4,
+    tag: 'Advisory',
+    title: 'Location-based Advisory',
+    desc: 'Personalized crop plans based on your location, weather, and soil data.',
+    image: img2,
+  },
+  {
+    id: 5,
+    tag: 'AI Diagnostics',
+    title: 'Crop Disease Detection',
+    desc: 'Upload leaf photos to detect diseases and get treatment recommendations.',
+    image: img1,
+  },
 ]
 
 const Services = () => {
+  const trackRef = useRef(null)
+  const slides = [...services, ...services, ...services]
+
+  const scrollByCards = (dir) => {
+    const el = trackRef.current
+    if (!el) return
+    const first = el.firstElementChild
+    const gap = parseFloat(getComputedStyle(el).gap || '0') || 0
+    const cardWidth = first ? first.getBoundingClientRect().width : Math.round(el.clientWidth * 0.85)
+    const step = Math.round(cardWidth + gap)
+    el.scrollBy({ left: dir * step, behavior: 'smooth' })
+  }
+
+  // Center to the middle copy on mount
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+    const centerToMiddle = () => {
+      const first = el.firstElementChild
+      if (!first) return
+      const gap = parseFloat(getComputedStyle(el).gap || '0') || 0
+      const cardWidth = first.getBoundingClientRect().width
+      if (!cardWidth) {
+        requestAnimationFrame(centerToMiddle)
+        return
+      }
+      const step = Math.round(cardWidth + gap)
+      el.scrollTo({ left: services.length * step, behavior: 'auto' })
+    }
+    centerToMiddle()
+  }, [])
+
+  // Keep illusion of infinity by jumping from clones back to middle set
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        const first = el.firstElementChild
+        if (!first) {
+          ticking = false
+          return
+        }
+        const gap = parseFloat(getComputedStyle(el).gap || '0') || 0
+        const step = Math.round(first.getBoundingClientRect().width + gap)
+        if (!step) {
+          ticking = false
+          return
+        }
+        const index = Math.round(el.scrollLeft / step)
+        const n = services.length
+        if (index < n) {
+          // jumped to first clone set -> move to middle
+          el.scrollTo({ left: (index + n) * step, behavior: 'auto' })
+        } else if (index >= 2 * n) {
+          // jumped to last clone set -> move to middle
+          el.scrollTo({ left: (index - n) * step, behavior: 'auto' })
+        }
+        ticking = false
+      })
+    }
+    el.addEventListener('scroll', onScroll)
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Autoplay every 10 seconds
+  useEffect(() => {
+    const id = setInterval(() => {
+      const el = trackRef.current
+      if (!el) return
+      const first = el.firstElementChild
+      if (!first) return
+      const gap = parseFloat(getComputedStyle(el).gap || '0') || 0
+      const step = Math.round(first.getBoundingClientRect().width + gap)
+      el.scrollBy({ left: step, behavior: 'smooth' })
+    }, 10000)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <section className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4">
@@ -46,19 +142,23 @@ const Services = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <button aria-label="Previous" className="h-8 w-8 md:h-9 md:w-9 inline-flex items-center justify-center rounded-md bg-white/80 text-gray-900 border border-white/50 hover:bg-white transition">
+              <button onClick={() => scrollByCards(-1)} aria-label="Previous" className="h-8 w-8 md:h-9 md:w-9 inline-flex items-center justify-center rounded-md bg-white/80 text-gray-900 border border-white/50 hover:bg-white transition">
                 <ChevronLeft size={16} />
               </button>
-              <button aria-label="Next" className="h-8 w-8 md:h-9 md:w-9 inline-flex items-center justify-center rounded-md bg-white/80 text-gray-900 border border-white/50 hover:bg-white transition">
+              <button onClick={() => scrollByCards(1)} aria-label="Next" className="h-8 w-8 md:h-9 md:w-9 inline-flex items-center justify-center rounded-md bg-white/80 text-gray-900 border border-white/50 hover:bg-white transition">
                 <ChevronRight size={16} />
               </button>
             </div>
           </div>
 
           {/* Cards */}
-          <div className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {services.map((s) => (
-              <div key={s.id} className="relative bg-white rounded-[24px] shadow-lg hover:shadow-xl transition-shadow p-4 md:p-5">
+          <div
+            ref={trackRef}
+            id="services-track"
+            className="mt-8 md:mt-10 flex gap-6 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-2"
+          >
+            {slides.map((s, i) => (
+              <div key={`${s.id}-${i}`} className="relative bg-white rounded-[24px] shadow-lg hover:shadow-xl transition-shadow p-4 md:p-5 shrink-0 snap-start basis-[85%] sm:basis-[60%] lg:basis-[32%]">
                 <img src={s.image} alt={s.title} className="w-full aspect-[4/3] object-cover rounded-[22px]" />
 
                 <div className="mt-4">
