@@ -10,6 +10,7 @@ import FeaturedProducts from '../components/home/FeaturedProducts'
 import Testimonials from '../components/home/Testimonials'
 import Partners from '../components/home/Partners'
 import About from '../components/home/About'
+import Services from '../components/home/Services'
 
 const Home = () => {
   const { user } = useAuth()
@@ -26,7 +27,7 @@ const Home = () => {
         <FeaturedProducts />
       </section>
       <section id="services" className="scroll-mt-28 md:scroll-mt-32">
-        <Features />
+        <Services />
       </section>
       <section id="how-it-works" className="scroll-mt-28 md:scroll-mt-32">
         <HowItWorks />
