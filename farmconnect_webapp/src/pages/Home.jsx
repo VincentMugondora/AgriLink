@@ -9,6 +9,7 @@ import CategoryChips from '../components/home/CategoryChips'
 import FeaturedProducts from '../components/home/FeaturedProducts'
 import Testimonials from '../components/home/Testimonials'
 import Partners from '../components/home/Partners'
+import About from '../components/home/About'
 
 const Home = () => {
   const { user } = useAuth()
@@ -26,6 +27,9 @@ const Home = () => {
       </section>
       <section id="how-it-works" className="scroll-mt-28 md:scroll-mt-32">
         <HowItWorks />
+      </section>
+      <section id="about" className="scroll-mt-28 md:scroll-mt-32">
+        <About />
       </section>
       <section id="testimonials" className="scroll-mt-28 md:scroll-mt-32">
         <Testimonials />
