@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams, Navigate } from 'react-router-dom'
 import { ChevronRight, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react'
 
 import SERVICES from '../data/services'
@@ -36,13 +36,9 @@ const AccordionItem = ({ idx, title, body, open, onToggle }) => (
 
 const ServiceDetail = () => {
   const { slug } = useParams()
-  const navigate = useNavigate()
   const service = useMemo(() => SERVICES.find(s => s.slug === slug), [slug])
 
-  if (!service) {
-    navigate('/services', { replace: true })
-    return null
-  }
+  if (!service) return <Navigate to="/services" replace />
 
   const [openIdx, setOpenIdx] = useState(1)
 
@@ -172,7 +168,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Pre-footer yellow band */}
-      <section className="bg-[#E8C651] text-gray-900">
+      {/* <section className="bg-[#E8C651] text-gray-900">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-wrap items-center justify-between gap-3 text-sm font-medium">
             <div className="flex items-center gap-3">
@@ -190,7 +186,7 @@ const ServiceDetail = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
