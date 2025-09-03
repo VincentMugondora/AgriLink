@@ -6,23 +6,23 @@ import img2 from '../../assets/home/about.webp'
 const services = [
   {
     id: 1,
-    tag: 'Fertilizer',
-    title: 'Harvest Concepts',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
+    tag: 'Marketplace',
+    title: 'Produce Marketplace',
+    desc: 'Trade fresh produce directly on Farm Connect. Verified listings, fair pricing, and secure checkout.',
     image: img1,
   },
   {
     id: 2,
-    tag: 'Fruits',
-    title: 'Farming Products',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
+    tag: 'Logistics',
+    title: 'Logistics & Delivery',
+    desc: 'Cold-chain coordination and reliable last-mile delivery from farm to buyer.',
     image: img2,
   },
   {
     id: 3,
-    tag: 'Fertilizer',
-    title: 'Soil Fertilization',
-    desc: 'Farming and animal husbandry and discuss with farmers and scientists.',
+    tag: 'Inputs & Advisory',
+    title: 'Farm Inputs & Advisory',
+    desc: 'Fertilizer, seeds, and equipment—plus agronomy support to improve yield and quality.',
     image: img1,
   },
 ]
