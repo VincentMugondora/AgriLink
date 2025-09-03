@@ -162,7 +162,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Pre-footer yellow band */}
-      <section className="bg-[#E8C651] text-gray-900">
+      {/* <section className="bg-[#E8C651] text-gray-900">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-wrap items-center justify-between gap-3 text-sm font-medium">
             <div className="flex items-center gap-3">
@@ -180,7 +180,7 @@ const ServicesPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
