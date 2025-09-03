@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Star, Mail, Phone, MapPin, Clock, Send, Facebook, Twitter, Instagram, Youtube } from 'lucide-react'
+import { Leaf, Star, Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
 
 const Footer = () => {
   const year = new Date().getFullYear()
@@ -44,11 +44,12 @@ const Footer = () => {
               ))}
               <span className="ml-2 text-sm text-gray-600">4.9/5 • Based on 1,200+ reviews</span>
             </div>
-            <div className="mt-5 flex items-center gap-3 text-gray-700">
-              <a aria-label="Facebook" href="#" className="hover:text-gray-900"><Facebook size={18} /></a>
-              <a aria-label="Twitter" href="#" className="hover:text-gray-900"><Twitter size={18} /></a>
-              <a aria-label="Instagram" href="#" className="hover:text-gray-900"><Instagram size={18} /></a>
-              <a aria-label="YouTube" href="#" className="hover:text-gray-900"><Youtube size={18} /></a>
+            <div className="mt-5 flex items-center gap-2 text-gray-700">
+              {['FB', 'TW', 'IG', 'YT'].map((t) => (
+                <a key={t} href="#" aria-label={t} className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:text-gray-900 transition">
+                  <span className="text-[11px] font-semibold">{t}</span>
+                </a>
+              ))}
             </div>
           </div>
 
