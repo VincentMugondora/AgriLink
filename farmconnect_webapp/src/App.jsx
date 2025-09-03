@@ -5,6 +5,7 @@ import HeroNav from './components/home/HeroNav'
 import Footer from './components/Layout/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
+import ServicesPage from './pages/Services'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -50,6 +51,7 @@ function App() {
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<ServicesPage />} />
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
           <Route path="/register" element={!user ? <Register /> : <Navigate to="/dashboard" />} />
           <Route path="/products" element={<Products />} />

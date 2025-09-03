@@ -49,7 +49,7 @@ const HeroNav = () => {
             <Dot />
             <Link to="/products" className={linkBase}>Marketplace</Link>
             <Dot />
-            <Link to="/#services" className={linkBase}>Services</Link>
+            <Link to="/services" className={linkBase}>Services</Link>
             <Dot />
             <Link to="/about" className={linkBase}>About</Link>
             <Dot />
