@@ -39,6 +39,7 @@ const Services = () => {
           <div className="flex items-start justify-between gap-4">
             <div>
               <span className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/40 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#5F8F52]" />
                 Our Services
               </span>
               <h2 className="text-white text-2xl md:text-4xl font-extrabold mt-3">Best Agriculture Services</h2>
