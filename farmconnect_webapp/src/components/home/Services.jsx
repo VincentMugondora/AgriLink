@@ -61,7 +61,10 @@ const Services = () => {
                 <img src={s.image} alt={s.title} className="w-full aspect-[4/3] object-cover rounded-2xl" />
 
                 <div className="mt-4">
-                  <div className="text-[10px] md:text-xs uppercase tracking-wide text-gray-500">{s.tag}</div>
+                  <div className="text-[10px] md:text-xs uppercase tracking-wide text-gray-500 flex items-center gap-2">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-400" />
+                    <span>{s.tag}</span>
+                  </div>
                   <h3 className="mt-1 text-lg md:text-xl font-semibold text-gray-900">{s.title}</h3>
                   <p className="mt-1 text-sm text-gray-600 leading-relaxed">{s.desc}</p>
                 </div>
