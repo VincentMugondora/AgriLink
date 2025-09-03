@@ -16,8 +16,9 @@ const HeroNav = () => {
     ? 'bg-white/30 backdrop-blur-xl border-white/50 shadow-lg'
     : 'bg-white/15 backdrop-blur-md border-white/30'
 
-  const linkBase =
-    'hidden md:inline-flex items-center text-[12px] lg:text-sm font-semibold tracking-wide uppercase text-white/90 hover:text-white transition-colors'
+  const linkBase = scrolled
+    ? 'hidden md:inline-flex items-center text-[12px] lg:text-sm font-semibold tracking-wide uppercase text-gray-900/90 hover:text-gray-900 transition-colors'
+    : 'hidden md:inline-flex items-center text-[12px] lg:text-sm font-semibold tracking-wide uppercase text-white/90 hover:text-white transition-colors'
 
   const Dot = () => (
     <span className="hidden lg:inline-block h-1 w-1 rounded-full bg-yellow-300 mx-3" />
@@ -25,7 +26,7 @@ const HeroNav = () => {
 
   return (
     <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
-      <div className="max-w-7xl mx-auto px-4 pointer-events-auto">
+      <div className="max-w-7xl mx-auto px-4 pointer-events-auto relative">
         <div
           className={`flex items-center justify-between rounded-full border px-3 md:px-5 py-2 md:py-2.5 transition-all duration-300 ${shell}`}
         >
@@ -34,7 +35,7 @@ const HeroNav = () => {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-400 text-gray-900">
               <Leaf size={18} />
             </span>
-            <span className="text-white font-bold text-lg md:text-xl">FarmConnect</span>
+            <span className={`${scrolled ? 'text-gray-900' : 'text-white'} font-bold text-lg md:text-xl`}>FarmConnect</span>
           </Link>
 
           {/* Center menu */}
@@ -56,7 +57,7 @@ const HeroNav = () => {
 
           {/* Right actions */}
           <div className="flex items-center gap-2 md:gap-4">
-            <div className="hidden lg:flex items-center gap-2 text-white/90">
+            <div className={`hidden lg:flex items-center gap-2 ${scrolled ? 'text-gray-900/90' : 'text-white/90'}`}>
               <Phone size={16} className="text-yellow-300" />
               <div className="leading-tight">
                 <div className="text-[10px] uppercase opacity-80">Call us Now</div>
@@ -70,18 +71,19 @@ const HeroNav = () => {
             >
               <Search size={16} />
             </button>
-
-            <a
-              href="mailto:support@farmconnect.com"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-yellow-300 hover:bg-yellow-200 text-gray-900 font-semibold px-4 py-2 transition shadow"
-            >
-              Get In Touch
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-yellow-200">
-                <Send size={14} />
-              </span>
-            </a>
           </div>
         </div>
+
+        {/* Outside CTA pill */}
+        <a
+          href="mailto:support@farmconnect.com"
+          className="hidden sm:inline-flex items-center gap-2 rounded-full bg-yellow-300 hover:bg-yellow-200 text-gray-900 font-semibold px-4 py-2 transition shadow absolute -right-2 top-1/2 -translate-y-1/2"
+        >
+          Get In Touch
+          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-yellow-200">
+            <Send size={14} />
+          </span>
+        </a>
       </div>
     </div>
   )
