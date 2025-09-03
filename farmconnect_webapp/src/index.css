@@ -47,6 +47,19 @@ code {
   }
 }
 
+/* Marquee animation for About section */
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* Line clamp utility */
 .line-clamp-2 {
   overflow: hidden;
