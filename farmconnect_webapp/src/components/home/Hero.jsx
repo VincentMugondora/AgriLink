@@ -18,13 +18,13 @@ const Hero = ({ user }) => {
 
           {/* Content */}
           <div className="relative z-10 h-full flex items-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 px-6 md:px-12">
+            <div className="w-full md:w-2/3 px-6 md:px-12">
               <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white uppercase tracking-wider text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
                 Connecting Farmers & Buyers
               </div>
 
-              <h1 className="text-white font-extrabold leading-tight text-4xl md:text-6xl lg:text-6xl drop-shadow-md">
+              <h1 className="text-white font-extrabold leading-tight text-4xl md:text-6xl lg:text-5xl drop-shadow-md">
                 Farm-to-market, simplified.
                 <br className="hidden sm:block" />
                 <span className="text-white">Trade directly with verified farmers</span>
