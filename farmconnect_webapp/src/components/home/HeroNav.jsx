@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Phone, Search, Send, ChevronDown, Leaf } from 'lucide-react'
+import { Phone, Search, ChevronDown, Leaf } from 'lucide-react'
 
 const HeroNav = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -74,16 +74,7 @@ const HeroNav = () => {
           </div>
         </div>
 
-        {/* Outside CTA pill */}
-        <a
-          href="mailto:support@farmconnect.com"
-          className="hidden sm:inline-flex items-center gap-2 rounded-full bg-yellow-300 hover:bg-yellow-200 text-gray-900 font-semibold px-4 py-2 transition shadow absolute -right-2 top-1/2 -translate-y-1/2"
-        >
-          Get In Touch
-          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-yellow-200">
-            <Send size={14} />
-          </span>
-        </a>
+        {/* CTA removed as requested */}
       </div>
     </div>
   )

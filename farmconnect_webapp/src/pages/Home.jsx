@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import HeroNav from '../components/home/HeroNav'
 import Hero from '../components/home/Hero'
 import Features from '../components/home/Features'
 import HowItWorks from '../components/home/HowItWorks'
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <div>
+      <HeroNav />
       <Hero user={user} />
       <StatsBar />
       <CategoryChips />

@@ -2,12 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import bgUrl from '../../assets/home/harvesting.jpg'
-import HeroNav from './HeroNav'
 const Hero = ({ user }) => {
   return (
     <section className="relative">
-      {/* Fixed glassy navbar overlay */}
-      <HeroNav />
       <div className="max-w-7xl mx-auto px-4">
         <div
           className="relative h-[520px] md:h-[620px] rounded-3xl overflow-hidden shadow-xl bg-center bg-cover"
