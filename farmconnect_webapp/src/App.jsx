@@ -12,6 +12,7 @@ import ProductDetail from './pages/Products/ProductDetail'
 import Orders from './pages/Orders/Orders'
 import Profile from './pages/Profile/Profile'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
+import "./App.css"
 
 function App() {
   const { user, loading } = useAuth()
