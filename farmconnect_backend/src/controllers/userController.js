@@ -4,6 +4,7 @@ const { User } = require('../models');
 const config = require('../config/config');
 const logger = require('../utils/logger');
 const Joi = require('joi');
+const { Op } = require('sequelize');
 
 // Validation schema for user registration
 const registerSchema = Joi.object({
@@ -36,14 +37,20 @@ const register = async (req, res) => {
 
     const { firstName, lastName, email, phone, password, role } = req.body;
 
-    // Check if user already exists
-    let user = await User.findOne({ where: { email } });
-    if (user) {
-      return res.status(400).json({ message: 'User already exists' });
+    // Check if email or phone already exists
+    const existing = await User.findOne({
+      where: {
+        [Op.or]: [{ email }, { phone }]
+      }
+    });
+    if (existing) {
+      const conflictField = existing.email === email ? 'email' : (existing.phone === phone ? 'phone' : null);
+      const message = conflictField === 'email' ? 'Email already in use' : (conflictField === 'phone' ? 'Phone already in use' : 'User already exists');
+      return res.status(400).json({ message });
     }
 
     // Create new user
-    user = await User.create({
+    let user = await User.create({
       firstName,
       lastName,
       email,
@@ -72,6 +79,12 @@ const register = async (req, res) => {
     });
   } catch (error) {
     logger.error('Registration error:', error);
+    // Gracefully handle unique constraint errors
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      const field = error.errors && error.errors[0] && error.errors[0].path;
+      const message = field === 'email' ? 'Email already in use' : (field === 'phone' ? 'Phone already in use' : 'User already exists');
+      return res.status(400).json({ message });
+    }
     res.status(500).json({ message: 'Server error' });
   }
 };

@@ -18,6 +18,8 @@ import ProductCreate from './pages/Products/ProductCreate'
 import Orders from './pages/Orders/Orders'
 import Profile from './pages/Profile/Profile'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
+import AdminRoute from './components/Auth/AdminRoute'
+import UsersAdminPage from './pages/Admin/Users'
 import "./App.css"
 
 function App() {
@@ -84,6 +86,13 @@ function App() {
             <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
+          } />
+
+          {/* Admin Routes */}
+          <Route path="/admin/users" element={
+            <AdminRoute>
+              <UsersAdminPage />
+            </AdminRoute>
           } />
           
           {/* Catch all route */}
