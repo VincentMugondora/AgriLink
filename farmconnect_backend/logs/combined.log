@@ -1223,3 +1223,14 @@
 2025-09-04 11:00:53 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 0.275 ms - 52[0m
 2025-09-04 11:01:02 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 305.997 ms - 26[0m
 2025-09-04 11:01:04 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 238.014 ms - 26[0m
+2025-09-04 11:06:38 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 290.483 ms - 323[0m
+2025-09-04 11:06:38 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 11.727 ms - -[0m
+2025-09-04 11:12:18 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 11:12:18 [[32MINFO[39M]: Database synchronized
+2025-09-04 11:12:18 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 11:13:06 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 11:13:06 [[32MINFO[39M]: Database synchronized
+2025-09-04 11:13:06 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 11:13:42 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 11:13:42 [[32MINFO[39M]: Database synchronized
+2025-09-04 11:13:42 [[32MINFO[39M]: Server running in development mode on port 5000
