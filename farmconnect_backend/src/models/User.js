@@ -54,6 +54,23 @@ const User = sequelize.define('User', {
     type: DataTypes.ENUM('en', 'sn', 'nd'),
     defaultValue: 'en',
   },
+  status: {
+    type: DataTypes.ENUM('active', 'suspended', 'banned'),
+    defaultValue: 'active',
+    allowNull: false,
+  },
+  suspendedUntil: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+  suspendReason: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  banReason: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
 }, {
   timestamps: true,
   hooks: {

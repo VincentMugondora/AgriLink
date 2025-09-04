@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Phone, Search, ChevronDown, Leaf } from 'lucide-react'
+import { useAuth } from '../../contexts/AuthContext'
 
 const HeroNav = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -29,6 +30,8 @@ const HeroNav = () => {
     <span className="hidden lg:inline-block h-1 w-1 rounded bg-yellow-300 mx-3" />
   )
 
+  const { user, logout, loading } = useAuth()
+
   return (
     <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
       <div className="max-w-7xl mx-auto px-4 pointer-events-auto relative">
@@ -52,10 +55,10 @@ const HeroNav = () => {
             <Link to="/services" className={linkBase}>Services</Link>
             <Dot />
             <Link to="/about" className={linkBase}>About</Link>
-            <Dot />
+            {/* <Dot />
             <Link to="/#portfolio" className={linkBase}>Featured</Link>
-            <Dot />
-            <Link to="/#testimonials" className={linkBase}>Testimonials</Link>
+            <Dot /> */}
+            {/* <Link to="/#testimonials" className={linkBase}>Testimonials</Link> */}
             <Dot />
             <Link to="/contact" className={linkBase}>Contact</Link>
           </div>
@@ -76,6 +79,22 @@ const HeroNav = () => {
             >
               <Search size={16} />
             </button>
+
+            {/* Auth actions */}
+            {!loading && !user && (
+              <div className="hidden sm:flex items-center gap-2">
+                <Link to="/login" className="px-3 py-1.5 text-[12px] md:text-sm font-semibold rounded-full bg-white text-gray-900 hover:bg-yellow-50 border border-white/70">
+                  Sign in
+                </Link>
+                <Link to="/register" className="px-3 py-1.5 text-[12px] md:text-sm font-semibold rounded-full bg-yellow-300 text-gray-900 hover:bg-yellow-400">
+                  Sign up
+                </Link>
+              </div>
+            )}
+
+            {!loading && user && (
+              <UserMenu user={user} onLogout={logout} />
+            )}
           </div>
         </div>
 
@@ -86,3 +105,29 @@ const HeroNav = () => {
 }
 
 export default HeroNav
+
+// Small user menu component
+const UserMenu = ({ user, onLogout }) => {
+  const [open, setOpen] = useState(false)
+  const initials = (user?.firstName?.[0] || user?.name?.[0] || 'U').toUpperCase()
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setOpen(v => !v)}
+        className="inline-flex items-center gap-2 pl-2 pr-2 md:pr-3 py-1.5 rounded-full bg-white/85 text-gray-900 hover:bg-white border border-white/70"
+      >
+        <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-yellow-300 font-bold text-gray-900">{initials}</span>
+        <span className="hidden md:inline text-sm font-semibold max-w-[120px] truncate">{user?.firstName || user?.name || 'Account'}</span>
+        <ChevronDown size={16} />
+      </button>
+      {open && (
+        <div className="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-lg border border-gray-100 overflow-hidden z-50">
+          <Link to="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Dashboard</Link>
+          <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Profile</Link>
+          <Link to="/profile#settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Settings</Link>
+          <button onClick={onLogout} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Logout</button>
+        </div>
+      )}
+    </div>
+  )
+}

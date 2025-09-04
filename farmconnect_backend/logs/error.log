@@ -991,3 +991,458 @@
 2025-09-03 15:34:48 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
 2025-09-03 15:49:39 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'error')
 2025-09-04 09:55:57 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
+2025-09-04 12:48:39 [[31MERROR[39M]: Registration error: Validation error
+{
+  "name": "SequelizeUniqueConstraintError",
+  "errors": [
+    {
+      "message": "phone must be unique",
+      "type": "unique violation",
+      "path": "phone",
+      "value": "+263789730395",
+      "origin": "DB",
+      "instance": {
+        "id": "55da9d24-bf45-4bfc-b7df-ca3b8da85b47",
+        "language": "en",
+        "firstName": "Vincent",
+        "lastName": "Mugondora",
+        "email": "vinmugondora@gmail.com",
+        "phone": "+263789730395",
+        "password": "$2a$10$Nh.czrRb3HZWK5agv6pcm.Hhu12/lCsALi8dfK0m.EgvKgfxKVO7m",
+        "role": "buyer",
+        "isVerified": false,
+        "kycStatus": "pending",
+        "updatedAt": "2025-09-04T10:48:38.445Z",
+        "createdAt": "2025-09-04T10:48:38.445Z"
+      },
+      "validatorKey": "not_unique",
+      "validatorName": null,
+      "validatorArgs": []
+    }
+  ],
+  "parent": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263789730395) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "55da9d24-bf45-4bfc-b7df-ca3b8da85b47",
+      "Vincent",
+      "Mugondora",
+      "vinmugondora@gmail.com",
+      "+263789730395",
+      "$2a$10$Nh.czrRb3HZWK5agv6pcm.Hhu12/lCsALi8dfK0m.EgvKgfxKVO7m",
+      "buyer",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:48:38.445 +00:00",
+      "2025-09-04 10:48:38.445 +00:00"
+    ]
+  },
+  "original": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263789730395) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "55da9d24-bf45-4bfc-b7df-ca3b8da85b47",
+      "Vincent",
+      "Mugondora",
+      "vinmugondora@gmail.com",
+      "+263789730395",
+      "$2a$10$Nh.czrRb3HZWK5agv6pcm.Hhu12/lCsALi8dfK0m.EgvKgfxKVO7m",
+      "buyer",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:48:38.445 +00:00",
+      "2025-09-04 10:48:38.445 +00:00"
+    ]
+  },
+  "fields": {
+    "phone": "+263789730395"
+  },
+  "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.insert (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n    at async model.save (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:2490:35)\n    at async User.create (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1362:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:46:12)"
+}
+2025-09-04 12:49:31 [[31MERROR[39M]: Registration error: Validation error
+{
+  "name": "SequelizeUniqueConstraintError",
+  "errors": [
+    {
+      "message": "phone must be unique",
+      "type": "unique violation",
+      "path": "phone",
+      "value": "+263789730395",
+      "origin": "DB",
+      "instance": {
+        "id": "1811a775-bb73-4736-97f6-491b18101fd1",
+        "language": "en",
+        "firstName": "Vincent",
+        "lastName": "Mugondora",
+        "email": "vinmugondora@gmail.com",
+        "phone": "+263789730395",
+        "password": "$2a$10$1ZzwFoSFULXrjmKCyktJw.BChn5OaksTqVVSn9ESjvgse83SmcJdG",
+        "role": "buyer",
+        "isVerified": false,
+        "kycStatus": "pending",
+        "updatedAt": "2025-09-04T10:49:30.657Z",
+        "createdAt": "2025-09-04T10:49:30.657Z"
+      },
+      "validatorKey": "not_unique",
+      "validatorName": null,
+      "validatorArgs": []
+    }
+  ],
+  "parent": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263789730395) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "1811a775-bb73-4736-97f6-491b18101fd1",
+      "Vincent",
+      "Mugondora",
+      "vinmugondora@gmail.com",
+      "+263789730395",
+      "$2a$10$1ZzwFoSFULXrjmKCyktJw.BChn5OaksTqVVSn9ESjvgse83SmcJdG",
+      "buyer",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:49:30.657 +00:00",
+      "2025-09-04 10:49:30.657 +00:00"
+    ]
+  },
+  "original": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263789730395) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "1811a775-bb73-4736-97f6-491b18101fd1",
+      "Vincent",
+      "Mugondora",
+      "vinmugondora@gmail.com",
+      "+263789730395",
+      "$2a$10$1ZzwFoSFULXrjmKCyktJw.BChn5OaksTqVVSn9ESjvgse83SmcJdG",
+      "buyer",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:49:30.657 +00:00",
+      "2025-09-04 10:49:30.657 +00:00"
+    ]
+  },
+  "fields": {
+    "phone": "+263789730395"
+  },
+  "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.insert (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n    at async model.save (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:2490:35)\n    at async User.create (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1362:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:46:12)"
+}
+2025-09-04 12:55:08 [[31MERROR[39M]: Registration error: Validation error
+{
+  "name": "SequelizeUniqueConstraintError",
+  "errors": [
+    {
+      "message": "phone must be unique",
+      "type": "unique violation",
+      "path": "phone",
+      "value": "+263777530322",
+      "origin": "DB",
+      "instance": {
+        "id": "5c52380f-9c76-417f-bd1f-976c5c41f932",
+        "language": "en",
+        "firstName": "Vincent",
+        "lastName": "Mugondora",
+        "email": "mugondorav@gmail.com",
+        "phone": "+263777530322",
+        "password": "$2a$10$I51w6NtpPSf8Lz.hlGow0.wRO1Chj.Bu3UnHOZy6tmT16gblGhiZe",
+        "role": "trader",
+        "isVerified": false,
+        "kycStatus": "pending",
+        "updatedAt": "2025-09-04T10:55:07.974Z",
+        "createdAt": "2025-09-04T10:55:07.974Z"
+      },
+      "validatorKey": "not_unique",
+      "validatorName": null,
+      "validatorArgs": []
+    }
+  ],
+  "parent": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263777530322) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "5c52380f-9c76-417f-bd1f-976c5c41f932",
+      "Vincent",
+      "Mugondora",
+      "mugondorav@gmail.com",
+      "+263777530322",
+      "$2a$10$I51w6NtpPSf8Lz.hlGow0.wRO1Chj.Bu3UnHOZy6tmT16gblGhiZe",
+      "trader",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:55:07.974 +00:00",
+      "2025-09-04 10:55:07.974 +00:00"
+    ]
+  },
+  "original": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263777530322) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "5c52380f-9c76-417f-bd1f-976c5c41f932",
+      "Vincent",
+      "Mugondora",
+      "mugondorav@gmail.com",
+      "+263777530322",
+      "$2a$10$I51w6NtpPSf8Lz.hlGow0.wRO1Chj.Bu3UnHOZy6tmT16gblGhiZe",
+      "trader",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:55:07.974 +00:00",
+      "2025-09-04 10:55:07.974 +00:00"
+    ]
+  },
+  "fields": {
+    "phone": "+263777530322"
+  },
+  "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.insert (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n    at async model.save (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:2490:35)\n    at async User.create (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1362:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:46:12)"
+}
+2025-09-04 12:55:23 [[31MERROR[39M]: Registration error: Validation error
+{
+  "name": "SequelizeUniqueConstraintError",
+  "errors": [
+    {
+      "message": "phone must be unique",
+      "type": "unique violation",
+      "path": "phone",
+      "value": "+263777530322",
+      "origin": "DB",
+      "instance": {
+        "id": "8afb24e1-c266-4acc-97d0-bdb5e1a35828",
+        "language": "en",
+        "firstName": "Vincent",
+        "lastName": "Mugondora",
+        "email": "vinmugondora@gmail.com",
+        "phone": "+263777530322",
+        "password": "$2a$10$LWRoTcXxMrowveWe3PQJ1.DSyCfV476VLxLzMlkjhjwSI74Y6Jpdi",
+        "role": "trader",
+        "isVerified": false,
+        "kycStatus": "pending",
+        "updatedAt": "2025-09-04T10:55:22.696Z",
+        "createdAt": "2025-09-04T10:55:22.696Z"
+      },
+      "validatorKey": "not_unique",
+      "validatorName": null,
+      "validatorArgs": []
+    }
+  ],
+  "parent": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263777530322) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "8afb24e1-c266-4acc-97d0-bdb5e1a35828",
+      "Vincent",
+      "Mugondora",
+      "vinmugondora@gmail.com",
+      "+263777530322",
+      "$2a$10$LWRoTcXxMrowveWe3PQJ1.DSyCfV476VLxLzMlkjhjwSI74Y6Jpdi",
+      "trader",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:55:22.696 +00:00",
+      "2025-09-04 10:55:22.696 +00:00"
+    ]
+  },
+  "original": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263777530322) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "8afb24e1-c266-4acc-97d0-bdb5e1a35828",
+      "Vincent",
+      "Mugondora",
+      "vinmugondora@gmail.com",
+      "+263777530322",
+      "$2a$10$LWRoTcXxMrowveWe3PQJ1.DSyCfV476VLxLzMlkjhjwSI74Y6Jpdi",
+      "trader",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:55:22.696 +00:00",
+      "2025-09-04 10:55:22.696 +00:00"
+    ]
+  },
+  "fields": {
+    "phone": "+263777530322"
+  },
+  "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.insert (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n    at async model.save (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:2490:35)\n    at async User.create (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1362:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:46:12)"
+}
+2025-09-04 12:55:32 [[31MERROR[39M]: Registration error: Validation error
+{
+  "name": "SequelizeUniqueConstraintError",
+  "errors": [
+    {
+      "message": "phone must be unique",
+      "type": "unique violation",
+      "path": "phone",
+      "value": "+263777530322",
+      "origin": "DB",
+      "instance": {
+        "id": "7b8f14f0-06b5-4f37-bdfc-113a75aca8d4",
+        "language": "en",
+        "firstName": "Vincent",
+        "lastName": "Mugondora",
+        "email": "vincent@uncommon.org",
+        "phone": "+263777530322",
+        "password": "$2a$10$EwrT1QH8WhkH6DfogaQLy.P30ODHaOJFeXJnXTxHK8erBkuX8TD.u",
+        "role": "trader",
+        "isVerified": false,
+        "kycStatus": "pending",
+        "updatedAt": "2025-09-04T10:55:32.067Z",
+        "createdAt": "2025-09-04T10:55:32.067Z"
+      },
+      "validatorKey": "not_unique",
+      "validatorName": null,
+      "validatorArgs": []
+    }
+  ],
+  "parent": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263777530322) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "7b8f14f0-06b5-4f37-bdfc-113a75aca8d4",
+      "Vincent",
+      "Mugondora",
+      "vincent@uncommon.org",
+      "+263777530322",
+      "$2a$10$EwrT1QH8WhkH6DfogaQLy.P30ODHaOJFeXJnXTxHK8erBkuX8TD.u",
+      "trader",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:55:32.067 +00:00",
+      "2025-09-04 10:55:32.067 +00:00"
+    ]
+  },
+  "original": {
+    "length": 209,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "23505",
+    "detail": "Key (phone)=(+263777530322) already exists.",
+    "schema": "public",
+    "table": "Users",
+    "constraint": "Users_phone_key56",
+    "file": "nbtinsert.c",
+    "line": "673",
+    "routine": "_bt_check_unique",
+    "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+    "parameters": [
+      "7b8f14f0-06b5-4f37-bdfc-113a75aca8d4",
+      "Vincent",
+      "Mugondora",
+      "vincent@uncommon.org",
+      "+263777530322",
+      "$2a$10$EwrT1QH8WhkH6DfogaQLy.P30ODHaOJFeXJnXTxHK8erBkuX8TD.u",
+      "trader",
+      false,
+      "pending",
+      "en",
+      "2025-09-04 10:55:32.067 +00:00",
+      "2025-09-04 10:55:32.067 +00:00"
+    ]
+  },
+  "fields": {
+    "phone": "+263777530322"
+  },
+  "sql": "INSERT INTO \"Users\" (\"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"language\",\"createdAt\",\"updatedAt\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING \"id\",\"firstName\",\"lastName\",\"email\",\"phone\",\"password\",\"role\",\"isVerified\",\"kycStatus\",\"location\",\"language\",\"createdAt\",\"updatedAt\";",
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.insert (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n    at async model.save (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:2490:35)\n    at async User.create (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1362:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:46:12)"
+}
