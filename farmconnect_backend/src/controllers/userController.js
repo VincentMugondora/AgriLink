@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
 const config = require('../config/config');
-const { logger } = require('../utils/logger');
+const logger = require('../utils/logger');
 const Joi = require('joi');
 
 // Validation schema for user registration
