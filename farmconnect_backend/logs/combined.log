@@ -1204,3 +1204,22 @@
 2025-09-04 10:36:01 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-04 10:36:01 [[32MINFO[39M]: Database synchronized
 2025-09-04 10:36:01 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 10:37:33 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 10:37:34 [[32MINFO[39M]: Database synchronized
+2025-09-04 10:37:34 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 10:51:57 [[32MINFO[39M]: [0mPOST /api/auth/register [33m400[0m 128.791 ms - 33[0m
+2025-09-04 10:52:01 [[32MINFO[39M]: [0mPOST /api/auth/register [33m400[0m 5.297 ms - 33[0m
+2025-09-04 10:52:39 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 266.127 ms - 33[0m
+2025-09-04 10:52:45 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 122.960 ms - 33[0m
+2025-09-04 10:52:53 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 151.465 ms - 580[0m
+2025-09-04 10:52:53 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 0.923 ms - 52[0m
+2025-09-04 10:52:54 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 0.394 ms - 52[0m
+2025-09-04 11:00:33 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 346.463 ms - 26[0m
+2025-09-04 11:00:34 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 246.466 ms - 26[0m
+2025-09-04 11:00:40 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [32m200[0m 265.715 ms - 71[0m
+2025-09-04 11:00:50 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 244.237 ms - 26[0m
+2025-09-04 11:00:51 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 229.694 ms - 26[0m
+2025-09-04 11:00:52 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 0.694 ms - 52[0m
+2025-09-04 11:00:53 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 0.275 ms - 52[0m
+2025-09-04 11:01:02 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 305.997 ms - 26[0m
+2025-09-04 11:01:04 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 238.014 ms - 26[0m
