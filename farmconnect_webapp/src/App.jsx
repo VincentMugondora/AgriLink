@@ -12,6 +12,7 @@ import Register from './pages/Auth/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Products from './pages/Products/Products'
 import ProductDetail from './pages/Products/ProductDetail'
+import ProductCreate from './pages/Products/ProductCreate'
 import Orders from './pages/Orders/Orders'
 import Profile from './pages/Profile/Profile'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
@@ -57,6 +58,11 @@ function App() {
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
           <Route path="/register" element={!user ? <Register /> : <Navigate to="/dashboard" />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/new" element={
+            <ProtectedRoute>
+              <ProductCreate />
+            </ProtectedRoute>
+          } />
           <Route path="/products/:id" element={<ProductDetail />} />
           
           {/* Protected Routes */}
