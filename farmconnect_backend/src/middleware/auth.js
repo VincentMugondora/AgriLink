@@ -25,6 +25,27 @@ const auth = async (req, res, next) => {
       return res.status(401).json({ message: 'User not found' });
     }
 
+    // Enforce moderation state
+    if (user.status === 'banned') {
+      return res.status(403).json({ message: 'Account is banned' });
+    }
+
+    if (user.status === 'suspended') {
+      const now = new Date();
+      if (user.suspendedUntil && now > new Date(user.suspendedUntil)) {
+        // Auto-restore if suspension expired
+        user.status = 'active';
+        user.suspendedUntil = null;
+        user.suspendReason = null;
+        await user.save();
+      } else {
+        return res.status(403).json({
+          message: 'Account is suspended',
+          suspendedUntil: user.suspendedUntil || null,
+        });
+      }
+    }
+
     // Add user from payload
     req.user = user;
     next();

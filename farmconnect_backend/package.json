@@ -8,7 +8,8 @@
     "dev": "nodemon src/index.js",
     "test": "jest",
     "migrate": "node-pg-migrate",
-    "migrate:spatial": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20240826-add-spatial-index').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('Spatial index migration completed'); process.exit(0); }).catch(console.error);\""
+    "migrate:spatial": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20240826-add-spatial-index').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('Spatial index migration completed'); process.exit(0); }).catch(console.error);\"",
+    "migrate:user-moderation": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20250904-add-user-moderation').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('User moderation migration completed'); process.exit(0); }).catch((e) => { console.error(e); process.exit(1); });\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
