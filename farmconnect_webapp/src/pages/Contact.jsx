@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mail, PhoneCall, MapPin, ArrowRight } from 'lucide-react'
-import heroImg from '../assets/home/inputs.jpg'
+import { Mail, PhoneCall, MapPin, ArrowRight, ChevronRight } from 'lucide-react'
+import heroImg from '../assets/home/about.webp'
 import leftImg from '../assets/home/advisory.jpg'
 
 const InfoCard = ({ icon: Icon, title, subtitle, children }) => (
@@ -26,17 +26,25 @@ const InfoCard = ({ icon: Icon, title, subtitle, children }) => (
 
 const Contact = () => {
   return (
-    <div>
-      {/* Hero */}
-      <section className="pt-28 md:pt-32">
+    <div className="pb-16">
+      {/* Hero (aligned with About hero) */}
+      <section className="pt-2">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative rounded-3xl overflow-hidden">
-            <img src={heroImg} alt="Contact hero" className="w-full h-[260px] md:h-[360px] object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
-              <div className="text-white/90 text-sm uppercase tracking-wide">Farm Connect • Contact Us</div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-white mt-2">Contact Us</h1>
-              <div className="mt-2 text-white/90 text-sm">Home / Pages / <span className="text-white font-semibold">Contact Us</span></div>
+          <div className="relative overflow-hidden rounded-[28px] min-h-[260px] md:min-h-[340px]">
+            <img src={heroImg} alt="Contact hero" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/10" />
+
+            <div className="relative z-10 p-6 md:p-10 lg:p-12 flex h-full flex-col justify-end">
+              <div className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/60 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide w-fit">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-yellow-300" />
+                Contact Us
+              </div>
+              <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">Contact Us</h1>
+              <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
+                <a href="/" className="hover:underline">Home</a>
+                <ChevronRight size={16} />
+                <span className="font-medium">Contact Us</span>
+              </div>
             </div>
           </div>
         </div>
