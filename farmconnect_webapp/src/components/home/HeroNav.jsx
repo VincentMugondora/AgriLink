@@ -57,7 +57,7 @@ const HeroNav = () => {
             <Dot />
             <Link to="/#testimonials" className={linkBase}>Testimonials</Link>
             <Dot />
-            <Link to="/#contact" className={linkBase}>Contact Us</Link>
+            <Link to="/contact" className={linkBase}>Contact</Link>
           </div>
 
           {/* Right actions */}
