@@ -1198,3 +1198,9 @@
 2025-09-04 09:54:55 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 127.651 ms - 323[0m
 2025-09-04 09:54:55 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 6.903 ms - -[0m
 2025-09-04 09:55:57 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
+2025-09-04 10:35:10 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 10:35:10 [[32MINFO[39M]: Database synchronized
+2025-09-04 10:35:10 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 10:36:01 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 10:36:01 [[32MINFO[39M]: Database synchronized
+2025-09-04 10:36:01 [[32MINFO[39M]: Server running in development mode on port 5000

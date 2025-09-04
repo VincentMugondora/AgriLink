@@ -10,6 +10,7 @@ const routes = require('./routes');
 const config = require('./config/config');
 
 const app = express();
+let server; // hoisted so process handlers can access it
 
 // Middleware
 app.use(helmet());
@@ -62,9 +63,22 @@ app.use((err, req, res, next) => {
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
-  logger.error(`Error: ${err.message}`);
-  // Close server & exit process
-  server.close(() => process.exit(1));
+  logger.error(`Unhandled Rejection: ${err.message}`);
+  if (server && typeof server.close === 'function') {
+    server.close(() => process.exit(1));
+  } else {
+    process.exit(1);
+  }
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+  logger.error(`Uncaught Exception: ${err.message}`);
+  if (server && typeof server.close === 'function') {
+    server.close(() => process.exit(1));
+  } else {
+    process.exit(1);
+  }
 });
 
 // Database connection and server start
@@ -80,7 +94,7 @@ const startServer = async () => {
       logger.info('Database synchronized');
     }
 
-    const server = app.listen(config.port, () => {
+    server = app.listen(config.port, () => {
       logger.info(`Server running in ${config.env} mode on port ${config.port}`);
     });
 
