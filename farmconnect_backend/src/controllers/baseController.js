@@ -3,6 +3,14 @@ const { Op } = require('sequelize');
 class BaseController {
   constructor(model) {
     this.model = model;
+
+    // Auto-bind methods so 'this' is preserved when used as Express handlers
+    this.getAll = this.getAll.bind(this);
+    this.getById = this.getById.bind(this);
+    this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
+    this.getIncludes = this.getIncludes.bind(this);
   }
 
   // Get all records with pagination, filtering, and sorting
@@ -133,3 +141,4 @@ class BaseController {
 }
 
 module.exports = BaseController;
+

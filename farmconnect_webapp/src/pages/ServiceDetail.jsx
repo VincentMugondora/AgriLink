@@ -4,6 +4,7 @@ import { ChevronRight, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-reac
 
 import SERVICES from '../data/services'
 import heroImg from '../assets/home/about.webp'
+import SERVICE_DETAILS from '../data/serviceDetails'
 
 const NumberItem = ({ n, title, desc }) => (
   <div className="flex items-start gap-4">
@@ -39,6 +40,23 @@ const ServiceDetail = () => {
   const service = useMemo(() => SERVICES.find(s => s.slug === slug), [slug])
 
   if (!service) return <Navigate to="/services" replace />
+
+  const details = SERVICE_DETAILS[service.slug] ?? {
+    intro: service.desc,
+    numbers: [
+      { title: 'Trusted Service', desc: 'Reliable and farmer-focused delivery.' },
+      { title: 'Expert Support', desc: 'Get help from our team.' },
+      { title: 'Seamless Experience', desc: 'Integrated workflow end-to-end.' },
+    ],
+    sectionTitle: 'Key Points',
+    bulletsLeft: ['Quality-focused', 'Easy to use', 'Secure', 'Scalable'],
+    bulletsRight: ['Mobile-friendly', 'Fast support', 'Best practices', 'Continuous updates'],
+    faqs: [
+      { q: 'How does this service work?', a: 'Open the service and follow the steps shown.' },
+      { q: 'Who can use it?', a: 'Available to buyers, farmers and traders.' },
+      { q: 'Is there a cost?', a: 'Core features are free; fees may apply for transactions.' },
+    ],
+  }
 
   const [openIdx, setOpenIdx] = useState(1)
 
@@ -121,29 +139,27 @@ const ServiceDetail = () => {
             <img src={service.image} alt={service.title} className="w-full rounded-2xl border border-gray-100 object-cover" />
 
             <div>
-              <h3 className="text-2xl font-extrabold text-gray-900">Why Choose Our Services</h3>
-              <p className="mt-2 text-gray-600">We focus on friendly, modern and sustainable techniques, backed by data and expert agronomists to deliver measurable outcomes to farms and agribusinesses.</p>
+              <h3 className="text-2xl font-extrabold text-gray-900">Why Choose {service.title}</h3>
+              <p className="mt-2 text-gray-600">{details.intro}</p>
               <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <NumberItem n={1} title="Schedule Your Experience" desc="Complete end-to-end project planning tailored to farm needs." />
-                <NumberItem n={2} title="Get Professional Advice" desc="Certified agronomists with local knowledge and seasonality in mind." />
-                <NumberItem n={3} title="Meet Our Expert People" desc="Trusted field teams and partners across growing regions." />
+                {details.numbers.map((item, idx) => (
+                  <NumberItem key={idx} n={idx + 1} title={item.title} desc={item.desc} />
+                ))}
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-extrabold text-gray-900">Modern Technique Work Points</h3>
+              <h3 className="text-2xl font-extrabold text-gray-900">{details.sectionTitle}</h3>
               <div className="mt-4 grid sm:grid-cols-2 gap-4">
                 <ul className="space-y-2">
-                  <Bullet>Make ridge deep ploughing program at the first level.</Bullet>
-                  <Bullet>Healthy cover of soil with an A-prospect to excellent.</Bullet>
-                  <Bullet>Keep soil covered and use best of nutrients through layers.</Bullet>
-                  <Bullet>Raise the earth dam; water to benefit plants.</Bullet>
+                  {details.bulletsLeft.map((b, i) => (
+                    <Bullet key={i}>{b}</Bullet>
+                  ))}
                 </ul>
                 <ul className="space-y-2">
-                  <Bullet>Bring in drought, heat, speciality and experience to market.</Bullet>
-                  <Bullet>Dedicated & sustainable services; ongoing integrity.</Bullet>
-                  <Bullet>Deliver clear and consistent farming guidance.</Bullet>
-                  <Bullet>Orcharding dreams through exceptional agriculture.</Bullet>
+                  {details.bulletsRight.map((b, i) => (
+                    <Bullet key={i}>{b}</Bullet>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -151,14 +167,14 @@ const ServiceDetail = () => {
             <div>
               <h3 className="text-2xl font-extrabold text-gray-900">Frequently asked questions</h3>
               <div className="mt-3 rounded-xl border border-gray-200 bg-white">
-                {[1,2,3].map((i) => (
+                {details.faqs.map((f, i) => (
                   <AccordionItem
                     key={i}
-                    idx={i}
-                    title={i === 1 ? 'What is agricultural biotechnology?' : i === 2 ? 'Can the pesticide be applied during rainy season?' : 'What vegetables can I grow in my greenhouse?'}
-                    body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis autem vel eum iusto aut, quia consequuntur magni dolores."
-                    open={openIdx === i}
-                    onToggle={() => setOpenIdx(openIdx === i ? 0 : i)}
+                    idx={i + 1}
+                    title={f.q}
+                    body={f.a}
+                    open={openIdx === i + 1}
+                    onToggle={() => setOpenIdx(openIdx === i + 1 ? 0 : i + 1)}
                   />
                 ))}
               </div>

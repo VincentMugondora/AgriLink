@@ -64,7 +64,7 @@ const ServicesPage = () => {
                   <input
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Services"
+                    placeholder="Search services"
                     className="w-full bg-transparent outline-none text-sm text-gray-700 placeholder:text-gray-400"
                   />
                 </div>
@@ -73,7 +73,7 @@ const ServicesPage = () => {
               <div>
                 <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">Services</h1>
                 <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
-                  <a href="/" className="hover:underline">Home</a>
+                  <Link to="/" className="hover:underline">Home</Link>
                   <ChevronRight size={16} />
                   <span className="font-medium">Services</span>
                 </div>

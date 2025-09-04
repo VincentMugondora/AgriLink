@@ -1189,3 +1189,12 @@
 2025-09-03 17:04:01 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-03 17:04:02 [[32MINFO[39M]: Database synchronized
 2025-09-03 17:04:02 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 09:44:42 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 09:44:43 [[32MINFO[39M]: Database synchronized
+2025-09-04 09:44:43 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 09:53:59 [[32MINFO[39M]: [0mPOST /api/auth/register [32m201[0m 333.866 ms - 592[0m
+2025-09-04 09:53:59 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 1.382 ms - 52[0m
+2025-09-04 09:54:00 [[32MINFO[39M]: [0mGET /api/dashboard/stats [33m404[0m 0.394 ms - 52[0m
+2025-09-04 09:54:55 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 127.651 ms - 323[0m
+2025-09-04 09:54:55 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 6.903 ms - -[0m
+2025-09-04 09:55:57 [[31MERROR[39M]: Error: Cannot read properties of undefined (reading 'model')
