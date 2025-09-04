@@ -1234,3 +1234,39 @@
 2025-09-04 11:13:42 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-04 11:13:42 [[32MINFO[39M]: Database synchronized
 2025-09-04 11:13:42 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 11:15:29 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 242.903 ms - -[0m
+2025-09-04 11:15:58 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 161.057 ms - -[0m
+2025-09-04 11:15:58 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 9.820 ms - -[0m
+2025-09-04 11:16:04 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 16.463 ms - -[0m
+2025-09-04 11:16:04 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 38.530 ms - -[0m
+2025-09-04 11:16:05 [[32MINFO[39M]: [0mGET /api/dashboard/stats [32m200[0m 133.276 ms - 71[0m
+2025-09-04 11:16:16 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 242.358 ms - -[0m
+2025-09-04 11:16:16 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 7.933 ms - -[0m
+2025-09-04 11:16:16 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 26.849 ms - -[0m
+2025-09-04 11:16:21 [[32MINFO[39M]: [0mGET /api/products/my [31m500[0m 247.470 ms - 26[0m
+2025-09-04 11:16:22 [[32MINFO[39M]: [0mGET /api/products/my [31m500[0m 233.351 ms - 26[0m
+2025-09-04 11:16:24 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 14.569 ms - -[0m
+2025-09-04 11:16:28 [[32MINFO[39M]: [0mGET /api/products/my [31m500[0m 241.878 ms - 26[0m
+2025-09-04 11:16:29 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 90.665 ms - -[0m
+2025-09-04 11:27:56 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 205.789 ms - -[0m
+2025-09-04 11:27:56 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 8.832 ms - -[0m
+2025-09-04 11:27:56 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 33.096 ms - -[0m
+2025-09-04 11:28:00 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 249.389 ms - 26[0m
+2025-09-04 11:28:01 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 232.729 ms - 26[0m
+2025-09-04 11:28:02 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 30.008 ms - -[0m
+2025-09-04 11:28:05 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 238.742 ms - 26[0m
+2025-09-04 11:28:07 [[32MINFO[39M]: [0mGET /api/products/new [31m500[0m 232.455 ms - 26[0m
+2025-09-04 11:28:08 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 104.726 ms - -[0m
+2025-09-04 11:28:09 [[32MINFO[39M]: [0mGET /api/products/my [31m500[0m 235.627 ms - 26[0m
+2025-09-04 11:28:10 [[32MINFO[39M]: [0mGET /api/products/my [31m500[0m 241.557 ms - 26[0m
+2025-09-04 11:28:12 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 19.284 ms - -[0m
+2025-09-04 11:28:14 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 6.192 ms - 69[0m
+2025-09-04 11:28:15 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 4.690 ms - 69[0m
+2025-09-04 11:28:17 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 18.948 ms - -[0m
+2025-09-04 11:28:28 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 140.281 ms - -[0m
+2025-09-04 11:28:28 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 5.860 ms - -[0m
+2025-09-04 11:28:28 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 28.546 ms - -[0m
+2025-09-04 11:35:16 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 153.617 ms - -[0m
+2025-09-04 11:35:16 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 7.696 ms - -[0m
+2025-09-04 11:35:17 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 31.449 ms - -[0m
+2025-09-04 11:35:37 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 137.056 ms - -[0m
