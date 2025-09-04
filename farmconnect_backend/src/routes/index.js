@@ -6,6 +6,7 @@ const orderRoutes = require('./orderRoutes');
 const transactionRoutes = require('./transactionRoutes');
 const notificationRoutes = require('./notificationRoutes');
 const priceAlertRoutes = require('./priceAlertRoutes');
+const adminRoutes = require('./adminRoutes');
 const kycRoutes = require('./kycRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
 
@@ -20,6 +21,7 @@ router.use('/notifications', notificationRoutes);
 router.use('/price-alerts', priceAlertRoutes);
 router.use('/kyc', kycRoutes);
 router.use('/dashboard', dashboardRoutes);
+router.use('/admin', adminRoutes);
 
 // Health check endpoint
 router.get('/health', (req, res) => {
