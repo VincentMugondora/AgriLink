@@ -8,6 +8,7 @@ import About from './pages/About'
 import ServicesPage from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
 import Contact from './pages/Contact'
+import Faq from './pages/Faq'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -57,6 +58,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
           <Route path="/register" element={!user ? <Register /> : <Navigate to="/dashboard" />} />
           <Route path="/products" element={<Products />} />

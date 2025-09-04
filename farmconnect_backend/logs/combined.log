@@ -1270,3 +1270,7 @@
 2025-09-04 11:35:16 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 7.696 ms - -[0m
 2025-09-04 11:35:17 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 31.449 ms - -[0m
 2025-09-04 11:35:37 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 137.056 ms - -[0m
+2025-09-04 11:51:22 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 112.540 ms - -[0m
+2025-09-04 11:51:22 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 6.305 ms - -[0m
+2025-09-04 12:03:05 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 195.335 ms - -[0m
+2025-09-04 12:03:05 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 12.119 ms - -[0m

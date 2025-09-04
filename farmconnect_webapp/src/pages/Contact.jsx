@@ -1,6 +1,6 @@
 import React from 'react'
 import { Mail, PhoneCall, MapPin, ArrowRight, ChevronRight } from 'lucide-react'
-import heroImg from '../assets/home/about.webp'
+import heroImg from '/imgs/contact.jpg'
 import leftImg from '../assets/home/advisory.jpg'
 
 const InfoCard = ({ icon: Icon, title, subtitle, children }) => (
