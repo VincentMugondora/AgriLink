@@ -30,10 +30,11 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const response = await axios.get('/api/auth/me')
-      setUser(response.data.user)
+      setUser(response.data)
     } catch (error) {
       localStorage.removeItem('token')
       delete axios.defaults.headers.common['Authorization']
+      setUser(null)
     } finally {
       setLoading(false)
     }
