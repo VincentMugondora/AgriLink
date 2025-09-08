@@ -20,6 +20,8 @@ import Profile from './pages/Profile/Profile'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 import AdminRoute from './components/Auth/AdminRoute'
 import UsersAdminPage from './pages/Admin/Users'
+import DashboardLayout from './components/Layout/DashboardLayout'
+import MyProducts from './pages/Products/MyProducts'
 import "./App.css"
 
 function App() {
@@ -64,9 +66,18 @@ function App() {
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
           <Route path="/register" element={!user ? <Register /> : <Navigate to="/dashboard" />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/my" element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <MyProducts />
+              </DashboardLayout>
+            </ProtectedRoute>
+          } />
           <Route path="/products/new" element={
             <ProtectedRoute>
-              <ProductCreate />
+              <DashboardLayout>
+                <ProductCreate />
+              </DashboardLayout>
             </ProtectedRoute>
           } />
           <Route path="/products/:id" element={<ProductDetail />} />
@@ -74,24 +85,32 @@ function App() {
           {/* Protected Routes */}
           <Route path="/dashboard" element={
             <ProtectedRoute>
-              <Dashboard />
+              <DashboardLayout>
+                <Dashboard />
+              </DashboardLayout>
             </ProtectedRoute>
           } />
           <Route path="/orders" element={
             <ProtectedRoute>
-              <Orders />
+              <DashboardLayout>
+                <Orders />
+              </DashboardLayout>
             </ProtectedRoute>
           } />
           <Route path="/profile" element={
             <ProtectedRoute>
-              <Profile />
+              <DashboardLayout>
+                <Profile />
+              </DashboardLayout>
             </ProtectedRoute>
           } />
 
           {/* Admin Routes */}
           <Route path="/admin/users" element={
             <AdminRoute>
-              <UsersAdminPage />
+              <DashboardLayout>
+                <UsersAdminPage />
+              </DashboardLayout>
             </AdminRoute>
           } />
           

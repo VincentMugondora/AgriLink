@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (context, Sequelize) => {
+    const { queryInterface } = context;
     // Add status enum and moderation columns to Users
     await queryInterface.addColumn('Users', 'status', {
       type: Sequelize.ENUM('active', 'suspended', 'banned'),
@@ -25,7 +26,8 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (context, Sequelize) => {
+    const { queryInterface } = context;
     await queryInterface.removeColumn('Users', 'banReason');
     await queryInterface.removeColumn('Users', 'suspendReason');
     await queryInterface.removeColumn('Users', 'suspendedUntil');
@@ -37,3 +39,4 @@ module.exports = {
     }
   }
 };
+

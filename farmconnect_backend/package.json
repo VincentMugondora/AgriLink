@@ -9,7 +9,8 @@
     "test": "jest",
     "migrate": "node-pg-migrate",
     "migrate:spatial": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20240826-add-spatial-index').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('Spatial index migration completed'); process.exit(0); }).catch(console.error);\"",
-    "migrate:user-moderation": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20250904-add-user-moderation').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('User moderation migration completed'); process.exit(0); }).catch((e) => { console.error(e); process.exit(1); });\""
+    "migrate:user-moderation": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20250904-add-user-moderation').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('User moderation migration completed'); process.exit(0); }).catch((e) => { console.error(e); process.exit(1); });\"",
+    "migrate:products-geometry": "node -e \"require('dotenv').config(); const { sequelize } = require('./src/config/database'); require('./migrations/20250908-alter-products-location-to-geometry').up({ sequelize, queryInterface: sequelize.getQueryInterface() }, require('sequelize')).then(() => { console.log('Products.location geometry migration completed'); process.exit(0); }).catch((e) => { console.error(e); process.exit(1); });\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +21,7 @@
     "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.1",
+    "multer": "^1.4.5-lts.2",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
     "postgis": "^1.0.6",

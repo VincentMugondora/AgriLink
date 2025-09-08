@@ -44,7 +44,8 @@ const ProductDetail = () => {
     defaultValues: {
       quantity: 1,
       deliveryLocation: '',
-      notes: ''
+      notes: '',
+      paymentMethod: 'cash'
     }
   })
 
@@ -70,11 +71,11 @@ const ProductDetail = () => {
   const onSubmit = (data) => {
     const orderData = {
       productId: product.id,
-      sellerId: product.sellerId,
-      quantity: data.quantity,
-      deliveryLocation: data.deliveryLocation,
-      notes: data.notes,
-      totalAmount: (data.quantity * product.pricePerUnit).toFixed(2)
+      quantity: parseFloat(data.quantity),
+      deliveryAddress: data.deliveryLocation,
+      deliveryInstructions: data.notes || '',
+      paymentMethod: data.paymentMethod,
+      buyerId: user.id
     }
     createOrderMutation.mutate(orderData)
   }
@@ -263,7 +264,7 @@ const ProductDetail = () => {
             </div>
 
             {/* Order Section */}
-            {user && user.id !== product.sellerId && (
+            {user && user.role === 'buyer' && user.id !== product.sellerId && (
               <div className="border-t pt-6">
                 {!showOrderForm ? (
                   <button
@@ -302,16 +303,33 @@ const ProductDetail = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Delivery Location
+                        Delivery Address
                       </label>
                       <input
                         type="text"
-                        {...register('deliveryLocation', { required: 'Delivery location is required' })}
+                        {...register('deliveryLocation', { required: 'Delivery address is required' })}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Enter your delivery address"
                       />
                       {errors.deliveryLocation && (
                         <p className="text-red-600 text-sm mt-1">{errors.deliveryLocation.message}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Payment Method</label>
+                      <select
+                        {...register('paymentMethod', { required: 'Payment method is required' })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      >
+                        <option value="ecocash">EcoCash</option>
+                        <option value="onemoney">OneMoney</option>
+                        <option value="zipit">ZIPIT</option>
+                        <option value="bank_transfer">Bank Transfer</option>
+                        <option value="cash">Cash</option>
+                      </select>
+                      {errors.paymentMethod && (
+                        <p className="text-red-600 text-sm mt-1">{errors.paymentMethod.message}</p>
                       )}
                     </div>
 

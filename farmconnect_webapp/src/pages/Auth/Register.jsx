@@ -152,6 +152,7 @@ const Register = () => {
               <option value="farmer">Farmer - I grow and sell produce</option>
               <option value="trader">Trader - I buy and resell produce</option>
               <option value="buyer">Buyer - I purchase produce for consumption</option>
+              <option value="admin">Admin - Platform administrator</option>
             </select>
             {errors.role && (
               <p className="text-red-500 text-sm mt-1">{errors.role.message}</p>

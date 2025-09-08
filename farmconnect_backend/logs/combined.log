@@ -1904,3 +1904,308 @@
 2025-09-04 14:28:44 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-04 14:28:44 [[32MINFO[39M]: Database synchronized
 2025-09-04 14:28:44 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 14:50:16 [[31MERROR[39M]: Registration error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE (\"User\".\"email\" = 'mugondorav1@gmail.com' OR \"User\".\"phone\" = '+263777530322') LIMIT 1;"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE (\"User\".\"email\" = 'mugondorav1@gmail.com' OR \"User\".\"phone\" = '+263777530322') LIMIT 1;"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE (\"User\".\"email\" = 'mugondorav1@gmail.com' OR \"User\".\"phone\" = '+263777530322') LIMIT 1;",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:41:22)"
+}
+2025-09-04 14:50:16 [[32MINFO[39M]: [0mPOST /api/auth/register [31m500[0m 367.900 ms - 26[0m
+2025-09-04 14:51:44 [[32MINFO[39M]: [0mPOST /api/login [33m404[0m 1.991 ms - 52[0m
+2025-09-04 14:52:11 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 14:52:11 [[32MINFO[39M]: [0mPOST /api/auth/login [31m500[0m 411.686 ms - 26[0m
+2025-09-04 19:06:48 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 19:06:49 [[32MINFO[39M]: Database synchronized
+2025-09-04 19:06:49 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 19:07:16 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 19:07:16 [[32MINFO[39M]: [0mPOST /api/auth/login [31m500[0m 419.056 ms - 26[0m
+2025-09-04 19:19:10 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 19:19:10 [[32MINFO[39M]: Database synchronized
+2025-09-04 19:19:22 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 19:19:23 [[32MINFO[39M]: Database synchronized
+2025-09-04 19:19:23 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 19:19:36 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 19:19:36 [[32MINFO[39M]: [0mPOST /api/auth/login [31m500[0m 387.703 ms - 26[0m
+2025-09-04 19:26:27 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-04 19:26:28 [[32MINFO[39M]: Database synchronized
+2025-09-04 19:26:28 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-04 19:26:38 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 19:26:38 [[32MINFO[39M]: [0mPOST /api/auth/login [31m500[0m 272.059 ms - 26[0m
+2025-09-08 08:49:08 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 08:49:08 [[32MINFO[39M]: Database synchronized
+2025-09-08 08:49:08 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 08:54:30 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-08 08:54:31 [[32MINFO[39M]: [0mPOST /api/auth/login [31m500[0m 349.740 ms - 26[0m
+2025-09-08 08:54:52 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-08 08:54:52 [[32MINFO[39M]: [0mPOST /api/auth/login [31m500[0m 814.400 ms - 26[0m
+2025-09-08 09:16:23 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 179.314 ms - 33[0m
+2025-09-08 09:16:30 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 4.556 ms - 33[0m
+2025-09-08 09:16:38 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 4.123 ms - 33[0m
+2025-09-08 09:16:55 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 266.840 ms - 658[0m
+2025-09-08 09:16:55 [[32MINFO[39M]: [0mGET /api/dashboard/stats [32m200[0m 66.605 ms - 71[0m
+2025-09-08 09:18:00 [[32MINFO[39M]: [0mPUT /api/users/change-password [33m404[0m 0.694 ms - 52[0m
+2025-09-08 09:18:48 [[32MINFO[39M]: [0mPUT /api/users/profile [33m404[0m 0.483 ms - 52[0m
+2025-09-08 09:30:32 [[32MINFO[39M]: [0mPOST /api/auth/register [33m400[0m 172.208 ms - 34[0m
+2025-09-08 09:30:40 [[32MINFO[39M]: [0mPOST /api/auth/register [32m201[0m 160.145 ms - 655[0m
+2025-09-08 09:30:40 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 30.445 ms - -[0m
+2025-09-08 09:36:10 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 238.144 ms - -[0m
+2025-09-08 09:44:14 [[32MINFO[39M]: [0mGET /api/orders [32m200[0m 277.993 ms - 71[0m
+2025-09-08 09:44:29 [[32MINFO[39M]: [0mGET /api/admin/users?search=&limit=50 [32m200[0m 245.006 ms - 1609[0m
+2025-09-08 09:44:49 [[32MINFO[39M]: [0mDELETE /api/admin/users/043d7d49-11fe-4f81-9875-e199150562fe [32m200[0m 192.284 ms - 26[0m
+2025-09-08 09:44:49 [[32MINFO[39M]: [0mGET /api/admin/users?search=&limit=50 [32m200[0m 14.903 ms - 1228[0m
+2025-09-08 09:45:52 [[32MINFO[39M]: [0mPOST /api/auth/register [33m400[0m 126.227 ms - 34[0m
+2025-09-08 09:46:01 [[32MINFO[39M]: [0mPOST /api/auth/register [32m201[0m 110.544 ms - 657[0m
+2025-09-08 09:46:02 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 21.529 ms - -[0m
+2025-09-08 09:46:11 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 6.144 ms - 68[0m
+2025-09-08 09:46:12 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 4.662 ms - 68[0m
+2025-09-08 09:46:18 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 17.049 ms - -[0m
+2025-09-08 09:46:21 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [32m200[0m 22.624 ms - 71[0m
+2025-09-08 09:47:02 [[32MINFO[39M]: [0mPOST /api/auth/register [32m201[0m 225.766 ms - 661[0m
+2025-09-08 09:47:02 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 17.143 ms - -[0m
+2025-09-08 09:58:11 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 159.561 ms - 392[0m
+2025-09-08 09:58:11 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 6.310 ms - -[0m
+2025-09-08 10:01:38 [[32MINFO[39M]: [0mPOST /api/products [33m400[0m 416.751 ms - 85[0m
+2025-09-08 10:02:16 [[32MINFO[39M]: [0mPOST /api/products [33m400[0m 376.214 ms - 85[0m
+2025-09-08 10:04:35 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 10:04:35 [[32MINFO[39M]: Database synchronized
+2025-09-08 10:04:35 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 10:05:10 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 10:05:11 [[32MINFO[39M]: Database synchronized
+2025-09-08 10:05:11 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 10:14:48 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 144.990 ms - -[0m
+2025-09-08 10:14:48 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 6.004 ms - -[0m
+2025-09-08 10:21:49 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 10:21:50 [[32MINFO[39M]: Database synchronized
+2025-09-08 10:21:50 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 10:28:33 [[32MINFO[39M]: [0mPOST /api/products [32m201[0m 317.645 ms - 757[0m
+2025-09-08 10:28:33 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [32m200[0m 36.186 ms - 840[0m
+2025-09-08 10:28:39 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 76.302 ms - -[0m
+2025-09-08 10:28:39 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 7.308 ms - -[0m
+2025-09-08 10:28:40 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 25.574 ms - -[0m
+2025-09-08 10:30:39 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 10:30:40 [[32MINFO[39M]: Database synchronized
+2025-09-08 10:30:40 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 10:30:47 [[32MINFO[39M]: [0mGET /api/products/029dd0a9-b080-4efe-9d25-de67fcdd3e6b [32m200[0m 234.522 ms - 769[0m
+2025-09-08 10:30:56 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 22.125 ms - -[0m
+2025-09-08 10:35:09 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 10:35:09 [[32MINFO[39M]: Database synchronized
+2025-09-08 10:35:09 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 10:51:19 [[32MINFO[39M]: [0mGET /api/dashboard/stats [32m200[0m 281.373 ms - 71[0m
+2025-09-08 11:45:27 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 2014.545 ms - 69[0m
+2025-09-08 11:45:28 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 9.243 ms - 69[0m
+2025-09-08 11:45:30 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 73.906 ms - -[0m
+2025-09-08 11:45:34 [[32MINFO[39M]: [0mGET /api/products/seller/9dcb5174-e447-45db-8a75-624352cb3ed8?page=1&limit=10 [32m200[0m 242.677 ms - 771[0m
+2025-09-08 11:45:52 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 556.841 ms - 33[0m
+2025-09-08 11:46:00 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 152.671 ms - 658[0m
+2025-09-08 11:46:00 [[32MINFO[39M]: [0mGET /api/dashboard/stats [32m200[0m 35.296 ms - 71[0m
+2025-09-08 11:46:33 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 471.638 ms - 33[0m
+2025-09-08 11:46:37 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 206.140 ms - 645[0m
+2025-09-08 11:46:37 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 37.781 ms - -[0m
+2025-09-08 11:46:42 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 40.853 ms - 68[0m
+2025-09-08 11:46:43 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 6.535 ms - 68[0m
+2025-09-08 11:46:46 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 74.134 ms - -[0m
+2025-09-08 11:46:51 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 111.869 ms - -[0m
+2025-09-08 11:46:54 [[32MINFO[39M]: [0mGET /api/products/029dd0a9-b080-4efe-9d25-de67fcdd3e6b [36m304[0m 194.148 ms - -[0m
+2025-09-08 11:47:22 [[32MINFO[39M]: [0mPOST /api/orders [33m400[0m 235.609 ms - 45[0m
+2025-09-08 11:47:41 [[32MINFO[39M]: [0mPOST /api/orders [33m400[0m 195.821 ms - 45[0m
+2025-09-08 11:48:05 [[32MINFO[39M]: [0mPOST /api/orders [33m400[0m 344.376 ms - 45[0m
+2025-09-08 11:50:02 [[32MINFO[39M]: [0mGET /api/products/029dd0a9-b080-4efe-9d25-de67fcdd3e6b [36m304[0m 735.371 ms - -[0m
+2025-09-08 11:51:40 [[32MINFO[39M]: [0mPOST /api/orders [31m500[0m 289.727 ms - 104[0m
+2025-09-08 11:52:04 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 11:52:05 [[32MINFO[39M]: Database synchronized
+2025-09-08 11:52:05 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 11:52:09 [[32MINFO[39M]: [0mPOST /api/orders [31m500[0m 190.913 ms - 104[0m
+2025-09-08 11:54:04 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 11:54:05 [[32MINFO[39M]: Database synchronized
+2025-09-08 11:54:05 [[32MINFO[39M]: Server running in development mode on port 5000

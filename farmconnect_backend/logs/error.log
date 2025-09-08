@@ -1562,3 +1562,207 @@
   "parameters": {},
   "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:40:16)"
 }
+2025-09-04 14:50:16 [[31MERROR[39M]: Registration error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE (\"User\".\"email\" = 'mugondorav1@gmail.com' OR \"User\".\"phone\" = '+263777530322') LIMIT 1;"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE (\"User\".\"email\" = 'mugondorav1@gmail.com' OR \"User\".\"phone\" = '+263777530322') LIMIT 1;"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE (\"User\".\"email\" = 'mugondorav1@gmail.com' OR \"User\".\"phone\" = '+263777530322') LIMIT 1;",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async register (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:41:22)"
+}
+2025-09-04 14:52:11 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 19:07:16 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 19:19:10 [[31MERROR[39M]: Uncaught Exception: listen EADDRINUSE: address already in use :::5000
+2025-09-04 19:19:36 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-04 19:26:38 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'johndoe@example.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-08 08:54:30 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}
+2025-09-08 08:54:52 [[31MERROR[39M]: Login error: column "status" does not exist
+{
+  "name": "SequelizeDatabaseError",
+  "parent": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "original": {
+    "length": 107,
+    "name": "error",
+    "severity": "ERROR",
+    "code": "42703",
+    "position": "128",
+    "file": "parse_relation.c",
+    "line": "3721",
+    "routine": "errorMissingColumn",
+    "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';"
+  },
+  "sql": "SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"password\", \"role\", \"isVerified\", \"kycStatus\", \"location\", \"language\", \"status\", \"suspendedUntil\", \"suspendReason\", \"banReason\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" WHERE \"User\".\"email\" = 'vinmugondora@gmail.com';",
+  "parameters": {},
+  "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
+}

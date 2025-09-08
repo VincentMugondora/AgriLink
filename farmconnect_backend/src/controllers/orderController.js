@@ -3,6 +3,16 @@ const { Order, Product, User, Transaction } = require('../models');
 const Joi = require('joi');
 const { Op } = require('sequelize');
 
+// Normalize transaction payment method to match Transaction model enum
+const TX_ALLOWED_METHODS = ['ecocash', 'onemoney', 'zipit', 'bank_transfer', 'wallet', 'other']
+const normalizeTxMethod = (pm) => {
+  if (!pm) return 'other'
+  if (TX_ALLOWED_METHODS.includes(pm)) return pm
+  // Map order-only methods to a safe transaction method
+  if (pm === 'cash') return 'other'
+  return 'other'
+}
+
 // Validation schema for order creation
 const orderSchema = Joi.object({
   productId: Joi.string().uuid().required(),
@@ -194,7 +204,9 @@ class OrderController extends BaseController {
         status: 'pending',
         userId: buyerId,
         orderId: order.id,
-        description: `Payment for Order #${order.id}`
+        paymentMethod: normalizeTxMethod(req.body.paymentMethod),
+        description: `Payment for Order #${order.id}`,
+        metadata: { orderPaymentMethod: req.body.paymentMethod }
       }, { transaction: t });
 
       // Commit transaction
@@ -311,6 +323,7 @@ class OrderController extends BaseController {
             status: 'completed',
             userId: order.sellerId,
             orderId: order.id,
+            paymentMethod: 'wallet',
             description: `Payout for Order #${order.id}`
           }, { transaction: t });
 
@@ -322,6 +335,7 @@ class OrderController extends BaseController {
             status: 'completed',
             userId: order.buyerId,
             orderId: order.id,
+            paymentMethod: 'other',
             description: `Platform fee for Order #${order.id}`
           }, { transaction: t });
         }

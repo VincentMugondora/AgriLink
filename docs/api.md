@@ -52,6 +52,8 @@ Source: `src/routes/authRoutes.js`, `src/controllers/userController.js`
     - 201: `{ message, user, token }` (password excluded)
     - 400: `{ message }` (validation or conflict)
 
+    
+
 - POST `/api/auth/login` [Public]
   - Body (Joi):
     - `email` (email, required)

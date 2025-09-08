@@ -21,6 +21,10 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve uploaded files (must be before mounting /api router catch-alls)
+const uploadsPath = path.join(__dirname, '../uploads');
+app.use('/api/uploads', express.static(uploadsPath));
+
 // Request logging
 if (config.env === 'development') {
   app.use(morgan('dev', { 

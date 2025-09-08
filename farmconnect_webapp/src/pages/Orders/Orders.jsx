@@ -10,13 +10,37 @@ const Orders = () => {
   const [statusFilter, setStatusFilter] = useState('')
 
   const { data: orders, isLoading, error } = useQuery({
-    queryKey: ['orders', { tab: activeTab, status: statusFilter }],
+    queryKey: ['orders', { tab: activeTab, status: statusFilter, role: user?.role, id: user?.id }],
     queryFn: async () => {
       const params = new URLSearchParams()
-      if (activeTab !== 'all') params.append('type', activeTab)
       if (statusFilter) params.append('status', statusFilter)
-      
-      const response = await axios.get(`/api/orders?${params}`)
+
+      // Determine endpoint based on role and selected tab
+      let endpoint = ''
+      if (user?.role === 'admin') {
+        // Admin can access all orders
+        endpoint = `/api/orders` // optional status
+      } else if (user?.role === 'buyer') {
+        // Buyer can view their purchases
+        if (activeTab === 'sales') {
+          // No sales for buyers; return an empty result
+          return { data: [], pagination: { total: 0, page: 1, limit: 10, totalPages: 0 } }
+        }
+        endpoint = `/api/orders/buyer/${user.id}`
+      } else if (user?.role === 'farmer' || user?.role === 'trader') {
+        // Seller can view their sales
+        if (activeTab === 'purchases') {
+          // No purchases for sellers; return an empty result
+          return { data: [], pagination: { total: 0, page: 1, limit: 10, totalPages: 0 } }
+        }
+        endpoint = `/api/orders/seller/${user.id}`
+      } else {
+        // Unknown role -> empty
+        return { data: [], pagination: { total: 0, page: 1, limit: 10, totalPages: 0 } }
+      }
+
+      const url = params.toString() ? `${endpoint}?${params}` : endpoint
+      const response = await axios.get(url)
       return response.data
     }
   })
@@ -25,8 +49,12 @@ const Orders = () => {
     switch (status) {
       case 'pending':
         return <Clock size={20} className="text-yellow-500" />
-      case 'confirmed':
+      case 'accepted':
         return <CheckCircle size={20} className="text-blue-500" />
+      case 'payment_pending':
+        return <Clock size={20} className="text-orange-500" />
+      case 'paid':
+        return <CheckCircle size={20} className="text-green-600" />
       case 'shipped':
         return <Package size={20} className="text-purple-500" />
       case 'delivered':
@@ -42,8 +70,12 @@ const Orders = () => {
     switch (status) {
       case 'pending':
         return 'bg-yellow-100 text-yellow-800'
-      case 'confirmed':
+      case 'accepted':
         return 'bg-blue-100 text-blue-800'
+      case 'payment_pending':
+        return 'bg-orange-100 text-orange-800'
+      case 'paid':
+        return 'bg-green-100 text-green-800'
       case 'shipped':
         return 'bg-purple-100 text-purple-800'
       case 'delivered':
@@ -61,7 +93,7 @@ const Orders = () => {
     { id: 'sales', label: 'My Sales' }
   ]
 
-  const statuses = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled']
+  const statuses = ['pending', 'accepted', 'payment_pending', 'paid', 'shipped', 'delivered', 'cancelled', 'rejected', 'disputed', 'refunded']
 
   if (isLoading) {
     return (
@@ -184,7 +216,7 @@ const Orders = () => {
                       <div>
                         <p className="text-sm font-medium text-gray-700">Total Amount</p>
                         <p className="text-gray-900 font-semibold">
-                          ${order.totalAmount}
+                          ${order.totalPrice}
                         </p>
                       </div>
                       <div>
@@ -199,14 +231,14 @@ const Orders = () => {
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Delivery Location</p>
-                        <p className="text-gray-900">{order.deliveryLocation}</p>
+                        <p className="text-sm font-medium text-gray-700">Delivery Address</p>
+                        <p className="text-gray-900">{order.deliveryAddress}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Expected Delivery</p>
+                        <p className="text-sm font-medium text-gray-700">Estimated Delivery</p>
                         <p className="text-gray-900">
-                          {order.expectedDeliveryDate 
-                            ? new Date(order.expectedDeliveryDate).toLocaleDateString()
+                          {order.estimatedDeliveryDate 
+                            ? new Date(order.estimatedDeliveryDate).toLocaleDateString()
                             : 'TBD'
                           }
                         </p>
@@ -236,7 +268,7 @@ const Orders = () => {
                       </button>
                     )}
                     
-                    {order.status === 'confirmed' && activeTab === 'sales' && (
+                    {order.status === 'paid' && activeTab === 'sales' && (
                       <button className="flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
                         <Package size={16} className="mr-2" />
                         Mark Shipped
