@@ -2209,3 +2209,18 @@
 2025-09-08 11:54:04 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-08 11:54:05 [[32MINFO[39M]: Database synchronized
 2025-09-08 11:54:05 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 11:58:14 [[32MINFO[39M]: [0mPOST /api/orders [32m201[0m 375.844 ms - 1630[0m
+2025-09-08 11:58:14 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 13.947 ms - 68[0m
+2025-09-08 11:58:15 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 4.854 ms - 68[0m
+2025-09-08 11:58:52 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 523.325 ms - 389[0m
+2025-09-08 11:58:52 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 16.736 ms - -[0m
+2025-09-08 11:58:52 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 17.241 ms - 68[0m
+2025-09-08 11:58:54 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 7.523 ms - 68[0m
+2025-09-08 12:01:22 [[32MINFO[39M]: [0mGET /api/orders [33m403[0m 624.190 ms - 68[0m
+2025-09-08 12:01:22 [[32MINFO[39M]: [0mGET /api/orders/buyer/9fe2ad97-cf16-48cf-a096-1e8d1bbb8a3b [32m200[0m 791.553 ms - 1514[0m
+2025-09-08 12:02:35 [[32MINFO[39M]: [0mGET /api/orders/buyer/9fe2ad97-cf16-48cf-a096-1e8d1bbb8a3b [36m304[0m 431.185 ms - -[0m
+2025-09-08 12:02:40 [[32MINFO[39M]: [0mGET /api/orders/buyer/9fe2ad97-cf16-48cf-a096-1e8d1bbb8a3b [36m304[0m 182.495 ms - -[0m
+2025-09-08 12:02:53 [[32MINFO[39M]: [0mGET /api/dashboard/stats [32m200[0m 330.272 ms - 71[0m
+2025-09-08 12:03:08 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [32m200[0m 284.248 ms - 1542[0m
+2025-09-08 12:03:17 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 24.764 ms - -[0m
+2025-09-08 12:03:43 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 377.956 ms - -[0m
