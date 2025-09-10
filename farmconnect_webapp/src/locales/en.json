@@ -7,6 +7,12 @@
     "save": "Save",
     "saving": "Saving...",
     "cancel": "Cancel",
+    "errors": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address"
+    },
     "fields": {
       "firstName": "First Name",
       "lastName": "Last Name",

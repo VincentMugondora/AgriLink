@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import i18n from '../i18n'
 
 const AuthContext = createContext()
 
@@ -31,6 +32,9 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.get('/api/auth/me')
       setUser(response.data)
+      if (response.data?.language) {
+        i18n.changeLanguage(response.data.language)
+      }
     } catch (error) {
       localStorage.removeItem('token')
       delete axios.defaults.headers.common['Authorization']
@@ -52,6 +56,9 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', token)
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
       setUser(user)
+      if (user?.language) {
+        i18n.changeLanguage(user.language)
+      }
       
       toast.success('Login successful!')
       return { success: true }
@@ -86,11 +93,17 @@ export const AuthProvider = ({ children }) => {
     delete axios.defaults.headers.common['Authorization']
     setUser(null)
     toast.success('Logged out successfully')
+    i18n.changeLanguage('en')
   }
 
   const value = {
     user,
-    updateUser: (updated) => setUser(updated),
+    updateUser: (updated) => {
+      setUser(updated)
+      if (updated?.language) {
+        i18n.changeLanguage(updated.language)
+      }
+    },
     login,
     register,
     logout,

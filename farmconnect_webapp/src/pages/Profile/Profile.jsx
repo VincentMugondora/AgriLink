@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { User, Mail, Phone, MapPin, Edit3, Save, X, Eye, EyeOff, Globe } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Profile = () => {
   const { user, updateUser } = useAuth()
@@ -13,6 +14,7 @@ const Profile = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false)
   const [showNewPassword, setShowNewPassword] = useState(false)
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
 
   const {
     register,
@@ -95,10 +97,10 @@ const Profile = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Profile Settings 👤
+            {t('profile.title')}
           </h1>
           <p className="text-gray-600 text-lg">
-            Manage your account information and preferences
+            {t('profile.subtitle')}
           </p>
         </div>
 
@@ -108,7 +110,7 @@ const Profile = () => {
             <div className="bg-white rounded-lg shadow-md p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Personal Information
+                  {t('profile.personalInfo')}
                 </h2>
                 {!isEditing ? (
                   <button
@@ -116,7 +118,7 @@ const Profile = () => {
                     className="flex items-center px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
                   >
                     <Edit3 size={16} className="mr-2" />
-                    Edit Profile
+                    {t('profile.editProfile')}
                   </button>
                 ) : (
                   <div className="flex space-x-2">
@@ -126,14 +128,14 @@ const Profile = () => {
                       className="flex items-center px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors disabled:opacity-50"
                     >
                       <Save size={16} className="mr-2" />
-                      {isSubmitting ? 'Saving...' : 'Save'}
+                      {isSubmitting ? t('profile.saving') : t('profile.save')}
                     </button>
                     <button
                       onClick={handleCancelEdit}
                       className="flex items-center px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
                     >
                       <X size={16} className="mr-2" />
-                      Cancel
+                      {t('profile.cancel')}
                     </button>
                   </div>
                 )}
@@ -143,11 +145,11 @@ const Profile = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name
+                      {t('profile.fields.firstName')}
                     </label>
                     <input
                       type="text"
-                      {...register('firstName', { required: 'First name is required' })}
+                      {...register('firstName', { required: t('profile.errors.firstName') })}
                       disabled={!isEditing}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-50"
                     />
@@ -158,11 +160,11 @@ const Profile = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Last Name
+                      {t('profile.fields.lastName')}
                     </label>
                     <input
                       type="text"
-                      {...register('lastName', { required: 'Last name is required' })}
+                      {...register('lastName', { required: t('profile.errors.lastName') })}
                       disabled={!isEditing}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-50"
                     />
@@ -174,7 +176,7 @@ const Profile = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
+                    {t('profile.fields.email')}
                   </label>
                   <input
                     type="email"
@@ -195,7 +197,7 @@ const Profile = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
+                    {t('profile.fields.phone')}
                   </label>
                   <input
                     type="tel"
@@ -207,22 +209,22 @@ const Profile = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Language
+                    {t('profile.fields.language')}
                   </label>
                   <select
                     {...register('language')}
                     disabled={!isEditing}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-50 bg-white"
                   >
-                    <option value="en">English</option>
-                    <option value="sn">Shona</option>
-                    <option value="nd">Ndebele</option>
+                    <option value="en">{t('languages.en')}</option>
+                    <option value="sn">{t('languages.sn')}</option>
+                    <option value="nd">{t('languages.nd')}</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Address
+                    {t('profile.fields.address')}
                   </label>
                   <input
                     type="text"
@@ -235,7 +237,7 @@ const Profile = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      City
+                      {t('profile.fields.city')}
                     </label>
                     <input
                       type="text"
@@ -247,7 +249,7 @@ const Profile = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      State
+                      {t('profile.fields.state')}
                     </label>
                     <input
                       type="text"
@@ -259,7 +261,7 @@ const Profile = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      ZIP Code
+                      {t('profile.fields.zipCode')}
                     </label>
                     <input
                       type="text"
@@ -274,7 +276,7 @@ const Profile = () => {
                   <>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Business Name
+                        {t('profile.fields.businessName')}
                       </label>
                       <input
                         type="text"
@@ -286,7 +288,7 @@ const Profile = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Business Type
+                        {t('profile.fields.businessType')}
                       </label>
                       <input
                         type="text"
