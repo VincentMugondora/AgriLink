@@ -2272,3 +2272,6 @@
 2025-09-10 10:13:43 [[32MINFO[39M]: [0mGET /api/orders/seller/9227daa8-4eb8-4e53-9df7-1fdf6b219b51 [32m200[0m 956.017 ms - 71[0m
 2025-09-10 10:13:50 [[32MINFO[39M]: [0mGET /api/orders/seller/9227daa8-4eb8-4e53-9df7-1fdf6b219b51 [36m304[0m 189.834 ms - -[0m
 2025-09-10 10:13:58 [[32MINFO[39M]: [0mGET /api/products/seller/9227daa8-4eb8-4e53-9df7-1fdf6b219b51?page=1&limit=10 [32m200[0m 174.302 ms - 71[0m
+2025-09-10 10:22:43 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-10 10:22:43 [[32MINFO[39M]: Database synchronized
+2025-09-10 10:22:43 [[32MINFO[39M]: Server running in development mode on port 5000

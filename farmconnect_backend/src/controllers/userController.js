@@ -22,6 +22,21 @@ const loginSchema = Joi.object({
   password: Joi.string().required(),
 });
 
+// Validation schema for profile update (at least one field required)
+const updateProfileSchema = Joi.object({
+  firstName: Joi.string(),
+  lastName: Joi.string(),
+  email: Joi.string().email(),
+  phone: Joi.string(),
+  language: Joi.string().valid('en', 'sn', 'nd'),
+}).min(1);
+
+// Validation schema for password change
+const changePasswordSchema = Joi.object({
+  currentPassword: Joi.string().required(),
+  newPassword: Joi.string().min(6).required(),
+});
+
 /**
  * @desc    Register a new user
  * @route   POST /api/auth/register
@@ -181,8 +196,104 @@ const getMe = async (req, res) => {
   }
 };
 
+/**
+ * @desc    Update current user profile
+ * @route   PUT /api/users/profile
+ * @access  Private
+ */
+const updateProfile = async (req, res) => {
+  try {
+    const { error } = updateProfileSchema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
+    const user = await User.findByPk(req.user.id);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    const { email, phone } = req.body;
+
+    // Check for duplicate email/phone if being changed
+    const orConditions = [];
+    if (email && email !== user.email) orConditions.push({ email });
+    if (phone && phone !== user.phone) orConditions.push({ phone });
+
+    if (orConditions.length > 0) {
+      const existing = await User.findOne({
+        where: {
+          [Op.and]: [
+            { id: { [Op.ne]: user.id } },
+            { [Op.or]: orConditions },
+          ],
+        },
+      });
+      if (existing) {
+        const conflictField = existing.email === email ? 'email' : (existing.phone === phone ? 'phone' : 'user');
+        const message = conflictField === 'email' ? 'Email already in use' : (conflictField === 'phone' ? 'Phone already in use' : 'User already exists');
+        return res.status(400).json({ message });
+      }
+    }
+
+    const allowed = ['firstName', 'lastName', 'email', 'phone', 'language'];
+    for (const key of allowed) {
+      if (req.body[key] !== undefined) {
+        user[key] = req.body[key];
+      }
+    }
+
+    await user.save();
+
+    const userResponse = user.toJSON();
+    delete userResponse.password;
+
+    return res.json({ message: 'Profile updated successfully', user: userResponse });
+  } catch (error) {
+    logger.error('Update profile error:', error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      const field = error.errors && error.errors[0] && error.errors[0].path;
+      const message = field === 'email' ? 'Email already in use' : (field === 'phone' ? 'Phone already in use' : 'User already exists');
+      return res.status(400).json({ message });
+    }
+    return res.status(500).json({ message: 'Server error' });
+  }
+};
+
+/**
+ * @desc    Change current user password
+ * @route   PUT /api/users/change-password
+ * @access  Private
+ */
+const changePassword = async (req, res) => {
+  try {
+    const { error } = changePasswordSchema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
+    const { currentPassword, newPassword } = req.body;
+
+    const user = await User.findByPk(req.user.id);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    const isMatch = await user.validPassword(currentPassword);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Current password is incorrect' });
+    }
+
+    user.password = newPassword; // Will be hashed by beforeUpdate hook
+    await user.save();
+
+    return res.json({ message: 'Password updated successfully' });
+  } catch (error) {
+    logger.error('Change password error:', error);
+    return res.status(500).json({ message: 'Server error' });
+  }
+};
+
 module.exports = {
   register,
   login,
   getMe,
+  updateProfile,
+  changePassword,
 };
