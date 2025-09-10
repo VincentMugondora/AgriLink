@@ -45,20 +45,30 @@ const config = {
 
 const dbConfig = config[env];
 
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  {
-    host: dbConfig.host,
-    port: dbConfig.port,
-    dialect: dbConfig.dialect,
-    logging: dbConfig.logging,
-    ...(dbConfig.pool && { pool: dbConfig.pool }),
-    ...(dbConfig.retry && { retry: dbConfig.retry }),
-    ...(env === 'production' && dbConfig.dialectOptions && { dialectOptions: dbConfig.dialectOptions })
-  }
-);
+let sequelize;
+// Prefer DATABASE_URL (or configured env var) only when it is actually defined; otherwise fall back
+const connectionUri = dbConfig.use_env_variable ? process.env[dbConfig.use_env_variable] : null;
+if (connectionUri && typeof connectionUri === 'string' && connectionUri.trim().length > 0) {
+  sequelize = new Sequelize(connectionUri, {
+    dialect: dbConfig.dialect || 'postgres',
+    logging: false,
+    ...(dbConfig.dialectOptions && { dialectOptions: dbConfig.dialectOptions })
+  });
+} else {
+  sequelize = new Sequelize(
+    dbConfig.database,
+    dbConfig.username,
+    dbConfig.password,
+    {
+      host: dbConfig.host,
+      port: dbConfig.port,
+      dialect: dbConfig.dialect,
+      logging: dbConfig.logging,
+      ...(dbConfig.pool && { pool: dbConfig.pool }),
+      ...(dbConfig.retry && { retry: dbConfig.retry })
+    }
+  );
+}
 module.exports = {
   sequelize,
   Sequelize,

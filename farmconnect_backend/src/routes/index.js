@@ -10,6 +10,7 @@ const adminRoutes = require('./adminRoutes');
 const kycRoutes = require('./kycRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
 const uploadRoutes = require('./uploadRoutes');
+const { sequelize } = require('../config/database');
 
 // Authentication routes
 router.use('/auth', authRoutes);
@@ -25,9 +26,16 @@ router.use('/dashboard', dashboardRoutes);
 router.use('/admin', adminRoutes);
 router.use('/uploads', uploadRoutes);
 
-// Health check endpoint
-router.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date() });
+// Health check endpoint (DB + PostGIS)
+router.get('/health', async (req, res) => {
+  try {
+    await sequelize.authenticate();
+    const [rows] = await sequelize.query("SELECT extname FROM pg_extension WHERE extname='postgis'");
+    const postgis = Array.isArray(rows) && rows.length > 0;
+    res.json({ status: 'ok', db: 'up', postgis, timestamp: new Date() });
+  } catch (err) {
+    res.status(500).json({ status: 'error', db: 'down', message: err.message, timestamp: new Date() });
+  }
 });
 
 // 404 handler for API routes (within this router scope)

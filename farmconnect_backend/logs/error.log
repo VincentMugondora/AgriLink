@@ -1766,3 +1766,26 @@
   "parameters": {},
   "stack": "Error\n    at Query.run (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\query.js:50:25)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n    at async PostgresQueryInterface.select (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:407:12)\n    at async User.findAll (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1140:21)\n    at async User.findOne (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\model.js:1240:12)\n    at async login (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\src\\controllers\\userController.js:108:18)"
 }
+2025-09-10 10:10:13 [[31MERROR[39M]: Unable to connect to the database: password authentication failed for user "postgres"
+{
+  "name": "SequelizeConnectionError",
+  "parent": {
+    "length": 104,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "28P01",
+    "file": "auth.c",
+    "line": "332",
+    "routine": "auth_failed"
+  },
+  "original": {
+    "length": 104,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "28P01",
+    "file": "auth.c",
+    "line": "332",
+    "routine": "auth_failed"
+  },
+  "stack": "SequelizeConnectionError: password authentication failed for user \"postgres\"\n    at Client._connectionCallback (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\connection-manager.js:145:24)\n    at Client._handleErrorWhileConnecting (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\client.js:336:19)\n    at Client._handleErrorMessage (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\client.js:356:19)\n    at Connection.emit (node:events:518:28)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\connection.js:116:12\n    at Parser.parse (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg-protocol\\dist\\parser.js:36:17)\n    at Socket.<anonymous> (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg-protocol\\dist\\index.js:11:42)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)"
+}

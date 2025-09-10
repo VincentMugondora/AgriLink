@@ -2224,3 +2224,51 @@
 2025-09-08 12:03:08 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [32m200[0m 284.248 ms - 1542[0m
 2025-09-08 12:03:17 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 24.764 ms - -[0m
 2025-09-08 12:03:43 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 377.956 ms - -[0m
+2025-09-08 12:50:33 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 12:50:33 [[32MINFO[39M]: Database synchronized
+2025-09-08 12:50:33 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 12:52:43 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 12:52:43 [[32MINFO[39M]: Database synchronized
+2025-09-08 12:52:43 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 13:20:23 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 13:20:24 [[32MINFO[39M]: Database synchronized
+2025-09-08 13:20:24 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 13:31:09 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 13:31:09 [[32MINFO[39M]: Database synchronized
+2025-09-08 13:31:09 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-08 14:07:44 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-08 14:07:45 [[32MINFO[39M]: Database synchronized
+2025-09-08 14:07:45 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-10 10:10:13 [[31MERROR[39M]: Unable to connect to the database: password authentication failed for user "postgres"
+{
+  "name": "SequelizeConnectionError",
+  "parent": {
+    "length": 104,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "28P01",
+    "file": "auth.c",
+    "line": "332",
+    "routine": "auth_failed"
+  },
+  "original": {
+    "length": 104,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "28P01",
+    "file": "auth.c",
+    "line": "332",
+    "routine": "auth_failed"
+  },
+  "stack": "SequelizeConnectionError: password authentication failed for user \"postgres\"\n    at Client._connectionCallback (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\sequelize\\lib\\dialects\\postgres\\connection-manager.js:145:24)\n    at Client._handleErrorWhileConnecting (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\client.js:336:19)\n    at Client._handleErrorMessage (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\client.js:356:19)\n    at Connection.emit (node:events:518:28)\n    at C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg\\lib\\connection.js:116:12\n    at Parser.parse (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg-protocol\\dist\\parser.js:36:17)\n    at Socket.<anonymous> (C:\\Users\\vinmu\\OneDrive\\Desktop\\Farm_Connect\\farmconnect_backend\\node_modules\\pg-protocol\\dist\\index.js:11:42)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)"
+}
+2025-09-10 10:10:57 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-10 10:10:57 [[32MINFO[39M]: Database synchronized
+2025-09-10 10:10:57 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-10 10:11:15 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 896.254 ms - 33[0m
+2025-09-10 10:11:21 [[32MINFO[39M]: [0mPOST /api/auth/login [33m400[0m 279.107 ms - 33[0m
+2025-09-10 10:11:29 [[32MINFO[39M]: [0mPOST /api/auth/login [32m200[0m 287.015 ms - 658[0m
+2025-09-10 10:11:30 [[32MINFO[39M]: [0mGET /api/dashboard/stats [32m200[0m 158.501 ms - 71[0m
+2025-09-10 10:13:43 [[32MINFO[39M]: [0mGET /api/orders/seller/9227daa8-4eb8-4e53-9df7-1fdf6b219b51 [32m200[0m 956.017 ms - 71[0m
+2025-09-10 10:13:50 [[32MINFO[39M]: [0mGET /api/orders/seller/9227daa8-4eb8-4e53-9df7-1fdf6b219b51 [36m304[0m 189.834 ms - -[0m
+2025-09-10 10:13:58 [[32MINFO[39M]: [0mGET /api/products/seller/9227daa8-4eb8-4e53-9df7-1fdf6b219b51?page=1&limit=10 [32m200[0m 174.302 ms - 71[0m
