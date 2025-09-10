@@ -197,10 +197,34 @@ export default HeroNav
 const UserMenu = ({ user, onLogout }) => {
   const [open, setOpen] = useState(false)
   const { t } = useTranslation()
+  const btnRef = useRef(null)
+  const menuRef = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    const onClick = (e) => {
+      const target = e.target
+      if (
+        menuRef.current && !menuRef.current.contains(target) &&
+        btnRef.current && !btnRef.current.contains(target)
+      ) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('touchstart', onClick)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('touchstart', onClick)
+    }
+  }, [open])
   const initials = (user?.firstName?.[0] || user?.name?.[0] || 'U').toUpperCase()
   return (
     <div className="relative">
       <button
+        ref={btnRef}
         onClick={() => setOpen(v => !v)}
         className="inline-flex items-center gap-2 pl-2 pr-2 md:pr-3 py-1.5 rounded-full bg-white/85 text-gray-900 hover:bg-white border border-white/70"
       >
@@ -209,7 +233,7 @@ const UserMenu = ({ user, onLogout }) => {
         <ChevronDown size={16} />
       </button>
       {open && (
-        <div className="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-lg border border-gray-100 overflow-hidden z-50">
+        <div ref={menuRef} className="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-lg border border-gray-100 overflow-hidden z-50">
           <Link to="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.dashboard')}</Link>
           <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.profile')}</Link>
           <Link to="/profile#settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.settings')}</Link>
