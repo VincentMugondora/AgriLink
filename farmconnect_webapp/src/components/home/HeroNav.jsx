@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Phone, Search, ChevronDown, Leaf } from 'lucide-react'
+import { Phone, Search, ChevronDown, Leaf, Menu, X } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 import { useTranslation } from 'react-i18next'
 
 const HeroNav = () => {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const location = useLocation()
   useEffect(() => {
@@ -18,6 +19,11 @@ const HeroNav = () => {
       setScrolled(true)
       return () => {}
     }
+  }, [location.pathname])
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileOpen(false)
   }, [location.pathname])
 
   const shell = scrolled
@@ -82,6 +88,17 @@ const HeroNav = () => {
               <Search size={16} />
             </button>
 
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileOpen(v => !v)}
+              className="inline-flex md:hidden h-9 w-9 items-center justify-center rounded-full bg-white/85 text-gray-900 hover:bg-white transition"
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileOpen}
+              aria-controls="hero-mobile-menu"
+            >
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+
             {/* Auth actions */}
             {!loading && !user && (
               <div className="hidden sm:flex items-center gap-2">
@@ -95,12 +112,50 @@ const HeroNav = () => {
             )}
 
             {!loading && user && (
-              <UserMenu user={user} onLogout={logout} />
+              <div className="hidden sm:block">
+                <UserMenu user={user} onLogout={logout} />
+              </div>
             )}
           </div>
         </div>
 
-        {/* CTA removed as requested */}
+        {/* Mobile menu dropdown */}
+        {mobileOpen && (
+          <div
+            id="hero-mobile-menu"
+            className={`md:hidden mt-2 rounded-2xl border ${scrolled ? 'border-white/60 bg-white/95' : 'border-white/40 bg-white/85'} backdrop-blur-xl shadow-lg p-3`}
+          >
+            <div className="flex flex-col divide-y divide-gray-200/60">
+              <div className="py-1">
+                <Link to="/" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.home')}</Link>
+                <Link to="/products" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.marketplace')}</Link>
+                <Link to="/services" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.services')}</Link>
+                <Link to="/about" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.about')}</Link>
+                <Link to="/contact" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.contact')}</Link>
+              </div>
+              <div className="py-1">
+                {!loading && !user && (
+                  <div className="flex flex-col">
+                    <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.login')}</Link>
+                    <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.register')}</Link>
+                  </div>
+                )}
+                {!loading && user && (
+                  <div className="flex flex-col">
+                    <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.dashboard')}</Link>
+                    <Link to="/orders" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.orders')}</Link>
+                    <Link to="/profile" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.profile')}</Link>
+                    {user?.role === 'admin' && (
+                      <Link to="/admin/users" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.adminUsers')}</Link>
+                    )}
+                    <button onClick={() => { setMobileOpen(false); logout() }} className="text-left block w-full px-3 py-2 rounded-md text-red-600 hover:bg-red-50">{t('nav.auth.logout')}</button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   )
@@ -111,6 +166,7 @@ export default HeroNav
 // Small user menu component
 const UserMenu = ({ user, onLogout }) => {
   const [open, setOpen] = useState(false)
+  const { t } = useTranslation()
   const initials = (user?.firstName?.[0] || user?.name?.[0] || 'U').toUpperCase()
   return (
     <div className="relative">
