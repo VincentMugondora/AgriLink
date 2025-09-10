@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight, ArrowUpRight, Search } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 // Assets
 import heroImg from '../assets/home/about.webp'
@@ -37,6 +38,7 @@ const ServiceCard = ({ s }) => (
 
 const ServicesPage = () => {
   const [query, setQuery] = useState('')
+  const { t } = useTranslation()
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     if (!q) return SERVICES
@@ -64,18 +66,18 @@ const ServicesPage = () => {
                   <input
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search services"
+                    placeholder={t('servicesPage.searchPlaceholder')}
                     className="w-full bg-transparent outline-none text-sm text-gray-700 placeholder:text-gray-400"
                   />
                 </div>
               </div>
 
               <div>
-                <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">Services</h1>
+                <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">{t('servicesPage.title')}</h1>
                 <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
-                  <Link to="/" className="hover:underline">Home</Link>
+                  <Link to="/" className="hover:underline">{t('breadcrumbs.home')}</Link>
                   <ChevronRight size={16} />
-                  <span className="font-medium">Services</span>
+                  <span className="font-medium">{t('servicesPage.title')}</span>
                 </div>
               </div>
             </div>

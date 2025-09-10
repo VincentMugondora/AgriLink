@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../contexts/AuthContext'
 import { Eye, EyeOff } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const { t } = useTranslation()
   
   const {
     register,
@@ -34,10 +36,10 @@ const Login = () => {
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Welcome Back
+            {t('auth.login.title')}
           </h1>
           <p className="text-gray-600">
-            Sign in to your Farm Connect account
+            {t('auth.login.subtitle')}
           </p>
         </div>
 
@@ -50,19 +52,19 @@ const Login = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address
+              {t('auth.login.emailLabel')}
             </label>
             <input
               type="email"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               {...register('email', {
-                required: 'Email is required',
+                required: t('auth.login.emailRequired'),
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Invalid email address'
+                  message: t('auth.login.emailInvalid')
                 }
               })}
-              placeholder="Enter your email"
+              placeholder={t('auth.login.emailPlaceholder')}
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -71,16 +73,16 @@ const Login = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Password
+              {t('auth.login.passwordLabel')}
             </label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 {...register('password', {
-                  required: 'Password is required'
+                  required: t('auth.login.passwordRequired')
                 })}
-                placeholder="Enter your password"
+                placeholder={t('auth.login.passwordPlaceholder')}
               />
               <button
                 type="button"
@@ -100,15 +102,15 @@ const Login = () => {
             disabled={isLoading}
             className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {isLoading ? 'Signing In...' : 'Sign In'}
+            {isLoading ? t('auth.login.submitting') : t('auth.login.submit')}
           </button>
         </form>
 
         <div className="mt-6 pt-6 border-t border-gray-200 text-center">
           <p className="text-gray-600">
-            Don't have an account?{' '}
+            {t('auth.login.noAccount')}{' '}
             <Link to="/register" className="text-green-500 hover:text-green-600 font-medium">
-              Sign up here
+              {t('auth.login.signupHere')}
             </Link>
           </p>
         </div>

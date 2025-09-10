@@ -5,46 +5,18 @@ import img2 from '../../assets/home/delivery.jpg'
 import img3 from '../../assets/home/inputs.jpg'
 import img4 from '../../assets/home/advisory.jpg'
 import img5 from '../../assets/home/diagnostics.jpg'
+import { useTranslation } from 'react-i18next'
 
 const services = [
-  {
-    id: 1,
-    tag: 'Marketplace',
-    title: 'Produce Marketplace',
-    desc: 'Trade fresh produce directly on Farm Connect. Verified listings, fair pricing, and secure checkout.',
-    image: img1,
-  },
-  {
-    id: 2,
-    tag: 'Logistics',
-    title: 'Logistics & Delivery',
-    desc: 'Cold-chain coordination and reliable last-mile delivery from farm to buyer.',
-    image: img2,
-  },
-  {
-    id: 3,
-    tag: 'Inputs & Advisory',
-    title: 'Farm Inputs & Advisory',
-    desc: 'Fertilizer, seeds, and equipment—plus agronomy support to improve yield and quality.',
-    image: img3,
-  },
-  {
-    id: 4,
-    tag: 'Advisory',
-    title: 'Location-based Advisory',
-    desc: 'Personalized crop plans based on your location, weather, and soil data.',
-    image: img4,
-  },
-  {
-    id: 5,
-    tag: 'AI Diagnostics',
-    title: 'Crop Disease Detection',
-    desc: 'Upload leaf photos to detect diseases and get treatment recommendations.',
-    image: img5,
-  },
+  { id: 1, key: 'marketplace', image: img1 },
+  { id: 2, key: 'logistics', image: img2 },
+  { id: 3, key: 'inputs', image: img3 },
+  { id: 4, key: 'advisory', image: img4 },
+  { id: 5, key: 'aiDiagnostics', image: img5 },
 ]
 
 const Services = () => {
+  const { t } = useTranslation()
   const trackRef = useRef(null)
   const slides = [...services, ...services, ...services]
 
@@ -139,9 +111,9 @@ const Services = () => {
             <div>
               <span className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/40 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#5F8F52]" />
-                Our Services
+                {t('homeServices.pill')}
               </span>
-              <h2 className="text-white text-2xl md:text-4xl font-extrabold mt-3">Best Agriculture Services</h2>
+              <h2 className="text-white text-2xl md:text-4xl font-extrabold mt-3">{t('homeServices.title')}</h2>
             </div>
 
             <div className="flex items-center gap-2">
@@ -162,15 +134,15 @@ const Services = () => {
           >
             {slides.map((s, i) => (
               <div key={`${s.id}-${i}`} className="relative bg-white rounded-[24px] shadow-lg hover:shadow-xl transition-shadow p-4 md:p-5 shrink-0 snap-start basis-[85%] sm:basis-[60%] lg:basis-[32%]">
-                <img src={s.image} alt={s.title} className="w-full aspect-[4/3] object-cover rounded-[22px]" />
+                <img src={s.image} alt={t(`homeServices.items.${s.key}.title`)} className="w-full aspect-[4/3] object-cover rounded-[22px]" />
 
                 <div className="mt-4">
                   <div className="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 flex items-center gap-2">
                     <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#E8C651]" />
-                    <span>{s.tag}</span>
+                    <span>{t(`homeServices.items.${s.key}.tag`)}</span>
                   </div>
-                  <h3 className="mt-1 text-lg md:text-xl font-semibold text-gray-900">{s.title}</h3>
-                  <p className="mt-1 text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+                  <h3 className="mt-1 text-lg md:text-xl font-semibold text-gray-900">{t(`homeServices.items.${s.key}.title`)}</h3>
+                  <p className="mt-1 text-sm text-gray-600 leading-relaxed">{t(`homeServices.items.${s.key}.desc`)}</p>
                 </div>
 
                 {/* Yellow FAB */}

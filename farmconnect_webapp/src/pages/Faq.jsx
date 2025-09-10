@@ -1,29 +1,33 @@
 import React, { useState } from 'react'
 import { ChevronDown, ChevronRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 // Use the same hero styling as About/Contact for consistency
-const Hero = () => (
-  <section className="pt-2">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="relative overflow-hidden rounded-[28px] min-h-[260px] md:min-h-[340px]">
-        <img src="/imgs/contact.jpg" alt="FAQ hero" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/10" />
-        <div className="relative z-10 p-6 md:p-10 lg:p-12 flex h-full flex-col justify-end">
-          <div className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/60 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide w-fit">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-yellow-300" />
-            FAQ
-          </div>
-          <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">Faq</h1>
-          <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
-            <a href="/" className="hover:underline">Home</a>
-            <ChevronRight size={16} />
-            <span className="font-medium">Faq</span>
+const Hero = () => {
+  const { t } = useTranslation()
+  return (
+    <section className="pt-2">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="relative overflow-hidden rounded-[28px] min-h-[260px] md:min-h-[340px]">
+          <img src="/imgs/contact.jpg" alt="FAQ hero" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/10" />
+          <div className="relative z-10 p-6 md:p-10 lg:p-12 flex h-full flex-col justify-end">
+            <div className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/60 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide w-fit">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-yellow-300" />
+              {t('faq.badge')}
+            </div>
+            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">{t('faq.title')}</h1>
+            <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
+              <a href="/" className="hover:underline">{t('breadcrumbs.home')}</a>
+              <ChevronRight size={16} />
+              <span className="font-medium">{t('faq.title')}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 const Item = ({ idx, title, active, onToggle }) => (
   <button onClick={onToggle} className={`w-full text-left rounded-xl border transition-all ${active ? 'bg-[#5F8F52] text-white border-[#5F8F52]' : 'bg-white text-gray-900 border-gray-200'} px-4 py-3 flex items-center justify-between`}> 
@@ -100,6 +104,7 @@ const HappyFaq = ({ items }) => {
 }
 
 const Faq = () => {
+  const { t } = useTranslation()
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.'
 
   const general = [
@@ -130,8 +135,8 @@ const Faq = () => {
       <section className="py-10 md:py-14 bg-[#FBFBF7]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-10">
-            <ColumnFaq tag="Most Ask" title="General Questions" items={general} />
-            <ColumnFaq tag="People Know" title="Other Questions" items={other} />
+            <ColumnFaq tag={t('faq.col1Tag')} title={t('faq.col1Title')} items={general} />
+            <ColumnFaq tag={t('faq.col2Tag')} title={t('faq.col2Title')} items={other} />
           </div>
         </div>
       </section>
@@ -139,7 +144,7 @@ const Faq = () => {
       {/* Happy to answer */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">Happy to Answer All Your Questions</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">{t('faq.happyTitle')}</h2>
           <HappyFaq items={happy} />
         </div>
       </section>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Phone, Search, ChevronDown, Leaf } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
+import { useTranslation } from 'react-i18next'
 
 const HeroNav = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -31,6 +32,7 @@ const HeroNav = () => {
   )
 
   const { user, logout, loading } = useAuth()
+  const { t } = useTranslation()
 
   return (
     <div className="fixed top-4 left-0 right-0 z-40 pointer-events-none">
@@ -43,24 +45,24 @@ const HeroNav = () => {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-400 text-gray-900">
               <Leaf size={18} />
             </span>
-            <span className="signika text-gray-900 font-bold text-lg md:text-xl">Farm Connect</span>
+            <span className="signika text-gray-900 font-bold text-lg md:text-xl">{t('nav.brand')}</span>
           </Link>
 
           {/* Center menu */}
           <div className="hidden md:flex items-center">
-            <Link to="/" className={linkBase}>Home</Link>
+            <Link to="/" className={linkBase}>{t('nav.links.home')}</Link>
             <Dot />
-            <Link to="/products" className={linkBase}>Marketplace</Link>
+            <Link to="/products" className={linkBase}>{t('nav.links.marketplace')}</Link>
             <Dot />
-            <Link to="/services" className={linkBase}>Services</Link>
+            <Link to="/services" className={linkBase}>{t('nav.links.services')}</Link>
             <Dot />
-            <Link to="/about" className={linkBase}>About</Link>
+            <Link to="/about" className={linkBase}>{t('nav.links.about')}</Link>
             {/* <Dot />
             <Link to="/#portfolio" className={linkBase}>Featured</Link>
             <Dot /> */}
             {/* <Link to="/#testimonials" className={linkBase}>Testimonials</Link> */}
             <Dot />
-            <Link to="/contact" className={linkBase}>Contact</Link>
+            <Link to="/contact" className={linkBase}>{t('nav.links.contact')}</Link>
           </div>
 
           {/* Right actions */}
@@ -68,7 +70,7 @@ const HeroNav = () => {
             <div className="hidden lg:flex items-center gap-2 text-gray-900/90">
               <Phone size={16} className="text-yellow-300" />
               <div className="leading-tight">
-                <div className="text-[10px] uppercase opacity-80">Support</div>
+                <div className="text-[10px] uppercase opacity-80">{t('nav.auth.support')}</div>
                 <div className="text-sm font-semibold tracking-wide">+1 (212) 255-511</div>
               </div>
             </div>
@@ -84,10 +86,10 @@ const HeroNav = () => {
             {!loading && !user && (
               <div className="hidden sm:flex items-center gap-2">
                 <Link to="/login" className="px-3 py-1.5 text-[12px] md:text-sm font-semibold rounded-full bg-white text-gray-900 hover:bg-yellow-50 border border-white/70">
-                  Sign in
+                  {t('nav.auth.signIn')}
                 </Link>
                 <Link to="/register" className="px-3 py-1.5 text-[12px] md:text-sm font-semibold rounded-full bg-yellow-300 text-gray-900 hover:bg-yellow-400">
-                  Sign up
+                  {t('nav.auth.signUp')}
                 </Link>
               </div>
             )}
@@ -122,13 +124,13 @@ const UserMenu = ({ user, onLogout }) => {
       </button>
       {open && (
         <div className="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-lg border border-gray-100 overflow-hidden z-50">
-          <Link to="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Dashboard</Link>
-          <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Profile</Link>
-          <Link to="/profile#settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Settings</Link>
+          <Link to="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.dashboard')}</Link>
+          <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.profile')}</Link>
+          <Link to="/profile#settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.settings')}</Link>
           {user?.role === 'admin' && (
-            <Link to="/admin/users" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Admin Users</Link>
+            <Link to="/admin/users" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{t('nav.auth.adminUsers')}</Link>
           )}
-          <button onClick={onLogout} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Logout</button>
+          <button onClick={onLogout} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">{t('nav.auth.logout')}</button>
         </div>
       )}
     </div>

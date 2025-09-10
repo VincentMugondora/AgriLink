@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { Menu, X, User, LogOut, ShoppingCart, Package } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t } = useTranslation()
 
   const handleLogout = () => {
     logout()
@@ -24,22 +26,22 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold hover:text-green-100 transition-colors">
-            🌾 Farm Connect
+            🌾 {t('nav.brand')}
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/products" className="hover:text-green-100 transition-colors font-medium">
-              Products
+              {t('nav.links.marketplace')}
             </Link>
             
             {user ? (
               <>
                 <Link to="/dashboard" className="hover:text-green-100 transition-colors font-medium">
-                  Dashboard
+                  {t('nav.auth.dashboard')}
                 </Link>
                 <Link to="/orders" className="hover:text-green-100 transition-colors font-medium">
-                  Orders
+                  {t('nav.auth.orders')}
                 </Link>
                 <div className="relative">
                   <button
@@ -58,14 +60,14 @@ const Navbar = () => {
                         className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         <User size={16} className="mr-2" />
-                        Profile
+                        {t('nav.auth.profile')}
                       </Link>
                       <button
                         onClick={handleLogout}
                         className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                       >
                         <LogOut size={16} className="mr-2" />
-                        Logout
+                        {t('nav.auth.logout')}
                       </button>
                     </div>
                   )}
@@ -77,13 +79,13 @@ const Navbar = () => {
                   to="/login" 
                   className="px-4 py-2 border border-white rounded-md hover:bg-white hover:text-green-500 transition-colors"
                 >
-                  Login
+                  {t('nav.auth.login')}
                 </Link>
                 <Link 
                   to="/register" 
                   className="px-4 py-2 bg-white text-green-500 rounded-md hover:bg-green-50 transition-colors"
                 >
-                  Register
+                  {t('nav.auth.register')}
                 </Link>
               </div>
             )}
@@ -107,7 +109,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
               >
-                Products
+                {t('nav.links.marketplace')}
               </Link>
               
               {user ? (
@@ -117,27 +119,27 @@ const Navbar = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
-                    Dashboard
+                    {t('nav.auth.dashboard')}
                   </Link>
                   <Link
                     to="/orders"
                     onClick={() => setIsMenuOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
-                    Orders
+                    {t('nav.auth.orders')}
                   </Link>
                   <Link
                     to="/profile"
                     onClick={() => setIsMenuOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
-                    Profile
+                    {t('nav.auth.profile')}
                   </Link>
                   <button
                     onClick={handleLogout}
                     className="px-4 py-2 text-left hover:bg-red-500 rounded-md transition-colors"
                   >
-                    Logout
+                    {t('nav.auth.logout')}
                   </button>
                 </>
               ) : (
@@ -147,14 +149,14 @@ const Navbar = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
-                    Login
+                    {t('nav.auth.login')}
                   </Link>
                   <Link
                     to="/register"
                     onClick={() => setIsMenuOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
-                    Register
+                    {t('nav.auth.register')}
                   </Link>
                 </>
               )}

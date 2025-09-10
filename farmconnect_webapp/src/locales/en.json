@@ -55,6 +55,7 @@
       "login": "Login",
       "register": "Register",
       "dashboard": "Dashboard",
+      "orders": "Orders",
       "profile": "Profile",
       "settings": "Settings",
       "adminUsers": "Admin Users",
@@ -139,6 +140,20 @@
     "title": "About Us",
     "devPill": "Future of Development",
     "devTitle": "Agriculture matters to the future of development",
+    "steps": {
+      "one": {
+        "title": "Plan production",
+        "desc": "We help farmers plan crops using weather, soil and demand data to maximize yield and profits."
+      },
+      "two": {
+        "title": "Grow sustainably",
+        "desc": "Guidance, inputs and advisory services ensure sustainable and resilient farming practices."
+      },
+      "three": {
+        "title": "Deliver on time",
+        "desc": "Integrated logistics and marketplace tools connect produce to buyers quickly and reliably."
+      }
+    },
     "features": ["Soil-friendly practices", "Cold-chain options", "Verified farmer network", "Secure payments"],
     "stats": {
       "farmers": "Verified Farmers",
@@ -154,6 +169,85 @@
   "servicesPage": {
     "title": "Services",
     "searchPlaceholder": "Search services"
+  },
+  "productsPage": {
+    "title": "Fresh Products 🌾",
+    "subtitle": "Discover fresh produce directly from farmers and trusted traders",
+    "searchLabel": "Search Products",
+    "searchPlaceholder": "Search by name or description...",
+    "categoryLabel": "Category",
+    "allCategories": "All Categories",
+    "gradeLabel": "Grade",
+    "allGrades": "All Grades",
+    "sortByLabel": "Sort By",
+    "sortOptions": {
+      "createdAt": "Newest First",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "name": "Name: A to Z"
+    },
+    "noResultsTitle": "No products found matching your criteria.",
+    "noResultsHint": "Try adjusting your filters or search terms.",
+    "available": "available",
+    "viewDetails": "View Details"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your Farm Connect account",
+      "emailLabel": "Email Address",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordRequired": "Password is required",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Sign In",
+      "submitting": "Signing In...",
+      "noAccount": "Don't have an account?",
+      "signupHere": "Sign up here"
+    },
+    "register": {
+      "title": "Join Farm Connect",
+      "subtitle": "Create your account to start trading",
+      "firstName": "First Name",
+      "firstNameRequired": "First name is required",
+      "firstNameMin": "First name must be at least 2 characters",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNameRequired": "Last name is required",
+      "lastNameMin": "Last name must be at least 2 characters",
+      "lastNamePlaceholder": "Doe",
+      "emailLabel": "Email Address",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "emailPlaceholder": "john@example.com",
+      "phoneLabel": "Phone Number",
+      "phoneRequired": "Phone number is required",
+      "phoneInvalid": "Invalid phone number",
+      "phonePlaceholder": "+263 123 456 789",
+      "roleLabel": "Role",
+      "roleRequired": "Please select your role",
+      "rolePlaceholder": "Select your role",
+      "roleOptions": {
+        "farmer": "Farmer - I grow and sell produce",
+        "trader": "Trader - I buy and resell produce",
+        "buyer": "Buyer - I purchase produce for consumption",
+        "admin": "Admin - Platform administrator"
+      },
+      "passwordLabel": "Password",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "passwordPlaceholder": "Create a strong password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordRequired": "Please confirm your password",
+      "confirmPasswordMismatch": "Passwords do not match",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submit": "Create Account",
+      "submitting": "Creating Account...",
+      "haveAccount": "Already have an account?",
+      "signInHere": "Sign in here"
+    }
   },
   "contact": {
     "badge": "Contact Us",
@@ -188,6 +282,33 @@
     "col2Tag": "People Know",
     "col2Title": "Other Questions",
     "happyTitle": "Happy to Answer All Your Questions"
+  },
+  "footer": {
+    "promo1": "Fresh & organic produce from verified farmers",
+    "promo2": "24/7 support • +1 (212) 255-511",
+    "promo3": "Fast delivery & secure payments",
+    "company": "Company",
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "marketplace": "Marketplace",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "workingHours": "Working Hours",
+    "hours": {
+      "monFri": "Mon - Fri: 08:00 - 18:00",
+      "sat": "Saturday: 09:00 - 15:30",
+      "sun": "Sunday: Closed"
+    },
+    "contactUs": "Contact Us",
+    "address": "123 Greenway, Harare, Zimbabwe",
+    "email": "support@farmconnect.com",
+    "phone": "+263 123 456 789",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookies",
+    "rightsReserved": "All rights reserved."
   },
   "languages": {
     "en": "English",

@@ -1,5 +1,6 @@
 import React from 'react'
 import { ChevronRight, CheckCircle, Leaf } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 // Assets
 import heroImg from '../assets/home/about.webp'
@@ -31,6 +32,7 @@ const Step = ({ idx, title, desc }) => (
 )
 
 const About = () => {
+  const { t } = useTranslation()
   return (
     <div className="pb-16">
       {/* Hero banner */}
@@ -43,13 +45,13 @@ const About = () => {
             <div className="relative z-10 p-6 md:p-10 lg:p-12 flex h-full flex-col justify-end">
               <div className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/60 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide w-fit">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-yellow-300" />
-                About Us
+                {t('aboutPage.badge')}
               </div>
-              <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">About Us</h1>
+              <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">{t('aboutPage.title')}</h1>
               <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
-                <a href="/" className="hover:underline">Home</a>
+                <a href="/" className="hover:underline">{t('breadcrumbs.home')}</a>
                 <ChevronRight size={16} />
-                <span className="font-medium">About Us</span>
+                <span className="font-medium">{t('aboutPage.title')}</span>
               </div>
             </div>
           </div>
@@ -76,10 +78,10 @@ const About = () => {
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="inline-flex items-center gap-2 bg-white/95 text-gray-800 border border-white/60 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide">
                     <Leaf size={14} className="text-[#5F8F52]" />
-                    Future of Development
+                    {t('aboutPage.devPill')}
                   </div>
                   <h3 className="mt-3 text-2xl md:text-3xl font-extrabold text-white leading-tight max-w-xl">
-                    Agriculture matters to the future of development
+                    {t('aboutPage.devTitle')}
                   </h3>
                 </div>
               </div>
@@ -87,17 +89,14 @@ const About = () => {
               {/* Right steps */}
               <div className="p-6 md:p-10 lg:p-12">
                 <div className="grid gap-6">
-                  <Step idx={1} title="Plan production" desc="We help farmers plan crops using weather, soil and demand data to maximize yield and profits." />
-                  <Step idx={2} title="Grow sustainably" desc="Guidance, inputs and advisory services ensure sustainable and resilient farming practices." />
-                  <Step idx={3} title="Deliver on time" desc="Integrated logistics and marketplace tools connect produce to buyers quickly and reliably." />
+                  <Step idx={1} title={t('aboutPage.steps.one.title')} desc={t('aboutPage.steps.one.desc')} />
+                  <Step idx={2} title={t('aboutPage.steps.two.title')} desc={t('aboutPage.steps.two.desc')} />
+                  <Step idx={3} title={t('aboutPage.steps.three.title')} desc={t('aboutPage.steps.three.desc')} />
                 </div>
 
                 <div className="mt-8 grid sm:grid-cols-2 gap-4">
                   {[
-                    'Soil-friendly practices',
-                    'Cold-chain options',
-                    'Verified farmer network',
-                    'Secure payments',
+                    ...t('aboutPage.features', { returnObjects: true }),
                   ].map((f, i) => (
                     <div key={i} className="flex items-center gap-2 text-white/95">
                       <CheckCircle size={18} className="text-yellow-300" />
@@ -134,11 +133,11 @@ const About = () => {
                 125
               </div>
               <div className="text-white">
-                <div className="inline-block bg-white/90 text-gray-800 px-3 py-1 rounded-full text-[10px] md:text-xs uppercase tracking-wide border border-white/60">Achievement</div>
-                <h3 className="mt-3 text-2xl md:text-3xl font-extrabold leading-tight">We’re popular leaders in agriculture market globally</h3>
+                <div className="inline-block bg-white/90 text-gray-800 px-3 py-1 rounded-full text-[10px] md:text-xs uppercase tracking-wide border border-white/60">{t('aboutPage.achievement')}</div>
+                <h3 className="mt-3 text-2xl md:text-3xl font-extrabold leading-tight">{t('aboutPage.leaderTitle')}</h3>
               </div>
               <a href="#contact" className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-gray-900 font-semibold hover:bg-yellow-50 transition">
-                Read More
+                {t('aboutPage.readMore')}
                 <ChevronRight size={18} />
               </a>
             </div>
@@ -148,7 +147,7 @@ const About = () => {
 
       {/* Testimonials */}
       <section id="testimonials" className="scroll-mt-32">
-        <Testimonials title="What our customers say" />
+        <Testimonials title={t('aboutPage.testimonialsTitle')} />
       </section>
     </div>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Star } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const testimonials = [
   {
@@ -42,17 +43,21 @@ const TestimonialCard = ({ t }) => (
   </div>
 )
 
-const Testimonials = ({ title = 'What our users say' }) => (
-  <section className="py-16 bg-white">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((t, idx) => (
-          <TestimonialCard key={idx} t={t} />
-        ))}
+const Testimonials = ({ title }) => {
+  const { t } = useTranslation()
+  const resolvedTitle = title || t('testimonials.title')
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">{resolvedTitle}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((t, idx) => (
+            <TestimonialCard key={idx} t={t} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 export default Testimonials

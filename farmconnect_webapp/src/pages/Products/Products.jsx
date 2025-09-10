@@ -3,8 +3,10 @@ import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Search, Filter, MapPin } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Products = () => {
+  const { t } = useTranslation()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedGrade, setSelectedGrade] = useState('')
@@ -52,10 +54,10 @@ const Products = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Fresh Products 🌾
+            {t('productsPage.title')}
           </h1>
           <p className="text-gray-600 text-lg">
-            Discover fresh produce directly from farmers and trusted traders
+            {t('productsPage.subtitle')}
           </p>
         </div>
 
@@ -65,13 +67,13 @@ const Products = () => {
             {/* Search */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Search Products
+                {t('productsPage.searchLabel')}
               </label>
               <div className="relative">
                 <input
                   type="text"
                   className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Search by name or description..."
+                  placeholder={t('productsPage.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -85,14 +87,14 @@ const Products = () => {
             {/* Category Filter */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Category
+                {t('productsPage.categoryLabel')}
               </label>
               <select
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
-                <option value="">All Categories</option>
+                <option value="">{t('productsPage.allCategories')}</option>
                 {categories.map(category => (
                   <option key={category} value={category}>{category}</option>
                 ))}
@@ -102,16 +104,16 @@ const Products = () => {
             {/* Grade Filter */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Grade
+                {t('productsPage.gradeLabel')}
               </label>
               <select
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 value={selectedGrade}
                 onChange={(e) => setSelectedGrade(e.target.value)}
               >
-                <option value="">All Grades</option>
+                <option value="">{t('productsPage.allGrades')}</option>
                 {grades.map(grade => (
-                  <option key={grade} value={grade}>Grade {grade}</option>
+                  <option key={grade} value={grade}>{t('productsPage.gradeLabel')} {grade}</option>
                 ))}
               </select>
             </div>
@@ -119,17 +121,17 @@ const Products = () => {
             {/* Sort */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Sort By
+                {t('productsPage.sortByLabel')}
               </label>
               <select
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
-                <option value="createdAt">Newest First</option>
-                <option value="pricePerUnit">Price: Low to High</option>
-                <option value="-pricePerUnit">Price: High to Low</option>
-                <option value="name">Name: A to Z</option>
+                <option value="createdAt">{t('productsPage.sortOptions.createdAt')}</option>
+                <option value="pricePerUnit">{t('productsPage.sortOptions.priceAsc')}</option>
+                <option value="-pricePerUnit">{t('productsPage.sortOptions.priceDesc')}</option>
+                <option value="name">{t('productsPage.sortOptions.name')}</option>
               </select>
             </div>
           </div>
@@ -139,10 +141,10 @@ const Products = () => {
         {products?.data?.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-12 text-center">
             <p className="text-gray-600 text-lg mb-2">
-              No products found matching your criteria.
+              {t('productsPage.noResultsTitle')}
             </p>
             <p className="text-gray-500">
-              Try adjusting your filters or search terms.
+              {t('productsPage.noResultsHint')}
             </p>
           </div>
         ) : (
@@ -192,7 +194,7 @@ const Products = () => {
                       </span>
                     </div>
                     <span className="text-gray-500 text-sm">
-                      {product.availableQuantity} {product.unit} available
+                      {product.availableQuantity} {product.unit} {t('productsPage.available')}
                     </span>
                   </div>
 
@@ -207,7 +209,7 @@ const Products = () => {
                     to={`/products/${product.id}`}
                     className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition-colors text-center block"
                   >
-                    View Details
+                    {t('productsPage.viewDetails')}
                   </Link>
                 </div>
               </div>

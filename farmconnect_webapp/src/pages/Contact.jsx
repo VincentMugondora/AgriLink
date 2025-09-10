@@ -2,6 +2,7 @@ import React from 'react'
 import { Mail, PhoneCall, MapPin, ArrowRight, ChevronRight } from 'lucide-react'
 import heroImg from '/imgs/contact.jpg'
 import leftImg from '../assets/home/advisory.jpg'
+import { useTranslation } from 'react-i18next'
 
 const InfoCard = ({ icon: Icon, title, subtitle, children }) => (
   <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
@@ -25,6 +26,7 @@ const InfoCard = ({ icon: Icon, title, subtitle, children }) => (
 )
 
 const Contact = () => {
+  const { t } = useTranslation()
   return (
     <div className="pb-16">
       {/* Hero (aligned with About hero) */}
@@ -37,13 +39,13 @@ const Contact = () => {
             <div className="relative z-10 p-6 md:p-10 lg:p-12 flex h-full flex-col justify-end">
               <div className="inline-flex items-center gap-2 bg-white/90 text-gray-800 border border-white/60 rounded-full px-3 py-1 text-[10px] md:text-xs uppercase tracking-wide w-fit">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-yellow-300" />
-                Contact Us
+                {t('contact.badge')}
               </div>
-              <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">Contact Us</h1>
+              <h1 className="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">{t('contact.title')}</h1>
               <div className="mt-2 flex items-center gap-2 text-white/85 text-sm">
-                <a href="/" className="hover:underline">Home</a>
+                <a href="/" className="hover:underline">{t('breadcrumbs.home')}</a>
                 <ChevronRight size={16} />
-                <span className="font-medium">Contact Us</span>
+                <span className="font-medium">{t('contact.title')}</span>
               </div>
             </div>
           </div>
@@ -54,22 +56,22 @@ const Contact = () => {
       <section className="py-10 md:py-14 bg-[#fbfbf6]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <InfoCard icon={Mail} title="Mail us 24/7" subtitle="Email">
+            <InfoCard icon={Mail} title={t('contact.cards.email.title')} subtitle={t('contact.cards.email.subtitle')}>
               <div className="space-y-1">
-                <div>support@farmconnect.com</div>
-                <div>press@farmconnect.com</div>
+                <div>{t('contact.cards.email.line1')}</div>
+                <div>{t('contact.cards.email.line2')}</div>
               </div>
             </InfoCard>
-            <InfoCard icon={PhoneCall} title="Call us 24/7" subtitle="Phone">
+            <InfoCard icon={PhoneCall} title={t('contact.cards.phone.title')} subtitle={t('contact.cards.phone.subtitle')}>
               <div className="space-y-1">
-                <div>Office: +1 (345) 543 - 5678</div>
-                <div>Mobile: +1 (345) 543 - 1235</div>
+                <div>{t('contact.cards.phone.line1')}</div>
+                <div>{t('contact.cards.phone.line2')}</div>
               </div>
             </InfoCard>
-            <InfoCard icon={MapPin} title="Our Locations" subtitle="Address">
+            <InfoCard icon={MapPin} title={t('contact.cards.address.title')} subtitle={t('contact.cards.address.subtitle')}>
               <div className="space-y-1">
-                <div>4812 Block Fya, St. Almoha</div>
-                <div>991156, USA (main city)</div>
+                <div>{t('contact.cards.address.line1')}</div>
+                <div>{t('contact.cards.address.line2')}</div>
               </div>
             </InfoCard>
           </div>
@@ -85,33 +87,33 @@ const Contact = () => {
             </div>
 
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8">
-              <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">Get In Contact</div>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mt-1">Have any Questions? Get in Touch!</h2>
+              <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">{t('contact.form.getInContact')}</div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mt-1">{t('contact.form.haveQuestions')}</h2>
 
               <form className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm text-gray-700 mb-1">Your Name</label>
-                  <input className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder="Enter name" />
+                  <label className="block text-sm text-gray-700 mb-1">{t('contact.form.yourName')}</label>
+                  <input className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder={t('contact.form.enterName')} />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-700 mb-1">Phone Number</label>
-                  <input className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder="Enter phone" />
+                  <label className="block text-sm text-gray-700 mb-1">{t('contact.form.phoneNumber')}</label>
+                  <input className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder={t('contact.form.enterPhone')} />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-700 mb-1">Email Address</label>
-                  <input type="email" className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder="Enter email" />
+                  <label className="block text-sm text-gray-700 mb-1">{t('contact.form.email')}</label>
+                  <input type="email" className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder={t('contact.form.enterEmail')} />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-700 mb-1">Subject</label>
-                  <input className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder="Subject" />
+                  <label className="block text-sm text-gray-700 mb-1">{t('contact.form.subject')}</label>
+                  <input className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder={t('contact.form.enterSubject')} />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-sm text-gray-700 mb-1">Message</label>
-                  <textarea rows={5} className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder="Write your message..." />
+                  <label className="block text-sm text-gray-700 mb-1">{t('contact.form.message')}</label>
+                  <textarea rows={5} className="w-full rounded-xl border border-gray-200 px-4 py-2.5 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" placeholder={t('contact.form.enterMessage')} />
                 </div>
                 <div className="md:col-span-2">
                   <button type="button" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold">
-                    Send Message
+                    {t('contact.form.sendMessage')}
                   </button>
                 </div>
               </form>
@@ -137,7 +139,7 @@ const Contact = () => {
       <section className="bg-[#fbfbf6] pb-14">
         <div className="w-full h-[420px]">
           <iframe
-            title="Farm Connect Map"
+            title={t('nav.brand') + ' Map'}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12293.155078369419!2d31.0487164!3d-17.8216283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a56b57e0cf6f%3A0x4f783a61b7f9ff1!2sHarare!5e0!3m2!1sen!2sZW!4v1699999999999!5m2!1sen!2sZW"
             width="100%"
             height="100%"
