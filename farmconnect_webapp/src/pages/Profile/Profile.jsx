@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { User, Mail, Phone, MapPin, Edit3, Save, X, Eye, EyeOff } from 'lucide-react'
+import { User, Mail, Phone, MapPin, Edit3, Save, X, Eye, EyeOff, Globe } from 'lucide-react'
 
 const Profile = () => {
   const { user, updateUser } = useAuth()
@@ -25,6 +25,7 @@ const Profile = () => {
       lastName: user?.lastName || '',
       email: user?.email || '',
       phone: user?.phone || '',
+      language: user?.language || 'en',
       address: user?.address || '',
       city: user?.city || '',
       state: user?.state || '',
@@ -202,6 +203,21 @@ const Profile = () => {
                     disabled={!isEditing}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-50"
                   />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Preferred Language
+                  </label>
+                  <select
+                    {...register('language')}
+                    disabled={!isEditing}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-50 bg-white"
+                  >
+                    <option value="en">English</option>
+                    <option value="sn">Shona</option>
+                    <option value="nd">Ndebele</option>
+                  </select>
                 </div>
 
                 <div>
@@ -423,6 +439,16 @@ const Profile = () => {
                   <div>
                     <p className="text-sm text-gray-500">Role</p>
                     <p className="font-medium capitalize">{user?.role}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <Globe size={20} className="text-gray-500" />
+                  <div>
+                    <p className="text-sm text-gray-500">Language</p>
+                    <p className="font-medium">
+                      {({ en: 'English', sn: 'Shona', nd: 'Ndebele' }[user?.language] || user?.language || 'English')}
+                    </p>
                   </div>
                 </div>
 
