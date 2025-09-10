@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../contexts/AuthContext'
 import { Eye, EyeOff } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Register = () => {
   const { register: registerUser } = useAuth()
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const { t } = useTranslation()
   
   const {
     register,
@@ -38,10 +40,10 @@ const Register = () => {
       <div className="max-w-lg w-full bg-white rounded-lg shadow-md p-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Join Farm Connect
+            {t('auth.register.title')}
           </h1>
           <p className="text-gray-600">
-            Create your account to start trading
+            {t('auth.register.subtitle')}
           </p>
         </div>
 
@@ -55,19 +57,19 @@ const Register = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                First Name
+                {t('auth.register.firstName')}
               </label>
               <input
                 type="text"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 {...register('firstName', {
-                  required: 'First name is required',
+                  required: t('auth.register.firstNameRequired'),
                   minLength: {
                     value: 2,
-                    message: 'First name must be at least 2 characters'
+                    message: t('auth.register.firstNameMin')
                   }
                 })}
-                placeholder="John"
+                placeholder={t('auth.register.firstNamePlaceholder')}
               />
               {errors.firstName && (
                 <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
@@ -76,19 +78,19 @@ const Register = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Last Name
+                {t('auth.register.lastName')}
               </label>
               <input
                 type="text"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 {...register('lastName', {
-                  required: 'Last name is required',
+                  required: t('auth.register.lastNameRequired'),
                   minLength: {
                     value: 2,
-                    message: 'Last name must be at least 2 characters'
+                    message: t('auth.register.lastNameMin')
                   }
                 })}
-                placeholder="Doe"
+                placeholder={t('auth.register.lastNamePlaceholder')}
               />
               {errors.lastName && (
                 <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
@@ -98,19 +100,19 @@ const Register = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address
+              {t('auth.register.emailLabel')}
             </label>
             <input
               type="email"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               {...register('email', {
-                required: 'Email is required',
+                required: t('auth.register.emailRequired'),
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Invalid email address'
+                  message: t('auth.register.emailInvalid')
                 }
               })}
-              placeholder="john@example.com"
+              placeholder={t('auth.register.emailPlaceholder')}
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -119,19 +121,19 @@ const Register = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number
+              {t('auth.register.phoneLabel')}
             </label>
             <input
               type="tel"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               {...register('phone', {
-                required: 'Phone number is required',
+                required: t('auth.register.phoneRequired'),
                 pattern: {
                   value: /^[+]?[\d\s\-\(\)]+$/,
-                  message: 'Invalid phone number'
+                  message: t('auth.register.phoneInvalid')
                 }
               })}
-              placeholder="+263 123 456 789"
+              placeholder={t('auth.register.phonePlaceholder')}
             />
             {errors.phone && (
               <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
@@ -140,19 +142,19 @@ const Register = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Role
+              {t('auth.register.roleLabel')}
             </label>
             <select
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               {...register('role', {
-                required: 'Please select your role'
+                required: t('auth.register.roleRequired')
               })}
             >
-              <option value="">Select your role</option>
-              <option value="farmer">Farmer - I grow and sell produce</option>
-              <option value="trader">Trader - I buy and resell produce</option>
-              <option value="buyer">Buyer - I purchase produce for consumption</option>
-              <option value="admin">Admin - Platform administrator</option>
+              <option value="">{t('auth.register.rolePlaceholder')}</option>
+              <option value="farmer">{t('auth.register.roleOptions.farmer')}</option>
+              <option value="trader">{t('auth.register.roleOptions.trader')}</option>
+              <option value="buyer">{t('auth.register.roleOptions.buyer')}</option>
+              <option value="admin">{t('auth.register.roleOptions.admin')}</option>
             </select>
             {errors.role && (
               <p className="text-red-500 text-sm mt-1">{errors.role.message}</p>
@@ -160,21 +162,21 @@ const Register = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Password
+            <label className="block text.sm font-medium text-gray-700 mb-2">
+              {t('auth.register.passwordLabel')}
             </label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 {...register('password', {
-                  required: 'Password is required',
+                  required: t('auth.register.passwordRequired'),
                   minLength: {
                     value: 6,
-                    message: 'Password must be at least 6 characters'
+                    message: t('auth.register.passwordMin')
                   }
                 })}
-                placeholder="Create a strong password"
+                placeholder={t('auth.register.passwordPlaceholder')}
               />
               <button
                 type="button"
@@ -191,17 +193,17 @@ const Register = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Confirm Password
+              {t('auth.register.confirmPasswordLabel')}
             </label>
             <input
               type="password"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               {...register('confirmPassword', {
-                required: 'Please confirm your password',
+                required: t('auth.register.confirmPasswordRequired'),
                 validate: value =>
-                  value === password || 'Passwords do not match'
+                  value === password || t('auth.register.confirmPasswordMismatch')
               })}
-              placeholder="Confirm your password"
+              placeholder={t('auth.register.confirmPasswordPlaceholder')}
             />
             {errors.confirmPassword && (
               <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>
@@ -213,15 +215,15 @@ const Register = () => {
             disabled={isLoading}
             className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {isLoading ? 'Creating Account...' : 'Create Account'}
+            {isLoading ? t('auth.register.submitting') : t('auth.register.submit')}
           </button>
         </form>
 
         <div className="mt-6 pt-6 border-t border-gray-200 text-center">
           <p className="text-gray-600">
-            Already have an account?{' '}
+            {t('auth.register.haveAccount')}{' '}
             <Link to="/login" className="text-green-500 hover:text-green-600 font-medium">
-              Sign in here
+              {t('auth.register.signInHere')}
             </Link>
           </p>
         </div>
