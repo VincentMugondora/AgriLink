@@ -40,6 +40,155 @@
     "location": "Location",
     "memberSince": "Member since"
   },
+  "nav": {
+    "brand": "Farm Connect",
+    "links": {
+      "home": "Home",
+      "marketplace": "Marketplace",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "auth": {
+      "signIn": "Sign in",
+      "signUp": "Sign up",
+      "login": "Login",
+      "register": "Register",
+      "dashboard": "Dashboard",
+      "profile": "Profile",
+      "settings": "Settings",
+      "adminUsers": "Admin Users",
+      "logout": "Logout",
+      "support": "Support"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "hero": {
+    "tag": "Connecting Farmers & Buyers",
+    "title1": "Farm-to-market, simplified.",
+    "title2": "Trade directly with verified farmers",
+    "blurb": "Discover, buy, and sell fresh produce at fair prices. Farm Connect links smallholder farmers, traders, and businesses with secure payments and reliable delivery.",
+    "contact": "Contact Us",
+    "browse": "Browse Marketplace",
+    "goDashboard": "Go to Dashboard"
+  },
+  "howItWorks": {
+    "title": "How Farm Connect Works",
+    "steps": {
+      "one": { "title": "Register & Verify", "desc": "Sign up on Farm Connect as a farmer, trader, or buyer. Complete KYC verification to join our trusted community." },
+      "two": { "title": "List or Browse", "desc": "Farmers list their produce with photos and details on Farm Connect. Buyers browse the marketplace and find exactly what they need." },
+      "three": { "title": "Trade & Deliver", "desc": "Place orders, pay securely with escrow, and arrange delivery. Track your orders from farm to doorstep on Farm Connect." }
+    }
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "subtitle": "Join thousands of farmers, traders, and buyers already using Farm Connect",
+    "join": "Join Farm Connect Today"
+  },
+  "stats": {
+    "verifiedFarmers": "Verified Farmers",
+    "ordersCompleted": "Orders Completed",
+    "onTimeDeliveries": "On-time Deliveries",
+    "avgRating": "Avg. Rating"
+  },
+  "categories": {
+    "grains": "Grains",
+    "vegetables": "Vegetables",
+    "fruits": "Fruits",
+    "livestock": "Livestock",
+    "inputs": "Inputs",
+    "equipment": "Equipment"
+  },
+  "featured": {
+    "title": "Featured Produce",
+    "browse": "Browse marketplace",
+    "grade": "Grade"
+  },
+  "testimonials": {
+    "title": "What our users say"
+  },
+  "partners": {
+    "heading": "Trusted by"
+  },
+  "homeAbout": {
+    "pill": "Who We Are",
+    "title": "Currently we are growing and selling organic food",
+    "desc": "Farm Connect links smallholder farmers, traders, and businesses. We make it easy to source fresh, traceable produce at fair prices with secure payments and reliable delivery.",
+    "statLabel": "Growth Tons of Harvest",
+    "feature1": "Eco Farms Worldwide",
+    "feature1Desc": "Verified growers and sustainable practices across regions ensure consistent quality.",
+    "feature2": "Special Equipment",
+    "feature2Desc": "Cold-chain and handling options available to maintain freshness from farm to market.",
+    "marquee": ["Agriculture", "Farming", "Organic", "Vegetables", "Grains"]
+  },
+  "homeServices": {
+    "pill": "Our Services",
+    "title": "Best Agriculture Services",
+    "items": {
+      "marketplace": { "tag": "Marketplace", "title": "Produce Marketplace", "desc": "Trade fresh produce directly on Farm Connect. Verified listings, fair pricing, and secure checkout." },
+      "logistics": { "tag": "Logistics", "title": "Logistics & Delivery", "desc": "Cold-chain coordination and reliable last-mile delivery from farm to buyer." },
+      "inputs": { "tag": "Inputs & Advisory", "title": "Farm Inputs & Advisory", "desc": "Fertilizer, seeds, and equipment—plus agronomy support to improve yield and quality." },
+      "advisory": { "tag": "Advisory", "title": "Location-based Advisory", "desc": "Personalized crop plans based on your location, weather, and soil data." },
+      "aiDiagnostics": { "tag": "AI Diagnostics", "title": "Crop Disease Detection", "desc": "Upload leaf photos to detect diseases and get treatment recommendations." }
+    }
+  },
+  "aboutPage": {
+    "badge": "About Us",
+    "title": "About Us",
+    "devPill": "Future of Development",
+    "devTitle": "Agriculture matters to the future of development",
+    "features": ["Soil-friendly practices", "Cold-chain options", "Verified farmer network", "Secure payments"],
+    "stats": {
+      "farmers": "Verified Farmers",
+      "deliveries": "Successful Deliveries",
+      "buyers": "Active Buyers",
+      "listings": "Monthly Listings"
+    },
+    "achievement": "Achievement",
+    "leaderTitle": "We’re popular leaders in agriculture market globally",
+    "readMore": "Read More",
+    "testimonialsTitle": "What our customers say"
+  },
+  "servicesPage": {
+    "title": "Services",
+    "searchPlaceholder": "Search services"
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Contact Us",
+    "infoMore": "More info",
+    "cards": {
+      "email": { "title": "Mail us 24/7", "subtitle": "Email", "line1": "support@farmconnect.com", "line2": "press@farmconnect.com" },
+      "phone": { "title": "Call us 24/7", "subtitle": "Phone", "line1": "Office: +1 (345) 543 - 5678", "line2": "Mobile: +1 (345) 543 - 1235" },
+      "address": { "title": "Our Locations", "subtitle": "Address", "line1": "4812 Block Fya, St. Almoha", "line2": "991156, USA (main city)" }
+    },
+    "form": {
+      "getInContact": "Get In Contact",
+      "haveQuestions": "Have any Questions? Get in Touch!",
+      "yourName": "Your Name",
+      "enterName": "Enter name",
+      "phoneNumber": "Phone Number",
+      "enterPhone": "Enter phone",
+      "email": "Email Address",
+      "enterEmail": "Enter email",
+      "subject": "Subject",
+      "enterSubject": "Subject",
+      "message": "Message",
+      "enterMessage": "Write your message...",
+      "sendMessage": "Send Message"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Faq",
+    "col1Tag": "Most Ask",
+    "col1Title": "General Questions",
+    "col2Tag": "People Know",
+    "col2Title": "Other Questions",
+    "happyTitle": "Happy to Answer All Your Questions"
+  },
   "languages": {
     "en": "English",
     "sn": "Shona",
