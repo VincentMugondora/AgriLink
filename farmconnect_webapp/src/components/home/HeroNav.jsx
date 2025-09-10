@@ -119,42 +119,41 @@ const HeroNav = () => {
           </div>
         </div>
 
-        {/* Mobile menu dropdown */}
-        {mobileOpen && (
-          <div
-            id="hero-mobile-menu"
-            className={`md:hidden mt-2 rounded-2xl border ${scrolled ? 'border-white/60 bg-white/95' : 'border-white/40 bg-white/85'} backdrop-blur-xl shadow-lg p-3`}
-          >
-            <div className="flex flex-col divide-y divide-gray-200/60">
-              <div className="py-1">
-                <Link to="/" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.home')}</Link>
-                <Link to="/products" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.marketplace')}</Link>
-                <Link to="/services" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.services')}</Link>
-                <Link to="/about" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.about')}</Link>
-                <Link to="/contact" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.contact')}</Link>
-              </div>
-              <div className="py-1">
-                {!loading && !user && (
-                  <div className="flex flex-col">
-                    <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.login')}</Link>
-                    <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.register')}</Link>
-                  </div>
-                )}
-                {!loading && user && (
-                  <div className="flex flex-col">
-                    <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.dashboard')}</Link>
-                    <Link to="/orders" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.orders')}</Link>
-                    <Link to="/profile" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.profile')}</Link>
-                    {user?.role === 'admin' && (
-                      <Link to="/admin/users" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.adminUsers')}</Link>
-                    )}
-                    <button onClick={() => { setMobileOpen(false); logout() }} className="text-left block w-full px-3 py-2 rounded-md text-red-600 hover:bg-red-50">{t('nav.auth.logout')}</button>
-                  </div>
-                )}
-              </div>
+        {/* Mobile menu dropdown (animated slide/fade) */}
+        <div
+          id="hero-mobile-menu"
+          aria-hidden={!mobileOpen}
+          className={`md:hidden mt-2 rounded-2xl border ${scrolled ? 'border-white/60 bg-white/95' : 'border-white/40 bg-white/85'} backdrop-blur-xl shadow-lg overflow-hidden transform-gpu transition-all duration-200 ease-out ${mobileOpen ? 'opacity-100 translate-y-0 max-h-[420px] p-3 pointer-events-auto' : 'opacity-0 -translate-y-2 max-h-0 p-0 pointer-events-none'}`}
+        >
+          <div className={`flex flex-col divide-y divide-gray-200/60 ${mobileOpen ? 'opacity-100 transition-opacity duration-200 delay-75' : 'opacity-0 transition-opacity duration-150'}`}>
+            <div className="py-1">
+              <Link to="/" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.home')}</Link>
+              <Link to="/products" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.marketplace')}</Link>
+              <Link to="/services" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.services')}</Link>
+              <Link to="/about" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.about')}</Link>
+              <Link to="/contact" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.links.contact')}</Link>
+            </div>
+            <div className="py-1">
+              {!loading && !user && (
+                <div className="flex flex-col">
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.login')}</Link>
+                  <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.register')}</Link>
+                </div>
+              )}
+              {!loading && user && (
+                <div className="flex flex-col">
+                  <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.dashboard')}</Link>
+                  <Link to="/orders" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.orders')}</Link>
+                  <Link to="/profile" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.profile')}</Link>
+                  {user?.role === 'admin' && (
+                    <Link to="/admin/users" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-md text-gray-900 hover:bg-gray-50">{t('nav.auth.adminUsers')}</Link>
+                  )}
+                  <button onClick={() => { setMobileOpen(false); logout() }} className="text-left block w-full px-3 py-2 rounded-md text-red-600 hover:bg-red-50">{t('nav.auth.logout')}</button>
+                </div>
+              )}
             </div>
           </div>
-        )}
+        </div>
 
       </div>
     </div>

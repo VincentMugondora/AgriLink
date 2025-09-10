@@ -105,10 +105,13 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileOpen && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-green-400">
-            <div className="flex flex-col space-y-2">
+        {/* Mobile Navigation (animated slide/fade) */}
+        <div
+          id="mobile-menu"
+          aria-hidden={!mobileOpen}
+          className={`md:hidden border-t border-green-400 overflow-hidden transform-gpu transition-all duration-200 ease-out ${mobileOpen ? 'opacity-100 translate-y-0 max-h-[420px] py-4 pointer-events-auto' : 'opacity-0 -translate-y-2 max-h-0 py-0 pointer-events-none'}`}
+        >
+          <div className={`flex flex-col space-y-2 ${mobileOpen ? 'opacity-100 transition-opacity duration-200 delay-75' : 'opacity-0 transition-opacity duration-150'}`}>
               <Link
                 to="/products"
                 onClick={() => setMobileOpen(false)}
@@ -167,7 +170,7 @@ const Navbar = () => {
               )}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   )
