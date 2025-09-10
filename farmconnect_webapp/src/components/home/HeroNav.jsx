@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Phone, Search, ChevronDown, Leaf, Menu, X } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next'
 const HeroNav = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const mobileBtnRef = useRef(null)
+  const mobileMenuRef = useRef(null)
 
   const location = useLocation()
   useEffect(() => {
@@ -25,6 +27,33 @@ const HeroNav = () => {
   useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
+
+  // Click-outside and ESC-to-close for mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMobileOpen(false)
+    }
+    const onClick = (e) => {
+      const target = e.target
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(target) &&
+        mobileBtnRef.current &&
+        !mobileBtnRef.current.contains(target)
+      ) {
+        setMobileOpen(false)
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('touchstart', onClick)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('touchstart', onClick)
+    }
+  }, [mobileOpen])
 
   const shell = scrolled
     ? 'bg-white/30 backdrop-blur-xl border-white/50 shadow-lg'
@@ -90,6 +119,7 @@ const HeroNav = () => {
 
             {/* Mobile hamburger */}
             <button
+              ref={mobileBtnRef}
               onClick={() => setMobileOpen(v => !v)}
               className="inline-flex md:hidden h-9 w-9 items-center justify-center rounded-full bg-white/85 text-gray-900 hover:bg-white transition"
               aria-label="Toggle navigation menu"
@@ -123,6 +153,7 @@ const HeroNav = () => {
         <div
           id="hero-mobile-menu"
           aria-hidden={!mobileOpen}
+          ref={mobileMenuRef}
           className={`md:hidden mt-2 rounded-2xl border ${scrolled ? 'border-white/60 bg-white/95' : 'border-white/40 bg-white/85'} backdrop-blur-xl shadow-lg overflow-hidden transform-gpu transition-all duration-200 ease-out ${mobileOpen ? 'opacity-100 translate-y-0 max-h-[420px] p-3 pointer-events-auto' : 'opacity-0 -translate-y-2 max-h-0 p-0 pointer-events-none'}`}
         >
           <div className={`flex flex-col divide-y divide-gray-200/60 ${mobileOpen ? 'opacity-100 transition-opacity duration-200 delay-75' : 'opacity-0 transition-opacity duration-150'}`}>

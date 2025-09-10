@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { Menu, X, User, LogOut, ShoppingCart, Package } from 'lucide-react'
@@ -10,6 +10,10 @@ const Navbar = () => {
   // Separate state for mobile nav and user dropdown to avoid conflicts on small screens
   const [mobileOpen, setMobileOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
+  const mobileBtnRef = useRef(null)
+  const mobileMenuRef = useRef(null)
+  const userBtnRef = useRef(null)
+  const userMenuRef = useRef(null)
   const { t } = useTranslation()
 
   const handleLogout = () => {
@@ -21,6 +25,44 @@ const Navbar = () => {
 
   const toggleMobile = () => setMobileOpen(!mobileOpen)
   const toggleUserMenu = () => setUserMenuOpen(!userMenuOpen)
+
+  // Click-outside and ESC to close menus
+  useEffect(() => {
+    if (!mobileOpen && !userMenuOpen) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false)
+        setUserMenuOpen(false)
+      }
+    }
+    const onClick = (e) => {
+      const target = e.target
+      // mobile
+      if (
+        mobileOpen &&
+        mobileMenuRef.current && !mobileMenuRef.current.contains(target) &&
+        mobileBtnRef.current && !mobileBtnRef.current.contains(target)
+      ) {
+        setMobileOpen(false)
+      }
+      // user dropdown
+      if (
+        userMenuOpen &&
+        userMenuRef.current && !userMenuRef.current.contains(target) &&
+        userBtnRef.current && !userBtnRef.current.contains(target)
+      ) {
+        setUserMenuOpen(false)
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('touchstart', onClick)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('touchstart', onClick)
+    }
+  }, [mobileOpen, userMenuOpen])
 
   return (
     <nav className="bg-green-500 text-white shadow-lg">
@@ -47,6 +89,7 @@ const Navbar = () => {
                 </Link>
                 <div className="relative">
                   <button
+                    ref={userBtnRef}
                     onClick={toggleUserMenu}
                     className="flex items-center space-x-2 hover:text-green-100 transition-colors"
                   >
@@ -55,7 +98,7 @@ const Navbar = () => {
                   </button>
                   
                   {userMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    <div ref={userMenuRef} className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
                       <Link
                         to="/profile"
                         onClick={() => setUserMenuOpen(false)}
@@ -95,6 +138,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
+            ref={mobileBtnRef}
             onClick={toggleMobile}
             className="md:hidden p-2 rounded-md hover:bg-green-600 transition-colors"
             aria-label="Toggle navigation menu"
@@ -109,6 +153,7 @@ const Navbar = () => {
         <div
           id="mobile-menu"
           aria-hidden={!mobileOpen}
+          ref={mobileMenuRef}
           className={`md:hidden border-t border-green-400 overflow-hidden transform-gpu transition-all duration-200 ease-out ${mobileOpen ? 'opacity-100 translate-y-0 max-h-[420px] py-4 pointer-events-auto' : 'opacity-0 -translate-y-2 max-h-0 py-0 pointer-events-none'}`}
         >
           <div className={`flex flex-col space-y-2 ${mobileOpen ? 'opacity-100 transition-opacity duration-200 delay-75' : 'opacity-0 transition-opacity duration-150'}`}>
