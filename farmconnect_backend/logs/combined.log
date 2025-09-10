@@ -2289,3 +2289,13 @@
 2025-09-10 10:32:51 [[32MINFO[39M]: [0mPUT /api/users/profile [32m200[0m 351.721 ms - 451[0m
 2025-09-10 10:32:59 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 14.835 ms - -[0m
 2025-09-10 10:33:00 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 69.969 ms - -[0m
+2025-09-10 10:53:41 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 332.182 ms - -[0m
+2025-09-10 10:53:41 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 10.817 ms - -[0m
+2025-09-10 10:53:44 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 9.648 ms - -[0m
+2025-09-10 10:53:44 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 11.323 ms - -[0m
+2025-09-10 10:54:39 [[32MINFO[39M]: [0mPUT /api/users/profile [32m200[0m 296.349 ms - 451[0m
+2025-09-10 10:56:47 [[32MINFO[39M]: [0mGET /api/dashboard/stats [36m304[0m 404.852 ms - -[0m
+2025-09-10 10:57:11 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 342.611 ms - 401[0m
+2025-09-10 10:57:11 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 10.045 ms - -[0m
+2025-09-10 11:09:37 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 226.967 ms - -[0m
+2025-09-10 11:09:37 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 9.662 ms - -[0m

@@ -181,10 +181,10 @@ const Profile = () => {
                   <input
                     type="email"
                     {...register('email', { 
-                      required: 'Email is required',
+                      required: t('profile.errors.emailRequired'),
                       pattern: {
                         value: /^\S+@\S+$/i,
-                        message: 'Invalid email address'
+                        message: t('profile.errors.emailInvalid')
                       }
                     })}
                     disabled={!isEditing}
