@@ -13,6 +13,42 @@
       "emailRequired": "Email is required",
       "emailInvalid": "Invalid email address"
     },
+  "ordersPage": {
+    "title": "Orders 📦",
+    "subtitle": "Track and manage your orders",
+    "tabs": {
+      "all": "All Orders",
+      "purchases": "My Purchases",
+      "sales": "My Sales"
+    },
+    "filters": {
+      "status": "Filter by Status:",
+      "allStatuses": "All Statuses"
+    },
+    "empty": {
+      "none": "No orders found.",
+      "noPurchases": "You haven't made any purchases yet.",
+      "noSales": "You haven't made any sales yet.",
+      "noOrders": "You don't have any orders yet."
+    },
+    "labels": {
+      "orderHash": "Order #",
+      "product": "Product",
+      "quantity": "Quantity",
+      "totalAmount": "Total Amount",
+      "buyer": "Buyer",
+      "seller": "Seller",
+      "deliveryAddress": "Delivery Address",
+      "estimatedDelivery": "Estimated Delivery",
+      "notes": "Notes",
+      "tbd": "TBD"
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "cancel": "Cancel",
+      "markShipped": "Mark Shipped"
+    }
+  },
   "dashboard": {
     "welcome": "Welcome back, {{name}}! 👋",
     "greeting": {
@@ -345,6 +381,78 @@
     "terms": "Terms & Conditions",
     "cookies": "Cookies",
     "rightsReserved": "All rights reserved."
+  },
+  "ordersPage": {
+    "title": "Orders 📦",
+    "subtitle": "Track and manage your orders",
+    "tabs": {
+      "all": "All Orders",
+      "purchases": "My Purchases",
+      "sales": "My Sales"
+    },
+    "filters": {
+      "status": "Filter by Status:",
+      "allStatuses": "All Statuses"
+    },
+    "empty": {
+      "none": "No orders found.",
+      "noPurchases": "You haven't made any purchases yet.",
+      "noSales": "You haven't made any sales yet.",
+      "noOrders": "You don't have any orders yet."
+    },
+    "labels": {
+      "orderHash": "Order #",
+      "product": "Product",
+      "quantity": "Quantity",
+      "totalAmount": "Total Amount",
+      "buyer": "Buyer",
+      "seller": "Seller",
+      "deliveryAddress": "Delivery Address",
+      "estimatedDelivery": "Estimated Delivery",
+      "notes": "Notes",
+      "tbd": "TBD"
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "cancel": "Cancel",
+      "markShipped": "Mark Shipped"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}! 👋",
+    "greeting": {
+      "farmer": "Manage your farm products and track sales",
+      "trader": "Monitor your trading activities and inventory",
+      "buyer": "Track your orders and discover new products",
+      "default": "Welcome to your dashboard"
+    },
+    "stats": {
+      "totalProducts": "Total Products",
+      "activeOrders": "Active Orders",
+      "thisMonth": "This Month",
+      "connections": "Connections"
+    },
+    "quickActions": "Quick Actions",
+    "actions": {
+      "addProduct": "Add New Product",
+      "myProducts": "My Products",
+      "salesOrders": "Sales Orders",
+      "analytics": "Analytics",
+      "browseProducts": "Browse Products",
+      "myInventory": "My Inventory",
+      "purchaseOrders": "Purchase Orders",
+      "salesAnalytics": "Sales Analytics",
+      "myOrders": "My Orders",
+      "favorites": "Favorites",
+      "orderHistory": "Order History"
+    },
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity to display.",
+    "startBy": "Start by {{action}} to see activity here.",
+    "startActions": {
+      "addProducts": "adding products",
+      "browseProducts": "browsing products"
+    }
   },
   "languages": {
     "en": "English",

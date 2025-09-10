@@ -3,9 +3,11 @@ import { useQuery } from '@tanstack/react-query'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 import { Package, Clock, CheckCircle, XCircle, Eye } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Orders = () => {
   const { user } = useAuth()
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('all')
   const [statusFilter, setStatusFilter] = useState('')
 
@@ -88,9 +90,9 @@ const Orders = () => {
   }
 
   const tabs = [
-    { id: 'all', label: 'All Orders' },
-    { id: 'purchases', label: 'My Purchases' },
-    { id: 'sales', label: 'My Sales' }
+    { id: 'all', label: t('ordersPage.tabs.all') },
+    { id: 'purchases', label: t('ordersPage.tabs.purchases') },
+    { id: 'sales', label: t('ordersPage.tabs.sales') }
   ]
 
   const statuses = ['pending', 'accepted', 'payment_pending', 'paid', 'shipped', 'delivered', 'cancelled', 'rejected', 'disputed', 'refunded']
@@ -117,10 +119,10 @@ const Orders = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Orders 📦
+            {t('ordersPage.title')}
           </h1>
           <p className="text-gray-600 text-lg">
-            Track and manage your orders
+            {t('ordersPage.subtitle')}
           </p>
         </div>
 
@@ -147,14 +149,14 @@ const Orders = () => {
             {/* Status Filter */}
             <div className="flex items-center space-x-4">
               <label className="text-sm font-medium text-gray-700">
-                Filter by Status:
+                {t('ordersPage.filters.status')}
               </label>
               <select
                 className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
               >
-                <option value="">All Statuses</option>
+                <option value="">{t('ordersPage.filters.allStatuses')}</option>
                 {statuses.map(status => (
                   <option key={status} value={status}>
                     {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -170,14 +172,14 @@ const Orders = () => {
           <div className="bg-white rounded-lg shadow-md p-12 text-center">
             <Package size={48} className="mx-auto text-gray-400 mb-4" />
             <p className="text-gray-600 text-lg mb-2">
-              No orders found.
+              {t('ordersPage.empty.none')}
             </p>
             <p className="text-gray-500">
               {activeTab === 'purchases' 
-                ? "You haven't made any purchases yet." 
+                ? t('ordersPage.empty.noPurchases') 
                 : activeTab === 'sales'
-                ? "You haven't made any sales yet."
-                : "You don't have any orders yet."
+                ? t('ordersPage.empty.noSales')
+                : t('ordersPage.empty.noOrders')
               }
             </p>
           </div>
@@ -195,7 +197,7 @@ const Orders = () => {
                         </span>
                       </div>
                       <span className="text-gray-500 text-sm">
-                        Order #{order.id}
+                        {t('ordersPage.labels.orderHash')}{order.id}
                       </span>
                       <span className="text-gray-500 text-sm">
                         {new Date(order.createdAt).toLocaleDateString()}
@@ -204,24 +206,24 @@ const Orders = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Product</p>
+                        <p className="text-sm font-medium text-gray-700">{t('ordersPage.labels.product')}</p>
                         <p className="text-gray-900">{order.product?.name}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Quantity</p>
+                        <p className="text-sm font-medium text-gray-700">{t('ordersPage.labels.quantity')}</p>
                         <p className="text-gray-900">
                           {order.quantity} {order.product?.unit}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Total Amount</p>
+                        <p className="text-sm font-medium text-gray-700">{t('ordersPage.labels.totalAmount')}</p>
                         <p className="text-gray-900 font-semibold">
                           ${order.totalPrice}
                         </p>
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-700">
-                          {activeTab === 'sales' ? 'Buyer' : 'Seller'}
+                          {activeTab === 'sales' ? t('ordersPage.labels.buyer') : t('ordersPage.labels.seller')}
                         </p>
                         <p className="text-gray-900">
                           {activeTab === 'sales' 
@@ -231,15 +233,15 @@ const Orders = () => {
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Delivery Address</p>
+                        <p className="text-sm font-medium text-gray-700">{t('ordersPage.labels.deliveryAddress')}</p>
                         <p className="text-gray-900">{order.deliveryAddress}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700">Estimated Delivery</p>
+                        <p className="text-sm font-medium text-gray-700">{t('ordersPage.labels.estimatedDelivery')}</p>
                         <p className="text-gray-900">
                           {order.estimatedDeliveryDate 
                             ? new Date(order.estimatedDeliveryDate).toLocaleDateString()
-                            : 'TBD'
+                            : t('ordersPage.labels.tbd')
                           }
                         </p>
                       </div>
@@ -247,7 +249,7 @@ const Orders = () => {
 
                     {order.notes && (
                       <div className="mb-4">
-                        <p className="text-sm font-medium text-gray-700 mb-1">Notes</p>
+                        <p className="text-sm font-medium text-gray-700 mb-1">{t('ordersPage.labels.notes')}</p>
                         <p className="text-gray-600 text-sm bg-gray-50 p-3 rounded-md">
                           {order.notes}
                         </p>
@@ -258,20 +260,20 @@ const Orders = () => {
                   <div className="flex flex-col sm:flex-row lg:flex-col space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-0 lg:space-y-2 lg:ml-6">
                     <button className="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">
                       <Eye size={16} className="mr-2" />
-                      View Details
+                      {t('ordersPage.actions.viewDetails')}
                     </button>
                     
                     {order.status === 'pending' && (
                       <button className="flex items-center justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">
                         <XCircle size={16} className="mr-2" />
-                        Cancel
+                        {t('ordersPage.actions.cancel')}
                       </button>
                     )}
                     
                     {order.status === 'paid' && activeTab === 'sales' && (
                       <button className="flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
                         <Package size={16} className="mr-2" />
-                        Mark Shipped
+                        {t('ordersPage.actions.markShipped')}
                       </button>
                     )}
                   </div>
