@@ -7,18 +7,20 @@ import { useTranslation } from 'react-i18next'
 const Navbar = () => {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // Separate state for mobile nav and user dropdown to avoid conflicts on small screens
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
   const { t } = useTranslation()
 
   const handleLogout = () => {
     logout()
     navigate('/')
-    setIsMenuOpen(false)
+    setUserMenuOpen(false)
+    setMobileOpen(false)
   }
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const toggleMobile = () => setMobileOpen(!mobileOpen)
+  const toggleUserMenu = () => setUserMenuOpen(!userMenuOpen)
 
   return (
     <nav className="bg-green-500 text-white shadow-lg">
@@ -45,18 +47,18 @@ const Navbar = () => {
                 </Link>
                 <div className="relative">
                   <button
-                    onClick={toggleMenu}
+                    onClick={toggleUserMenu}
                     className="flex items-center space-x-2 hover:text-green-100 transition-colors"
                   >
                     <User size={20} />
                     <span>{user.firstName}</span>
                   </button>
                   
-                  {isMenuOpen && (
+                  {userMenuOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
                       <Link
                         to="/profile"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => setUserMenuOpen(false)}
                         className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         <User size={16} className="mr-2" />
@@ -93,20 +95,23 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={toggleMenu}
+            onClick={toggleMobile}
             className="md:hidden p-2 rounded-md hover:bg-green-600 transition-colors"
+            aria-label="Toggle navigation menu"
+            aria-controls="mobile-menu"
+            aria-expanded={mobileOpen}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-green-400">
+        {mobileOpen && (
+          <div id="mobile-menu" className="md:hidden py-4 border-t border-green-400">
             <div className="flex flex-col space-y-2">
               <Link
                 to="/products"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setMobileOpen(false)}
                 className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
               >
                 {t('nav.links.marketplace')}
@@ -116,21 +121,21 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/dashboard"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => setMobileOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
                     {t('nav.auth.dashboard')}
                   </Link>
                   <Link
                     to="/orders"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => setMobileOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
                     {t('nav.auth.orders')}
                   </Link>
                   <Link
                     to="/profile"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => setMobileOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
                     {t('nav.auth.profile')}
@@ -146,14 +151,14 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => setMobileOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
                     {t('nav.auth.login')}
                   </Link>
                   <Link
                     to="/register"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => setMobileOpen(false)}
                     className="px-4 py-2 hover:bg-green-600 rounded-md transition-colors"
                   >
                     {t('nav.auth.register')}
