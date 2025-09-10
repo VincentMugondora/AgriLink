@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => (
           product.grade === 'A' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
         }`}>
           {/* i18n: Grade */}
-          <>Grade {product.grade}</>
+          <>{t('featured.grade')} {product.grade}</>
         </span>
       </div>
       <div className="text-sm text-gray-500 mb-3">{product.category}</div>

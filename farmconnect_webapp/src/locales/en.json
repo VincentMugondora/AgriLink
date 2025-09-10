@@ -13,6 +13,42 @@
       "emailRequired": "Email is required",
       "emailInvalid": "Invalid email address"
     },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}! 👋",
+    "greeting": {
+      "farmer": "Manage your farm products and track sales",
+      "trader": "Monitor your trading activities and inventory",
+      "buyer": "Track your orders and discover new products",
+      "default": "Welcome to your dashboard"
+    },
+    "stats": {
+      "totalProducts": "Total Products",
+      "activeOrders": "Active Orders",
+      "thisMonth": "This Month",
+      "connections": "Connections"
+    },
+    "quickActions": "Quick Actions",
+    "actions": {
+      "addProduct": "Add New Product",
+      "myProducts": "My Products",
+      "salesOrders": "Sales Orders",
+      "analytics": "Analytics",
+      "browseProducts": "Browse Products",
+      "myInventory": "My Inventory",
+      "purchaseOrders": "Purchase Orders",
+      "salesAnalytics": "Sales Analytics",
+      "myOrders": "My Orders",
+      "favorites": "Favorites",
+      "orderHistory": "Order History"
+    },
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity to display.",
+    "startBy": "Start by {{action}} to see activity here.",
+    "startActions": {
+      "addProducts": "adding products",
+      "browseProducts": "browsing products"
+    }
+  },
     "fields": {
       "firstName": "First Name",
       "lastName": "Last Name",
