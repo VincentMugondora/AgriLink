@@ -29,13 +29,13 @@ const updateProfileSchema = Joi.object({
   email: Joi.string().email(),
   phone: Joi.string(),
   language: Joi.string().valid('en', 'sn', 'nd'),
-}).min(1);
+}).min(1).unknown(true);
 
 // Validation schema for password change
 const changePasswordSchema = Joi.object({
   currentPassword: Joi.string().required(),
   newPassword: Joi.string().min(6).required(),
-});
+}).unknown(true);
 
 /**
  * @desc    Register a new user

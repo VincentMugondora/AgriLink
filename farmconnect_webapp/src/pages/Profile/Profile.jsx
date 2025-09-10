@@ -24,7 +24,7 @@ const Profile = () => {
       firstName: user?.firstName || '',
       lastName: user?.lastName || '',
       email: user?.email || '',
-      phoneNumber: user?.phoneNumber || '',
+      phone: user?.phone || '',
       address: user?.address || '',
       city: user?.city || '',
       state: user?.state || '',
@@ -198,7 +198,7 @@ const Profile = () => {
                   </label>
                   <input
                     type="tel"
-                    {...register('phoneNumber')}
+                    {...register('phone')}
                     disabled={!isEditing}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-50"
                   />
@@ -426,12 +426,12 @@ const Profile = () => {
                   </div>
                 </div>
 
-                {user?.phoneNumber && (
+                {user?.phone && (
                   <div className="flex items-center space-x-3">
                     <Phone size={20} className="text-gray-500" />
                     <div>
                       <p className="text-sm text-gray-500">Phone</p>
-                      <p className="font-medium">{user.phoneNumber}</p>
+                      <p className="font-medium">{user.phone}</p>
                     </div>
                   </div>
                 )}

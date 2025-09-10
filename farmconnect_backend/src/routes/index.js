@@ -10,6 +10,7 @@ const adminRoutes = require('./adminRoutes');
 const kycRoutes = require('./kycRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
 const uploadRoutes = require('./uploadRoutes');
+const userRoutes = require('./userRoutes');
 const { sequelize } = require('../config/database');
 
 // Authentication routes
@@ -25,6 +26,7 @@ router.use('/kyc', kycRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/admin', adminRoutes);
 router.use('/uploads', uploadRoutes);
+router.use('/users', userRoutes);
 
 // Health check endpoint (DB + PostGIS)
 router.get('/health', async (req, res) => {

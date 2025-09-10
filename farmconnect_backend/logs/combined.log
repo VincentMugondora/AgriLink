@@ -2275,3 +2275,14 @@
 2025-09-10 10:22:43 [[32MINFO[39M]: Database connection has been established successfully.
 2025-09-10 10:22:43 [[32MINFO[39M]: Database synchronized
 2025-09-10 10:22:43 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-10 10:23:43 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-10 10:23:44 [[32MINFO[39M]: Database synchronized
+2025-09-10 10:23:44 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-10 10:24:59 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-10 10:25:00 [[32MINFO[39M]: Database synchronized
+2025-09-10 10:25:00 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-10 10:26:20 [[32MINFO[39M]: Database connection has been established successfully.
+2025-09-10 10:26:20 [[32MINFO[39M]: Database synchronized
+2025-09-10 10:26:20 [[32MINFO[39M]: Server running in development mode on port 5000
+2025-09-10 10:27:38 [[32MINFO[39M]: [0mGET /api/auth/me [32m200[0m 369.145 ms - 401[0m
+2025-09-10 10:27:38 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 14.727 ms - -[0m
