@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import bgUrl from '../../assets/home/harvesting.jpg'
+import { useTranslation } from 'react-i18next'
 const Hero = ({ user }) => {
+  const { t } = useTranslation()
   return (
     <section className="relative">
       <div className="max-w-7xl mx-auto px-4">
@@ -21,19 +23,17 @@ const Hero = ({ user }) => {
             <div className="w-full md:w-2/3 px-6 md:px-12">
               <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white uppercase tracking-wider text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                Connecting Farmers & Buyers
+                {t('hero.tag')}
               </div>
 
               <h1 className="text-white font-extrabold leading-tight text-4xl md:text-6xl lg:text-5xl drop-shadow-md">
-                Farm-to-market, simplified.
+                {t('hero.title1')}
                 <br className="hidden sm:block" />
-                <span className="text-white">Trade directly with verified farmers</span>
+                <span className="text-white">{t('hero.title2')}</span>
               </h1>
 
               <p className="mt-5 text-gray-200/90 text-base md:text-lg max-w-xl">
-                Discover, buy, and sell fresh produce at fair prices. Farm Connect links
-                smallholder farmers, traders, and businesses with secure payments and reliable
-                delivery.
+                {t('hero.blurb')}
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
@@ -41,7 +41,7 @@ const Hero = ({ user }) => {
                   href="mailto:support@farmconnect.com"
                   className="group inline-flex items-center gap-2 rounded-full bg-white text-gray-900 px-6 py-3 font-medium shadow-md hover:shadow-lg transition-all"
                 >
-                  Contact Us
+                  {t('hero.contact')}
                   <span className="relative inline-flex items-center justify-center h-7 w-7 rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors">
                     <ArrowRight size={16} />
                   </span>
@@ -52,14 +52,14 @@ const Hero = ({ user }) => {
                     to="/products"
                     className="text-white/90 hover:text-white underline-offset-4"
                   >
-                    Browse Marketplace
+                    {t('hero.browse')}
                   </Link>
                 ) : (
                   <Link
                     to="/dashboard"
                     className="text-white/90 hover:text-white underline-offset-4"
                   >
-                    Go to Dashboard
+                    {t('hero.goDashboard')}
                   </Link>
                 )}
               </div>
