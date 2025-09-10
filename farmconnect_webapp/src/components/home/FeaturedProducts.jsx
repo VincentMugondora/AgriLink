@@ -12,38 +12,41 @@ const featured = [
   { id: 6, name: 'Oranges', category: 'Fruits', price: 2.1, unit: 'kg', grade: 'B' },
 ]
 
-const ProductCard = ({ product }) => (
-  <div className="rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-    <div className="h-40 bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center text-5xl">
-      🌾
-    </div>
-    <div className="p-4">
-      <div className="flex items-start justify-between mb-2">
-        <h3 className="font-semibold text-gray-900">{product.name}</h3>
-        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          product.grade === 'A' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-        }`}>
-          {/* i18n: Grade */}
-          <>{t('featured.grade')} {product.grade}</>
-        </span>
+const ProductCard = ({ product }) => {
+  const { t } = useTranslation()
+  return (
+    <div className="rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+      <div className="h-40 bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center text-5xl">
+        🌾
       </div>
-      <div className="text-sm text-gray-500 mb-3">{product.category}</div>
-      <div className="flex items-center justify-between">
-        <div>
-          <span className="text-green-600 font-bold">${product.price.toFixed(2)}</span>
-          <span className="text-gray-500 text-sm"> / {product.unit}</span>
+      <div className="p-4">
+        <div className="flex items-start justify-between mb-2">
+          <h3 className="font-semibold text-gray-900">{product.name}</h3>
+          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+            product.grade === 'A' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+          }`}>
+            {/* i18n: Grade */}
+            <>{t('featured.grade')} {product.grade}</>
+          </span>
         </div>
-        <div className="flex items-center text-yellow-500">
-          <Star size={16} className="fill-current" />
-          <Star size={16} className="fill-current" />
-          <Star size={16} className="fill-current" />
-          <Star size={16} className="fill-current" />
-          <Star size={16} className="text-gray-300" />
+        <div className="text-sm text-gray-500 mb-3">{product.category}</div>
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="text-green-600 font-bold">${product.price.toFixed(2)}</span>
+            <span className="text-gray-500 text-sm"> / {product.unit}</span>
+          </div>
+          <div className="flex items-center text-yellow-500">
+            <Star size={16} className="fill-current" />
+            <Star size={16} className="fill-current" />
+            <Star size={16} className="fill-current" />
+            <Star size={16} className="fill-current" />
+            <Star size={16} className="text-gray-300" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 const FeaturedProducts = () => {
   const { t } = useTranslation()
