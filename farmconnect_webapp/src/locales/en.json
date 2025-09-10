@@ -13,6 +13,33 @@
       "emailRequired": "Email is required",
       "emailInvalid": "Invalid email address"
     },
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "language": "Preferred Language",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "zipCode": "ZIP Code",
+      "businessName": "Business Name",
+      "businessType": "Business Type",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password"
+    },
+    "security": "Security",
+    "changePassword": "Change Password",
+    "changing": "Changing...",
+    "summary": "Profile Summary",
+    "name": "Name",
+    "role": "Role",
+    "language": "Language",
+    "phone": "Phone",
+    "location": "Location",
+    "memberSince": "Member since"
+  },
   "ordersPage": {
     "title": "Orders 📦",
     "subtitle": "Track and manage your orders",
@@ -84,33 +111,6 @@
       "addProducts": "adding products",
       "browseProducts": "browsing products"
     }
-  },
-    "fields": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "language": "Preferred Language",
-      "address": "Address",
-      "city": "City",
-      "state": "State",
-      "zipCode": "ZIP Code",
-      "businessName": "Business Name",
-      "businessType": "Business Type",
-      "currentPassword": "Current Password",
-      "newPassword": "New Password",
-      "confirmPassword": "Confirm New Password"
-    },
-    "security": "Security",
-    "changePassword": "Change Password",
-    "changing": "Changing...",
-    "summary": "Profile Summary",
-    "name": "Name",
-    "role": "Role",
-    "language": "Language",
-    "phone": "Phone",
-    "location": "Location",
-    "memberSince": "Member since"
   },
   "nav": {
     "brand": "Farm Connect",
@@ -382,78 +382,7 @@
     "cookies": "Cookies",
     "rightsReserved": "All rights reserved."
   },
-  "ordersPage": {
-    "title": "Orders 📦",
-    "subtitle": "Track and manage your orders",
-    "tabs": {
-      "all": "All Orders",
-      "purchases": "My Purchases",
-      "sales": "My Sales"
-    },
-    "filters": {
-      "status": "Filter by Status:",
-      "allStatuses": "All Statuses"
-    },
-    "empty": {
-      "none": "No orders found.",
-      "noPurchases": "You haven't made any purchases yet.",
-      "noSales": "You haven't made any sales yet.",
-      "noOrders": "You don't have any orders yet."
-    },
-    "labels": {
-      "orderHash": "Order #",
-      "product": "Product",
-      "quantity": "Quantity",
-      "totalAmount": "Total Amount",
-      "buyer": "Buyer",
-      "seller": "Seller",
-      "deliveryAddress": "Delivery Address",
-      "estimatedDelivery": "Estimated Delivery",
-      "notes": "Notes",
-      "tbd": "TBD"
-    },
-    "actions": {
-      "viewDetails": "View Details",
-      "cancel": "Cancel",
-      "markShipped": "Mark Shipped"
-    }
-  },
-  "dashboard": {
-    "welcome": "Welcome back, {{name}}! 👋",
-    "greeting": {
-      "farmer": "Manage your farm products and track sales",
-      "trader": "Monitor your trading activities and inventory",
-      "buyer": "Track your orders and discover new products",
-      "default": "Welcome to your dashboard"
-    },
-    "stats": {
-      "totalProducts": "Total Products",
-      "activeOrders": "Active Orders",
-      "thisMonth": "This Month",
-      "connections": "Connections"
-    },
-    "quickActions": "Quick Actions",
-    "actions": {
-      "addProduct": "Add New Product",
-      "myProducts": "My Products",
-      "salesOrders": "Sales Orders",
-      "analytics": "Analytics",
-      "browseProducts": "Browse Products",
-      "myInventory": "My Inventory",
-      "purchaseOrders": "Purchase Orders",
-      "salesAnalytics": "Sales Analytics",
-      "myOrders": "My Orders",
-      "favorites": "Favorites",
-      "orderHistory": "Order History"
-    },
-    "recentActivity": "Recent Activity",
-    "noActivity": "No recent activity to display.",
-    "startBy": "Start by {{action}} to see activity here.",
-    "startActions": {
-      "addProducts": "adding products",
-      "browseProducts": "browsing products"
-    }
-  },
+  
   "languages": {
     "en": "English",
     "sn": "Shona",
