@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "title": "Izilungiselelo Zomsebenzisi 👤",
+    "subtitle": "Phatha imininingwane yakho kanye lokuthandayo",
+    "personalInfo": "Ulwazi Lomuntu",
+    "editProfile": "Lungisa Iphrofayela",
+    "save": "Londoloza",
+    "saving": "Kugcina...",
+    "cancel": "Khansela",
+    "fields": {
+      "firstName": "Ibizo Lokuqala",
+      "lastName": "Ibizo Lokucina",
+      "email": "Ikheli le-Email",
+      "phone": "Inombolo Yefoni",
+      "language": "Ulimi Oluthandayo",
+      "address": "Ikheli",
+      "city": "Idolobho",
+      "state": "Isifundazwe",
+      "zipCode": "Ikhodi yeZIP",
+      "businessName": "Ibizo Lebhizimusi",
+      "businessType": "Uhlobo Lwebhizimusi",
+      "currentPassword": "Iphasiwedi Yamanje",
+      "newPassword": "Iphasiwedi Entsha",
+      "confirmPassword": "Qinisekisa Iphasiwedi Entsha"
+    },
+    "security": "Ezokuvikela",
+    "changePassword": "Shintsha Iphasiwedi",
+    "changing": "Kuyashintsha...",
+    "summary": "Isifinyezo Sephrofayela",
+    "name": "Ibizo",
+    "role": "Indima",
+    "language": "Ulimi",
+    "phone": "Ifoni",
+    "location": "Indawo",
+    "memberSince": "Ilunga kusukela"
+  },
+  "languages": {
+    "en": "English",
+    "sn": "Shona",
+    "nd": "Ndebele"
+  }
+}

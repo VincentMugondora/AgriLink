@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "title": "Zvirongwa zvePurofai 👤",
+    "subtitle": "Tungamira ruzivo rwako uye zvaunoda",
+    "personalInfo": "Ruzivo Rwemunhu",
+    "editProfile": "Gadzirisa Purofai",
+    "save": "Chengetedza",
+    "saving": "Kuchengetedza...",
+    "cancel": "Kanzura",
+    "fields": {
+      "firstName": "Zita Rokutanga",
+      "lastName": "Zita Rekupedzisira",
+      "email": "Kero yeEmail",
+      "phone": "Nhamba yeFoni",
+      "language": "Mutauro Waunoda",
+      "address": "Kero",
+      "city": "Guta",
+      "state": "Dunhu",
+      "zipCode": "ZIP Kodhi",
+      "businessName": "Zita rebhizinesi",
+      "businessType": "Rudzi rwebhizinesi",
+      "currentPassword": "Pasiwedhi iripo",
+      "newPassword": "Pasiwedhi Itsva",
+      "confirmPassword": "Simbisa Pasiwedhi Itsva"
+    },
+    "security": "Chengetedzo",
+    "changePassword": "Shandura Pasiwedhi",
+    "changing": "Kuchinja...",
+    "summary": "Pfupiso yePurofai",
+    "name": "Zita",
+    "role": "Basa",
+    "language": "Mutauro",
+    "phone": "Foni",
+    "location": "Nzvimbo",
+    "memberSince": "Nhengo kubvira"
+  },
+  "languages": {
+    "en": "Chirungu",
+    "sn": "Shona",
+    "nd": "Ndebele"
+  }
+}

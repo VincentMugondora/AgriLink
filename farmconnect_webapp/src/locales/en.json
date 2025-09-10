@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "title": "Profile Settings 👤",
+    "subtitle": "Manage your account information and preferences",
+    "personalInfo": "Personal Information",
+    "editProfile": "Edit Profile",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "language": "Preferred Language",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "zipCode": "ZIP Code",
+      "businessName": "Business Name",
+      "businessType": "Business Type",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password"
+    },
+    "security": "Security",
+    "changePassword": "Change Password",
+    "changing": "Changing...",
+    "summary": "Profile Summary",
+    "name": "Name",
+    "role": "Role",
+    "language": "Language",
+    "phone": "Phone",
+    "location": "Location",
+    "memberSince": "Member since"
+  },
+  "languages": {
+    "en": "English",
+    "sn": "Shona",
+    "nd": "Ndebele"
+  }
+}
