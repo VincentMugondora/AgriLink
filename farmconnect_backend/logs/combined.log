@@ -2299,3 +2299,5 @@
 2025-09-10 10:57:11 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 10.045 ms - -[0m
 2025-09-10 11:09:37 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 226.967 ms - -[0m
 2025-09-10 11:09:37 [[32MINFO[39M]: [0mGET /api/auth/me [36m304[0m 9.662 ms - -[0m
+2025-09-10 12:06:59 [[32MINFO[39M]: [0mGET /api/products?sortBy=createdAt [36m304[0m 724.924 ms - -[0m
+2025-09-10 12:07:04 [[32MINFO[39M]: [0mGET /api/products/029dd0a9-b080-4efe-9d25-de67fcdd3e6b [32m200[0m 43.001 ms - 1471[0m
